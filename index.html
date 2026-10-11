@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#F8F9F6">
-<title>Taiou · CS Workspace v1.26.1</title>
+<title>Taiou · CS Workspace v1.27.1</title>
 <style>
 :root{font-family:Inter,"Segoe UI",-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-synthesis:none;--accent:#8eaafa;--accent-rgb:142,170,250;--bg:#0c111a;--sidebar:#101722;--panel:#151d2a;--panel2:#1b2534;--panel3:#202d3e;--border:#2b3749;--muted:#9aa9bd;--text:#eef3fa;--muted2:#76879e;--success:#5fd0ad;--warning:#edc68f;--danger:#ef8792;--shadow:0 20px 65px #0005;--radius:18px;--fontscale:1}
 :root[data-theme="light"]{--bg:#f4f6fa;--sidebar:#ffffff;--panel:#ffffff;--panel2:#f2f5fa;--panel3:#e8eef7;--border:#e0e6ef;--muted:#596980;--text:#263345;--muted2:#8490a2;--shadow:0 18px 60px #20334a18}
@@ -984,14 +984,80 @@ html:has(:root[data-theme="midnight-steel"]){background:#0d1420}
 .cs126-marketplace-note{display:flex;gap:7px 14px;flex-wrap:wrap;padding:10px 12px;margin:4px 0 12px;border:1px solid var(--border);border-radius:13px;background:color-mix(in srgb,var(--panel) 83%,var(--accent) 17%);font-size:.82rem}
 .cs126-marketplace-note>span{display:inline-flex;gap:7px;align-items:center;max-width:100%}.cs126-marketplace-note>b{font-weight:700}.cs126-marketplace-note>small{flex-basis:100%;opacity:.7;line-height:1.4}.cs126-count{font-weight:800;white-space:nowrap;font-size:1.1rem}
 @media(max-width:740px) and (orientation:portrait){.cs126-marketplace-note{font-size:.75rem;padding:8px}.cs126-marketplace-note>span{word-break:break-word}}
+
+/* Taiou v1.27.0 — stable viewport and compact keyboard-safe composer, mobile only. */
+@media (max-width:740px) and (orientation:portrait){
+ html:has(body.cs-operator),body.cs-operator{overscroll-behavior:none!important;overflow:hidden!important;}
+ body.cs-operator{top:0!important;transform:none!important;position:fixed!important;}
+ body.cs-operator .cs125-work .chat-composer,
+ body.cs-operator .cs125-work .chat-composer.cs120-ended-composer{
+  min-height:0!important;height:auto!important;max-height:none!important;
+  padding:7px 10px max(11px,env(safe-area-inset-bottom))!important;
+  align-items:center!important;gap:9px!important;flex-grow:0!important;
+ }
+ body.cs-operator .cs125-work #roleplay-entry{min-height:44px!important;height:44px!important;max-height:92px!important;flex:1 1 auto!important;}
+ body.cs-operator .cs125-work .chat-send{min-height:44px!important;height:44px!important;width:44px!important;}
+ body.cs-operator .cs125-work .chat-thread{min-height:0!important;flex:1 1 0!important;}
+ body.cs-operator .cs125-work .chat-composer textarea:focus{scroll-margin:0!important;}
+ body.cs-operator.cs126-typing .cs125-work .chat-composer{padding-bottom:max(6px,env(safe-area-inset-bottom))!important;}
+}
+
+/* Taiou v1.27.1 — proportional composer & top-right Japanese calendar */
+.cs271-jst-clock{display:flex;align-items:center;justify-content:flex-end;gap:7px;padding:7px 11px;border-radius:12px;background:var(--panel);border:1px solid var(--border);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--text);font-size:12px;font-weight:700;min-width:0}
+.cs271-jst-clock .cs271-jst-label{font-size:10px;font-weight:600;color:var(--muted)}
+.cs271-roleplay-date{display:none;text-align:right;margin:0 1px 5px}
+.cs271-product-photo{position:relative;display:block;width:100%;height:100%;min-height:46px;overflow:hidden;border-radius:inherit}
+.cs271-product-photo img{width:100%;height:100%;object-fit:contain;display:block;border-radius:inherit;background:#fff!important}
+.cs271-product-photo svg{width:100%;height:100%;display:block}
+.cs271-product-photo:has(img:not([hidden])) svg{display:none!important}
+.cs271-photocredit{padding:11px 13px;color:var(--muted);font-size:11px;line-height:1.7}
+.cs271-photocredit a{color:var(--accent);text-decoration:underline}
+.cs271-delivery-date{color:var(--text)}
+.cs271-delivery-date.late{color:var(--danger)!important}
+@media(max-width:740px) and (orientation:portrait){
+ body.cs-operator .topbar{display:none!important}
+ body.cs-operator .cs271-roleplay-date{display:flex;justify-content:flex-end;align-items:center;min-height:26px;padding-right:2px;margin-bottom:5px}
+ body.cs-operator .cs271-jst-clock{font-size:11px;padding:4px 9px;border-radius:9px;gap:5px}
+ body.cs-operator .cs271-jst-clock .cs271-jst-label{font-size:9px}
+ body.cs-operator .cs125-work .chat-composer,
+ body.cs-operator .cs125-work .chat-composer.cs120-ended-composer{
+  display:flex!important;align-items:center!important;gap:8px!important;flex-shrink:0!important;
+  min-height:0!important;height:auto!important;max-height:none!important;
+  margin:0!important;padding:7px 10px max(10px,env(safe-area-inset-bottom))!important;
+ }
+ body.cs-operator .cs125-work #roleplay-entry{
+  height:46px!important;min-height:46px!important;max-height:100px!important;line-height:22px!important;
+  padding:11px 12px!important;box-sizing:border-box!important;border-radius:13px!important;
+  margin:0!important;align-self:flex-end!important;resize:none!important;
+ }
+ body.cs-operator .cs125-work .chat-send{
+  width:46px!important;min-width:46px!important;height:46px!important;min-height:46px!important;
+  max-height:46px!important;align-self:flex-end!important;margin:0!important;border-radius:13px!important;
+ }
+ body.cs-operator .cs125-work .chat-footnote{display:none!important}
+ body.cs-operator .cs125-work .cs120-ended-composer{min-height:0!important}
+ body.cs-operator .cs125-work .cs117-image{border-radius:13px}
+}
+
+
+/* Keep the real-time clock legible without obscuring the mobile page title. */
+@media(max-width:740px){
+ body:not(.cs-operator) .topbar{height:62px;padding:0 15px;gap:10px}
+ body:not(.cs-operator) .topbar>div:first-child{min-width:0;flex:1;align-items:center!important}
+ body:not(.cs-operator) .topbar .header-greeting{flex:1;min-width:0;max-width:148px;overflow:hidden}
+ body:not(.cs-operator) .topbar .header-greeting h1{font-size:13px!important;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;line-height:1.3}
+ body:not(.cs-operator) .topbar .header-greeting p{display:none}
+ body:not(.cs-operator) .topbar .cs271-jst-clock{font-size:10px;padding:6px 8px;gap:4px}
+ body:not(.cs-operator) .topbar .cs271-jst-clock .cs271-jst-label{font-size:9px}
+}
 </style>
 </head>
 <body>
-<script type="application/json" id="embedded-data">{"meta":{"schema":1,"appVersion":"1.26.1","workspaceId":"jcsw-default","name":"Người dùng","workspaceName":"Không gian CS","updatedAt":0,"exportedAt":0},"settings":{"theme":"light","accent":"blue","fontScale":1,"avatar":""},"templates":[],"vocabulary":[],"practiceSets":[]}</script>
+<script type="application/json" id="embedded-data">{"meta":{"schema":1,"appVersion":"1.27.0","workspaceId":"jcsw-default","name":"Người dùng","workspaceName":"Không gian CS","updatedAt":0,"exportedAt":0},"settings":{"theme":"light","accent":"blue","fontScale":1,"avatar":""},"templates":[],"vocabulary":[],"practiceSets":[]}</script>
 <div id="app"></div><div id="modal-root"></div><div class="toast-root" id="toast-root" aria-live="polite"></div>
 <script>
 (()=>{'use strict';
-const VERSION='1.26.1', SCHEMA=2;
+const VERSION='1.27.1', SCHEMA=2;
 const $=(sel,root=document)=>root.querySelector(sel), $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 const paths={dashboard:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',templates:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',dictionary:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5V4a2 2 0 0 1 2-2h14v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M8 6h8M8 10h6"/>',keyboard:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"/>',star:'<path d="m12 3 2.78 5.83 6.42.92-4.65 4.53 1.1 6.39L12 17.65l-5.65 3.02 1.1-6.39L2.8 9.75l6.42-.92Z"/>',folder:'<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10H3Z"/>',settings:'<path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="m19 13 2-1-2-3-2 .2-1.6-1.3.4-2.1-3.5-1-1 1.9-2 .3-1.7-1.3-2.5 2.4 1.2 1.7-.3 2-2 1 .9 3.5 2.2-.1 1.3 1.6-.4 2.1 3.5 1 1-2 2-.2 1.7 1.3 2.5-2.5-1.2-1.7.3-2Z"/>',search:'<circle cx="10.9" cy="10.9" r="7.7"/><path d="m16.7 16.7 4.2 4.2"/>',plus:'<path d="M12 5v14M5 12h14"/>',copy:'<rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>',edit:'<path d="M12 20h9M4 16l-1 5 5-1L20 8a2.8 2.8 0 0 0-4-4Z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15M10 10v7M14 10v7"/>',close:'<path d="M18 6 6 18M6 6l12 12"/>',arrow:'<path d="M4 12h16m-7-7 7 7-7 7"/>',chevron:'<path d="m9 18 6-6-6-6"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',upload:'<path d="M12 16V4m-5 5 5-5 5 5M4 17v4h16v-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>',message:'<path d="M21 11.5a8.3 8.3 0 0 1-8.5 8.5 10 10 0 0 1-4-.7L3 21l1.7-5.5a8.7 8.7 0 1 1 16.3-4Z"/>',sparkles:'<path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8ZM19 17l.7 1.7L21 19l-1.3.3L19 21l-.7-1.7L17 19l1.3-.3Z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',filter:'<path d="M4 5h16l-6 7v6l-4 2v-8Z"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',save:'<path d="M19 21H5a2 2 0 0 1-2-2V3h14l4 4v12a2 2 0 0 1-2 2ZM7 3v6h10V3M7 21v-8h10v8"/>',shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',type:'<path d="M4 7V4h16v3M12 4v16M8 20h8"/>',external:'<path d="M14 4h6v6M10 14 20 4M20 14v6H4V4h6"/>',refresh:'<path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/>',archive:'<rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/>',alert:'<path d="m12 3 10 18H2Z"/><path d="M12 9v5M12 17h.01"/>',file:'<path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9ZM13 2v7h7M8 13h8M8 17h8"/>',eye:'<path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',bolt:'<path d="m13 2-9 12h7l-1 8 10-12h-7Z"/>',logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',layers:'<path d="m12 2 10 6-10 6L2 8ZM2 12l10 6 10-6M2 16l10 6 10-6"/>'};
 const ico=(name,cl='')=>`<svg class="${cl}" viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.file}</svg>`;
@@ -1707,7 +1773,7 @@ function replyRoleplay(){if(!activeScene)return;const ss=activeScene,entry=$('#r
 function completeRoleplay(){if(!activeScene)return;const ss=activeScene;if(ss.replyTimer){clearTimeout(ss.replyTimer);ss.replyTimer=null}const pts=ss.points||[],matched=pts.filter(x=>x.matched).length,polite=pts.filter(x=>x.polite).length,scene=currentScenario();roleplaySummary={scenarioId:ss.scenarioId,scenario:scene?.title||'Tình huống',persona:ss.persona,turns:pts.length,matching:matched,polite,score:Math.round((matched*.75+polite*.25)/Math.max(pts.length,1)*100),date:Date.now(),endReason:ss.endReason||'complete',messages:ss.messages.filter(x=>x.side!=='system').map(x=>({...x})),reviews:ss.reviews,caseSummary:structuredClone(ss.order)};
  if(!state.settings.privateSession){state.roleplayHistory.unshift({id:id(),...roleplaySummary});state.roleplayHistory=state.roleplayHistory.slice(0,100);change()}
  activeScene=null;render()}
-setInterval(()=>{if(!activeScene||view!=='roleplay')return;const elapsed=Math.max(0,Date.now()-(activeScene.lastActivityMs||activeScene.messages.at(-1)?.time||Date.now()));if(elapsed>=240000){activeScene.endReason='timeout';completeRoleplay();return}const clock=$('#cs-wait-clock');if(clock){const seconds=Math.floor(elapsed/1000);clock.textContent=`${String(Math.floor(seconds/60)).padStart(2,'0')}分${String(seconds%60).padStart(2,'0')}秒`;clock.classList.toggle('warning',seconds>=210)}},1000);
+setInterval(()=>{if(!activeScene||view!=='roleplay')return;const elapsed=Math.max(0,Date.now()-(activeScene.lastActivityMs||activeScene.messages.at(-1)?.time||Date.now()));if(elapsed>=240000){activeScene.endReason='timeout';completeRoleplay();return}const clock=$('#cs-wait-clock');if(clock){const seconds=Math.floor(elapsed/1000);clock.textContent=`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;clock.classList.toggle('warning',seconds>=210)}},1000);
 // Delegated high-priority v1.9 controls; no need for a second app page.
 document.addEventListener('click',async e=>{const btn=e.target.closest('[data-quiz-pack],[data-privacy-clear],[data-quiz-back]');if(!btn)return;e.preventDefault();e.stopImmediatePropagation();
  if(btn.hasAttribute('data-quiz-back')){quizQuestions=[];quizRun=[];quizIndex=0;quizAnswer=null;render();return}
@@ -2569,7 +2635,7 @@ function cs115Timeline(st){
 }
 cs14ProductDetails=function(ss,o,p){
  const st=p.cs14,show=(lbl,val)=>`<div class="cs14-kv"><span>${lbl}</span><b>${esc(String(val||'—'))}</b></div>`;
- return `<div class="cs14-product-info cs115-product-info"><div class="cs14-product-visual">${csImage(p)}<div><b>${esc(p.jp)}</b><small>SKU: ${esc(p.sku)} · ¥${Number(p.price||0).toLocaleString('ja-JP')}</small></div><button type="button" class="cs14-copy" data-cs14-copy="${esc(o.orderId)}|${esc(p.sku)}" title="商品名をコピー">${ico('copy')}</button></div><div class="cs115-stage-title">${ico('truck')} <span>配送状況</span><b class="cs115-status-pill ${cs13StatusColor(st.status)}">${esc(st.status)}</b></div>${cs115Timeline(st)}<div class="cs115-sub-title">${ico('alert-circle')} お問い合わせに関連する項目</div><div class="cs14-issue">${ico('message-circle')} <span>${esc(st.issue||cs14IssueAt(st.status,p.sku))}</span></div><div class="cs115-sub-title">${ico('clipboard-list')} 詳細情報</div><div class="cs14-facts">${show('注文番号',o.orderId)}${show('注文日',o.date)}${show('販売元',p.seller||o.seller)}${show('配送業者',o.shipper)}${show('伝票番号',o.tracking)}${show('発送元',o.shipFrom)}${show('お支払い',o.payment)}</div>${cs14Actions(ss,o,p)}</div>`;
+ return `<div class="cs14-product-info cs115-product-info"><div class="cs14-product-visual">${csImage(p)}<div><b>${esc(p.jp)}</b><small>SKU: ${esc(p.sku)} · ¥${Number(p.price||0).toLocaleString('ja-JP')}</small></div><button type="button" class="cs14-copy" data-cs14-copy="${esc(o.orderId)}|${esc(p.sku)}" title="商品名をコピー">${ico('copy')}</button></div><div class="cs115-stage-title">${ico('truck')} <span>配送状況</span><b class="cs115-status-pill ${cs13StatusColor(st.status)}">${esc(st.status)}</b></div>${cs115Timeline(st)}<div class="cs115-sub-title">${ico('clipboard-list')} 詳細情報</div><div class="cs14-facts">${show('注文番号',o.orderId)}${show('注文日',o.date)}${show('販売元',p.seller||o.seller)}${show('配送業者',o.shipper)}${show('伝票番号',o.tracking)}${show('発送元',o.shipFrom)}${show('お支払い',o.payment)}</div>${cs14Actions(ss,o,p)}</div>`;
 };
 // Clean, compact list; expanded individual product holds its own action commands.
 csOrderPanel=function(){if(!activeScene)return'';const ss=activeScene,orders=ss.orders13||[ss.order],opened=ss.activeOrder13||'';
@@ -4455,9 +4521,9 @@ const cs121PreviousDetails=cs14ProductDetails;
 cs14ProductDetails=function(ss,o,p){
  let html=cs121PreviousDetails(ss,o,p);
  const factValues=[
-  ['注文番号',o.orderId,'order'],['商品番号',p.sku,'sku'],['商品型番',p.model||p.sku,'model'],
+  ['注文番号',o.orderId,'order'],
   ['商品タイプ',cs121ProductType(p),'type'],['返品対象ですか',cs121ReturnEligible(p)?'はい':'いいえ','returnable'],
-  ['注文日',o.date,'date'],['販売元',p.seller||o.seller,'seller'],['配送業者',o.shipper,'carrier'],
+  ['注文日',o.date,'date'],['お届け予定日',cs271DeliveryDate(o,p),'estimate'],['販売元',p.seller||o.seller,'seller'],['配送業者',o.shipper,'carrier'],
   ['伝票番号',o.tracking,'tracking'],['発送元',o.shipFrom,'warehouse'],['お支払い',o.payment,'payment']
  ];
  const facts=factValues.map(([label,val,key])=>cs121Field(label,val,key,o.orderId,p.sku)).join('');
@@ -4480,7 +4546,7 @@ csOrderPanel=function(){
   const key=`${o.orderId}|${p.sku}`,open=expanded===key;
   const date=st.cs115Dates?.[Math.max(0,cs14StageIndex(st.status))];
   const dateText=date?cs115Date(new Date(date),false):o.date;
-  return `<article class="cs117-product-card ${open?'open':''}"><div class="cs121-product-row"><button type="button" class="cs117-product-overview" data-cs14-product="${esc(key)}" aria-expanded="${open}" aria-label="${esc(p.jp)}の詳細を${open?'閉じる':'開く'}"><span class="cs117-image cs121-product-image">${csImage(p)}</span><span class="cs117-label cs121-product-label"><strong class="cs117-name cs121-copyable-name">${esc(p.jp)}</strong><span class="cs117-meta">${ico('calendar')} ${esc(dateText||'—')}</span><span class="cs117-state ${cs13StatusColor(st.status)}">${esc(st.status||o.status||'確認中')}</span></span><span class="cs117-expand-arrow">${ico(open?'chevron-up':'chevron-down')}</span></button>${cs121CopyButton('name',o.orderId,p.sku,'商品名だけをコピー')}</div>${open?`<div class="cs117-inner"><div class="cs121-quickview"><div class="cs121-inline-id"><small>注文番号</small><b>${esc(o.orderId)}</b>${cs121CopyButton('order',o.orderId,p.sku,'注文番号をコピー')}</div><div class="cs121-inline-id"><small>商品番号</small><b>${esc(p.sku)}</b>${cs121CopyButton('sku',o.orderId,p.sku,'商品番号をコピー')}</div></div>${cs14ProductDetails(ss,o,p)}</div>`:''}</article>`;
+  return `<article class="cs117-product-card ${open?'open':''}"><div class="cs121-product-row"><button type="button" class="cs117-product-overview" data-cs14-product="${esc(key)}" aria-expanded="${open}" aria-label="${esc(p.jp)}の詳細を${open?'閉じる':'開く'}"><span class="cs117-image cs121-product-image">${csImage(p)}</span><span class="cs117-label cs121-product-label"><strong class="cs117-name cs121-copyable-name">${esc(p.jp)}</strong><span class="cs117-meta">${ico('calendar')} ${esc(dateText||'—')}</span><span class="cs117-state ${cs13StatusColor(st.status)}">${esc(st.status||o.status||'確認中')}</span></span><span class="cs117-expand-arrow">${ico(open?'chevron-up':'chevron-down')}</span></button>${cs121CopyButton('name',o.orderId,p.sku,'商品名だけをコピー')}</div>${open?`<div class="cs117-inner"><div class="cs121-quickview"><div class="cs121-inline-id"><small>注文番号</small><b>${esc(o.orderId)}</b>${cs121CopyButton('order',o.orderId,p.sku,'注文番号をコピー')}</div></div>${cs14ProductDetails(ss,o,p)}</div>`:''}</article>`;
  }).join('')||'<p class="cs117-empty">注文履歴はありません</p>'}</div>${ss.ended?cs112ReviewHtml(ss):''}</section>`;
 };
 // Existing action conditions used a mock identity flag. For chat simulation, verified product
@@ -4825,7 +4891,7 @@ function cs231Meme(ss){
  let n=0;for(const c of seed)n=((n*33)+c.charCodeAt(0))>>>0;
  return cs231MemeAvatars[n%cs231MemeAvatars.length];
 }
-function cs231JapaneseDuration(seconds){const n=Math.max(0,Math.floor(seconds));return `${String(Math.floor(n/60)).padStart(2,'0')}分${String(n%60).padStart(2,'0')}秒`}
+function cs231JapaneseDuration(seconds){const n=Math.max(0,Math.floor(seconds));return `${String(Math.floor(n/60)).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`}
 function cs231ActualOrderDate(p,o,idx){
  const st=p.cs14||{},dates=st.cs115Dates||[];
  const raw=cs23DateValue(dates[idx]);
@@ -4861,7 +4927,7 @@ beginRoleplay=function(id,persona){
  if(!state.roleplayScenarios.some(s=>s.id===id))return;
  const token=++cs115IncomingSerial,started=Date.now(),delay=3000+Math.floor(Math.random()*4001);
  cs14Inbound={id,persona,token};closeModal();
- modal('新しいお問い合わせ',`<div class="cs115-incoming cs120-incoming" aria-live="polite"><div class="cs115-pulse"><div class="cs115-spin"></div><div class="cs115-incoming-symbol">${ico('headset')}</div></div><h3>お問い合わせを待機中</h3><strong class="cs120-arrival-clock" id="cs120-arrival-clock">00分00秒</strong><p>お客様からのチャットを待っています</p><div class="cs115-contact-status"><span></span> オンライン · 受付可能</div><button class="cs115-cancel-wait" type="button" data-cs115-dismiss>キャンセル</button></div>`);
+ modal('新しいお問い合わせ',`<div class="cs115-incoming cs120-incoming" aria-live="polite"><div class="cs115-pulse"><div class="cs115-spin"></div><div class="cs115-incoming-symbol">${ico('headset')}</div></div><h3>お問い合わせを待機中</h3><strong class="cs120-arrival-clock" id="cs120-arrival-clock">00:00</strong><p>お客様からのチャットを待っています</p><div class="cs115-contact-status"><span></span> オンライン · 受付可能</div><button class="cs115-cancel-wait" type="button" data-cs115-dismiss>キャンセル</button></div>`);
  const tick=setInterval(()=>{if(!cs14Inbound||cs14Inbound.token!==token||!document.getElementById('cs120-arrival-clock')){clearInterval(tick);return}const el=document.getElementById('cs120-arrival-clock');if(el)el.textContent=cs231JapaneseDuration((Date.now()-started)/1000);},120);
  setTimeout(()=>{
   clearInterval(tick);if(!cs14Inbound||cs14Inbound.token!==token)return;
@@ -5330,17 +5396,27 @@ function cs126ViewportSync(){
  const root=document.documentElement,body=document.body;
  if(!cs126Operator()){
   body.classList.remove('cs126-typing');
-  root.style.removeProperty('--cs126-viewport-height');root.style.removeProperty('--cs126-viewport-top');
+  root.style.removeProperty('--cs126-viewport-height');
+  root.style.removeProperty('--cs126-viewport-top');
   return;
  }
  const vv=window.visualViewport;
  const h=Math.max(220,Math.round(vv?.height||window.innerHeight));
- const top=Math.max(0,Math.round(vv?.offsetTop||0));
  const focused=document.activeElement?.id==='roleplay-entry'&&!document.activeElement.disabled;
- if(!focused)cs126ViewportState.baseline=Math.max(h,cs126ViewportState.baseline && Math.abs(h-cs126ViewportState.baseline)<70?cs126ViewportState.baseline:0);
- body.classList.toggle('cs126-typing',focused);
- root.style.setProperty('--cs126-viewport-height',h+'px');
- root.style.setProperty('--cs126-viewport-top',top+'px');
+ const state=cs126ViewportState;
+ // Capture the full visible height once; don't learn keyboard height as the new baseline.
+ if(!state.baseline)state.baseline=h;
+ if(!focused && h>state.baseline-45)state.baseline=Math.max(h,state.baseline);
+ const keyboardHeight=Math.max(0,state.baseline-h);
+ const keyboardVisible=keyboardHeight>120;
+ body.classList.toggle('cs126-typing',keyboardVisible);
+ // Safari fluctuates the visual viewport by a few pixels during keyboard animation.
+ // Ignore that noise so the composer isn't constantly resized while typing.
+ const stableH=state.stableHeight||h;
+ const nextH=Math.abs(h-stableH)<10?stableH:h;
+ state.stableHeight=nextH;
+ root.style.setProperty('--cs126-viewport-height',nextH+'px');
+ root.style.setProperty('--cs126-viewport-top','0px');
 }
 function cs126ScheduleViewport(){if(cs126ViewportState.pending)return;cs126ViewportState.pending=true;requestAnimationFrame(()=>{cs126ViewportState.pending=false;cs126ViewportSync()})}
 const cs126OldRoleplay=roleplayPage;
@@ -5368,12 +5444,12 @@ document.addEventListener('click',e=>{
 },true);
 // Keep updates cheap: never render or refocus from a viewport resize.
 window.visualViewport?.addEventListener('resize',cs126ScheduleViewport,{passive:true});
-window.visualViewport?.addEventListener('scroll',cs126ScheduleViewport,{passive:true});
+/* v1.27: Safari viewport scroll is informational, not a reason to move the page. */
 window.addEventListener('resize',cs126ScheduleViewport,{passive:true});
 window.addEventListener('orientationchange',cs126ScheduleViewport,{passive:true});
 document.addEventListener('focusin',e=>{if(e.target?.id==='roleplay-entry')cs126ScheduleViewport()},true);
-document.addEventListener('focusout',e=>{if(e.target?.id==='roleplay-entry')requestAnimationFrame(cs126ScheduleViewport)},true);
-window.addEventListener('scroll',()=>{if(cs126Operator()&&(window.scrollX||window.scrollY)){window.scrollTo(0,0)}},{passive:true});
+document.addEventListener('focusout',e=>{if(e.target?.id==='roleplay-entry')cs126ScheduleViewport()},true);
+/* v1.27: do not force window.scrollTo during Safari visualViewport panning. */
 // The existing render wrapper restores each tab's scroll/draft. Reapply only dimensions afterward.
 const cs126OldRender=render;
 render=function(){cs126OldRender();cs126ScheduleViewport()};
@@ -5856,6 +5932,394 @@ cs124Options=function(ss){
 const cs127OldSettings=settingsPage;
 settingsPage=function(){return cs127OldSettings()+`<section class="privacy-options cs-setting-line cs126-library-summary"><div><strong>Customer Voice & Situation Consistency · v1.26.1</strong><p>会話中の口調を固定／顧客の申告と注文の記録を分離／再配達、発送後住所変更、未反映の返金、破損、配送会社への苦情などに対応。</p></div><span class="cs126-count">対応</span></section>`;};
 window.TaiouCustomerVoice=Object.freeze({version:CS127_VERSION,cases:Object.keys(CS127_CASES),getCase:()=>activeScene?.cs127Case?.id||null,getVoice:()=>activeScene?.cs127Voice||null});
+
+
+
+// Taiou v1.27.0 — Safari portrait stabilization and compact composer.
+// All clock/timer markup and timing behavior are intentionally unchanged.
+const CS127_STABILITY_VERSION='1.27.0';
+const cs127OldOrientation = cs126ViewportState;
+window.addEventListener('orientationchange',()=>{
+ cs127OldOrientation.baseline=0;cs127OldOrientation.stableHeight=0;
+},{passive:true});
+// No JavaScript focus()-on-every-resize: the existing draft/scroll saver owns the panels.
+
+// Situation-first replies: customer knows what appears in their own order history,
+// but can reasonably disagree about delivery/return/credit actually received.
+const CS127_SMART_LINES={
+ delivered_missing:{question:'注文履歴は配達完了ですが、実際には受け取っていません。配達先を調べてもらえますか。',wish:'玄関や宅配ボックスは確認済みです。配達した場所を知りたいです。',ack:'配達場所を確認していただけるなら、お願いします。'},
+ overdue:{question:'注文履歴には発送後の状況が表示されていますが、予定日を過ぎても届きません。到着の見込みを教えてください。',wish:'予定日を過ぎている点を確認してほしいです。',ack:'到着の目安が分かれば助かります。'},
+ expedite:{question:'まだお届け予定日前ですが、早めに届けてもらえる方法はありますか。',wish:'希望日より早く受け取れるかだけ確認したいです。',ack:'早めの配送が難しい場合は、予定どおりでも大丈夫です。'},
+ redelivery:{question:'不在で受け取れなかったので、再配達の日付を指定したいです。',wish:'希望日に再配達を申し込みたいです。',ack:'再配達の申し込み方法が分かれば、自分で手続きします。'},
+ address_shipped:{question:'発送済みなのは注文履歴で見ています。住所変更が難しいなら、ほかの受け取り方法はありますか。',wish:'以前の住所では受け取れないので、配送会社への転送が可能か知りたいです。',ack:'発送後は変更できないんですね。配送会社に確認する方法を教えてください。'},
+ damaged_refund:{question:'届いた商品が破損しているので、交換ではなく返品・返金を希望しています。',wish:'破損箇所の写真は用意できます。返品手順を教えてください。',ack:'必要な手続きが分かれば、返品の申請を進めます。'},
+ damaged_exchange:{question:'返金より交換を希望しています。同じ商品は手配できますか。',wish:'破損した商品の交換について、条件を知りたいです。',ack:'交換の条件を確認していただけるなら、お願いします。'},
+ refund_not_reflected:{question:'注文履歴では返金済みと表示されていますが、カード明細にはまだありません。',wish:'返金処理日とカード会社への反映目安を教えてください。',ack:'カード会社への反映に時間がかかるんですね。目安を教えてください。'},
+ refund_waiting:{question:'注文はキャンセル済みですが、返金の処理状況を確認したいです。',wish:'いつ頃返金されるか見通しが知りたいです。',ack:'返金の予定日を確認していただければ助かります。'},
+ coupon_request:{question:'配達予定日を過ぎて届きました。お詫びクーポンの対象になるか知りたいです。',wish:'必ず付与されるとは思っていません。対象条件を確認できますか。',ack:'対象条件を確認していただき、ありがとうございます。'},
+ courier_complaint:{question:'配達員の対応について苦情を伝えたいです。受付方法を教えてください。',wish:'配送会社に今回の対応を共有してほしいです。',ack:'配送会社への連絡方法が分かりました。ありがとうございます。'}
+};
+function cs127SmartState(ss){return ss.cs127Smarter||(ss.cs127Smarter={turn:0,lastIntent:'',lastLine:'',prompts:{},repeated:0,cooperated:0});}
+function cs127SmartPick(ss,choices,key){const v=(choices||[]).filter(Boolean);if(!v.length)return '';
+ const state=cs127SmartState(ss);const n=state.prompts[key]||0;state.prompts[key]=n+1;
+ let idx=n%v.length;if(v[idx]===state.lastLine&&v.length>1)idx=(idx+1)%v.length;
+ state.lastLine=v[idx];return v[idx];}
+function cs127CustomerVisibleStatus(ss){const st=ss?.targetProduct13?.cs14||{};const id=ss?.cs127Case?.id||'';return String(id.startsWith('refund_')&&st.refundStatus?st.refundStatus:(st.status||ss?.target13?.status||'確認中'))}
+function cs127SmartAgentType(agent,ss){
+ const a=String(agent||'');
+ if(/パスワード|認証コード|暗証番号/.test(a)&&/教え|送っ|提示/.test(a))return 'sensitive';
+ if(/上記の商品|こちらの商品|商品名/.test(a)&&/お間違い|よろしいでしょうか|合っていますか/.test(a))return 'product';
+ if(/注文番号|注文ID|オーダー番号/.test(a)&&/教え|伺い|お知らせ/.test(a))return 'order';
+ if(/注文履歴|購入履歴|配送状況|現在の表示|どのように表示|追跡.*表示/.test(a)&&/[？?]|でしょうか|教え|伺い|確認/.test(a))return 'visibleStatus';
+ if(/担当者|上長|専門部署|引き継/.test(a))return 'handoff';
+ if(/ご不明|ほかに|他に.*ござい|解決.*でしょうか/.test(a))return 'closing';
+ if(/ご迷惑|申し訳|お詫び|ご不便/.test(a)&&!/変更は|返金は/.test(a))return 'apology';
+ if(/お待ち|少々お時間|お調べ|確認いたします/.test(a)&&!/確認したところ|確認結果/.test(a))return 'hold';
+ if(/発送後|変更でき|変更不可|承れません|変更をお受け/.test(a))return 'policy';
+ if(/再配達|転送|受取場所|受け取り方法/.test(a))return 'alternative';
+ if(/返金|交換|返品|キャンセル|クーポン/.test(a))return 'option';
+ if(/配送会社|配達員|配送履歴|追跡番号/.test(a))return 'delivery';
+ if(/詳しく|具体的|どのような|お聞かせ|状況を教/.test(a))return 'detail';
+ if(/承知|かしこまり|ありがとうございます/.test(a))return 'ack';
+ if(/ご案内|確認したところ|確認結果|となっております|できます|できません|いただけます/.test(a))return 'explain';
+ return 'other';
+}
+function cs127SmartCustomerResponse(ss,agent){
+ const state=cs127SmartState(ss),id=ss.cs127Case?.id||'original',row=CS127_SMART_LINES[id];
+ const status=cs127CustomerVisibleStatus(ss);const kind=cs181Kind(ss);
+ const intent=cs127SmartAgentType(agent,ss);state.turn++;
+ if(state.lastIntent===intent)state.repeated++;else state.repeated=0;
+ state.lastIntent=intent;
+ const pick=(lines)=>cs127SmartPick(ss,lines,id+':'+intent);
+ // When the operator speaks about a different case, the customer corrects the misidentification.
+ const obviousWrong= (id==='address_shipped'&&/配達完了|お手元に届いていない|未着と/.test(agent)) ||
+ ((id==='damaged_exchange'||id==='damaged_refund')&&/配達完了.*届いていない|住所変更を希望/.test(agent)) ||
+ (id==='refund_not_reflected'&&/未発送の商品|住所変更|配達.*届いていない/.test(agent));
+ if(obviousWrong)return pick([
+  (row?.question||'')+' すみません、先ほどのご案内は私の相談内容と違うようです。',
+  '申し訳ないのですが、相談したいのは'+(ss.cs127Case?.jp||'この注文の件')+'についてです。'
+ ]);
+ if(intent==='sensitive')return 'パスワードや認証コードはお伝えできません。安全な確認方法を教えてください。';
+ if(intent==='product')return pick(['はい、その商品で間違いありません。','はい、こちらの商品です。','その商品で合っています。']);
+ if(intent==='order')return '注文番号は'+(ss.target13?.orderId||'注文履歴に表示されている番号')+'です。';
+ if(intent==='visibleStatus')return pick([
+  '私の購入履歴には「'+status+'」と表示されています。'+(row?.wish||''),
+  '注文履歴で確認できます。表示は「'+status+'」です。'+(row?.question||'')
+ ]);
+ if(intent==='handoff'){
+  // Customer may decline escalation when a clear answer is sufficient.
+  return pick(['まずはこの場で案内できる方法があれば教えてください。','必要であれば引き継ぎをお願いします。','こちらで解決できるのであれば、引き継ぎは不要です。']);
+ }
+ if(intent==='apology')return pick([
+  '分かりました。'+(row?.wish||'続けてご案内をお願いします。'),
+  'ありがとうございます。今後の対応について教えていただけますか。',
+  'お気遣いありがとうございます。'+(row?.ack||'確認をお願いします。')
+ ]);
+ if(intent==='hold')return pick([
+  'はい、お願いします。','承知しました。お待ちしています。',
+  '分かりました。確認できましたら教えてください。',
+  state.repeated>1?'先ほどもお待ちしましたが、確認結果は出ていますか。':'少々でしたら大丈夫です。'
+ ]);
+ if(intent==='detail')return state.repeated>0?pick([
+  '先ほどお伝えしたとおりです。'+(row?.question||''),
+  '状況は変わっていません。'+(row?.wish||'')
+ ]):pick([row?.wish,row?.question,row?.ack]);
+ if(intent==='closing'){
+  // Don't force a manager request or another confirmation at the closing stage.
+  return pick(['大丈夫です。ありがとうございました。','現時点では以上です。ご案内ありがとうございました。',
+   row?.ack||'分かりました。ありがとうございます。']);
+ }
+ if(intent==='policy'||intent==='alternative'||intent==='option'){
+  state.cooperated++;
+  if(id==='address_shipped')return pick([
+   '発送後の住所変更が難しいのは分かりました。配送会社に相談できる方法を教えてください。',
+   'そうなんですね。営業所受け取りへの変更はできますか。',
+   '転送に追加料金がかかるかも知りたいです。',
+   'ご案内ありがとうございます。配送会社に確認してみます。'
+  ]);
+  if(id==='damaged_refund')return pick(['返金を希望しています。返品申請の手順を教えてください。','写真が必要でしたら用意します。','返品できる条件を確認していただき、ありがとうございます。']);
+  if(id==='damaged_exchange')return pick(['返品ではなく交換をお願いしたいです。','同じ商品の交換が可能であれば、その方法でお願いします。','交換の条件が分かりました。ありがとうございます。']);
+  if(id==='coupon_request')return pick(['クーポンの対象条件を確認していただけますか。','対象外でしたら、その理由だけ教えてください。','分かりました。確認ありがとうございました。']);
+  if(id==='refund_not_reflected')return pick(['カード明細に反映されるまで待てばよいのですね。','返金処理日を教えてもらえますか。','承知しました。まずはカード会社の明細を確認します。']);
+  return pick([row?.ack,row?.question,row?.wish]);
+ }
+ if(intent==='delivery')return pick([
+  '私の注文履歴では「'+status+'」と表示されています。'+(row?.question||''),
+  row?.wish,row?.ack
+ ]);
+ if(intent==='explain'||intent==='ack'||intent==='other')return pick([
+  row?.ack, 'なるほど、そういうことだったのですね。ありがとうございます。',
+  '分かりました。'+(row?.question||'次の手順を教えてください。'),
+  'ご案内ありがとうございます。確認してみます。'
+ ]);
+ return null;
+}
+const cs127PriorSmartResponse=csCustomerResponseV11;
+csCustomerResponseV11=function(ss,scene,stage,ev,forward,signals){
+ // Keep safety handling, foreign-language refusal and existing policy boundaries.
+ if(ev?.unsafe||signals?.unsupportedPromise||signals?.boundary||
+  (ss?.cs116?.type==='foreign'&&ss.cs116?.cs119LanguageState==='refused'))
+  return cs127PriorSmartResponse(ss,scene,stage,ev,forward,signals);
+ const agent=String(ss?.cs115LastAgentText||'');
+ const smart=ss?.cs127Case?cs127SmartCustomerResponse(ss,agent):null;
+ return smart||cs127PriorSmartResponse(ss,scene,stage,ev,forward,signals);
+};
+// Ensure case-specific Nagare is consistent with what the customer actually asked.
+const cs127PriorSmartNagare=cs124Options;
+cs124Options=function(ss){
+ const base=cs127PriorSmartNagare(ss);
+ const id=ss?.cs127Case?.id;if(!id||id==='original')return base;
+ const last=ss.messages?.at(-1);if(last?.side!=='customer')return base;
+ const who=CS127_SMART_LINES[id];const wording=String(last.text||'');
+ const agent=[...(ss.messages||[])].reverse().find(x=>x.side==='agent')?.text||'';
+ const confirmedProduct=/上記の商品|こちらの商品/.test(agent)&&/間違い|そうです|合って|はい/.test(wording);
+ const used=(ss.messages||[]).filter(x=>x.side==='agent').map(x=>cs124Normalized(x.text));
+ let candidates=[];
+ if(confirmedProduct)candidates=[
+  'ご確認いただき、ありがとうございます。',
+  '承知いたしました。それでは、ご案内できる対応方法を確認いたします。',
+  'ご注文の内容と対応条件を確認いたします。'
+ ];
+ else if(id==='address_shipped')candidates=[
+  '発送後のため、ご注文上でのお届け先変更は承れない場合がございます。',
+  '配送会社で転送や受け取り方法の変更が可能か確認いたします。',
+  '営業所でのお受け取りに変更できるか、配送会社の案内をご確認ください。',
+  '転送には追加料金が発生する場合がございます。'
+ ];
+ else if(id==='delivered_missing')candidates=[
+  '配達完了と表示されているものの、商品を受け取られていないとのことでございますね。',
+  '配達場所と受取人の記録を確認いたします。',
+  '宅配ボックスやご家族の受け取り状況はお確かめいただけましたでしょうか。'
+ ];
+ else if(id==='refund_not_reflected')candidates=[
+  '返金済みの表示とカード明細への反映に差があるとのことでございますね。',
+  '返金処理日と決済方法に応じた反映目安を確認いたします。',
+  'カード会社によって明細への反映時期が異なる場合がございます。'
+ ];
+ else if(id==='redelivery')candidates=[
+  '再配達をご希望とのことでございますね。',
+  '配送会社の再配達受付方法をご案内いたします。',
+  'ご希望の再配達日をお伺いしてもよろしいでしょうか。'
+ ];
+ else if(id==='coupon_request')candidates=[
+  'お届け予定日を過ぎ、ご迷惑をおかけして申し訳ございません。',
+  'お詫びクーポンの対象条件を確認いたします。',
+  'クーポンの発行を確約できない点につきまして、ご了承ください。'
+ ];
+ else if(id==='courier_complaint')candidates=[
+  '配達員の対応についてご不快な思いをさせてしまい、申し訳ございません。',
+  'ご申告いただいた内容を配送会社へ共有する方法を確認いたします。',
+  '配送会社へのお問い合わせ窓口をご案内いたします。'
+ ];
+ else if(id==='damaged_refund'||id==='damaged_exchange')candidates=[
+  id==='damaged_exchange'?'交換をご希望とのことでございますね。':'返品・返金をご希望とのことでございますね。',
+  '破損箇所のお写真をご用意いただけるかお伺いしてもよろしいでしょうか。',
+  '販売元の返品・交換条件を確認してご案内いたします。'
+ ];
+ else if(id==='expedite'||id==='overdue')candidates=[
+  id==='expedite'?'お届け予定日前の早期配送をご希望とのことでございますね。':'お届け予定日を過ぎているとのことでございますね。',
+  '配送履歴とお届け予定日を確認いたします。',
+  '配送会社で対応可能な方法を確認いたします。'
+ ];
+ else if(id==='refund_waiting')candidates=[
+  'キャンセル済みのご注文について、返金状況を確認いたします。',
+  '返金の受付状況と見込み日をご案内いたします。'
+ ];
+ const mismatch=o=>{
+  const t=o.text||'';
+  if(id==='address_shipped'&&/配達完了.*届いていない|お手元には届いていない|お届けが予定より遅れ/.test(t))return true;
+  if(id==='expedite'&&/予定より遅れ|予定日を過ぎ|未着の状況/.test(t))return true;
+  if(id==='damaged_exchange'&&/返金をご希望|返品・返金をご希望/.test(t))return true;
+  if(id==='damaged_refund'&&/交換をご希望/.test(t))return true;
+  return false;
+ };
+ const out=[],seen=new Set();
+ for(const t of candidates){const key=cs124Normalized(t);if(used.includes(key)||seen.has(key))continue;seen.add(key);out.push({type:'case_'+id,text:t,score:240-out.length*2});}
+ for(const o of base){const key=cs124Normalized(o.text||'');if(used.includes(key)||seen.has(key)||mismatch(o))continue;seen.add(key);out.push({...o,score:Math.min(o.score||80,185)});}
+ return out;
+};
+window.TaiouChatStability=Object.freeze({version:CS127_STABILITY_VERSION,keyboardIsOpen:()=>document.body.classList.contains('cs126-typing'),viewportHeight:()=>cs126ViewportState.stableHeight||0});
+
+
+// Taiou v1.27.1: real JST clock, three seller/shipper modes, estimated delivery
+// and appropriately matched category reference photographs with offline SVG fallback.
+const CS271_VERSION='1.27.1';
+const CS271_SHOPS=['青空ライフストア','みなとセレクト','はなまる商店','北星オンライン','Sora Beauty 公式店'];
+function cs271Hash(value){let h=2166136261;for(const c of String(value||''))h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0}
+function cs271EnsureSeller(ss){
+ if(!ss)return;
+ const orders=ss.orders13||[ss.order];
+ for(const [index,o] of orders.entries()){
+  if(!o)continue;
+  o.cs271SellerMode=(index + (cs271Hash(ss.order?.contactId||'cs')%3))%3;
+  const mode=o.cs271SellerMode; // 0: platform direct, 1: store/Taiou warehouse, 2: store/store warehouse
+  if(!o.cs271OriginalSeller)o.cs271OriginalSeller=String(o.seller||'');
+  let shop=o.cs271OriginalSeller;
+  if(!shop||/Taiou/i.test(shop))shop=CS271_SHOPS[cs271Hash(o.orderId||'shop')%CS271_SHOPS.length];
+  o.seller=mode===0?'Taiou':shop;
+  o.shipFrom=mode===2?shop:'Taiou';
+  for(const p of o.items||[o.product]){if(!p)continue;
+   p.seller=o.seller;
+   if(p.cs14){p.cs14.cs126Seller=o.seller;p.cs14.cs126SellerType=mode===0?'直販':'出店ショップ';}
+  }
+ }
+ const target=ss.target13;
+ if(target&&ss.cs126Case){
+  ss.cs126Case.seller=target.seller;
+  ss.cs126Case.sellerType=target.seller==='Taiou'?'直販':'出店ショップ';
+  ss.cs126Case.sellerRule=target.seller==='Taiou'?'直販商品の対応状況を確認':'ショップの返品特約と担当範囲を確認';
+ }
+}
+function cs271DeliveryDate(o,p){
+ const st=p?.cs14||{},status=String(st.status||o?.status||'');
+ if(/キャンセル|返金/.test(status))return '対象外';
+ const base=cs23DateValue(o?.cs115PlacedAt)||cs23DateValue(o?.date);
+ if(!base)return '未定';
+ let date=cs23DateValue(st.estimatedDelivery)||cs23DateValue(o.estimatedDelivery);
+ if(!date){
+  const delivered=cs23DateValue(st.deliveredAt)||cs23DateValue(st.cs115Dates?.[5]);
+  if(delivered&&/配達完了|配達済|配送完了/.test(status))date=new Date(delivered.getTime()-86400000);
+  else if(st.cs127CaseId==='overdue'||/配達予定日超過|配送遅延|お届け予定日超過/.test(st.issue||'')){
+   const today=new Date();date=new Date(today.getFullYear(),today.getMonth(),today.getDate()-1,12);
+  }else{
+   const days=4+cs271Hash((o.orderId||'')+(p?.sku||''))%4;
+   date=new Date(base.getTime()+days*86400000);
+  }
+ }
+ if(date<base)date=new Date(base.getTime()+86400000);
+ if(!st.cs271EstimatedDate)st.cs271EstimatedDate=date.toISOString();
+ const shown=cs23DateValue(st.cs271EstimatedDate)||date;
+ const formatted=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',year:'numeric',month:'long',day:'numeric'}).format(shown);
+ return formatted;
+}
+const CS271_PHOTOS={
+ headphones:{file:'Headphones 3.jpg',author:'Akb48akb',license:'CC BY-SA 3.0'},
+ earphones:{file:'Shure SE846 Wireless.jpg',author:'Tkommunikation',license:'CC BY-SA 4.0'},
+ kettle:{file:'Electric kettle.jpg',author:'Petr.adamek',license:'Public Domain'},
+ shoes:{file:'Sneakers .jpg',author:'Wikimedia Commons contributor',license:'CC BY-SA 4.0'},
+ bag:{file:'Backpack.jpg',author:'Joe_from_Backpack_and_Gear',license:'Public Domain'},
+ powerbank:{file:'Power Bank.jpg',author:'Esthee2010',license:'CC BY-SA'},
+ controller:{file:'Controler.JPG',author:'Benggriff',license:'Public Domain'},
+ mug:{file:'Mug.jpg',author:'Filo gèn\u0027',license:'CC BY-SA 4.0'},
+ lipstick:{file:'Lipstick.jpg',author:'KaurJmeb',license:'Free reuse, see file page'},
+ humidifier:{file:'Humidifier.jpg',author:'Holmes',license:'CC0'},
+ books:{file:'Books Books and Books.jpg',author:'Saiee D.',license:'CC BY-SA'},
+ yogamat:{file:'Yoga mat.jpg',author:'Gausanchennai',license:'CC BY-SA 4.0'},
+ catfood:{file:'Cat Food.jpg',author:'Doggo19292',license:'Public Domain'}
+};
+function cs271Photo(p){
+ const jp=String(p?.jp||''),kind=String(p?.kind||'');
+ // Conservative matching: no fake 'exact model' matches and no misleading photos.
+ if(/イヤホン|イヤフォン|インイヤー/.test(jp))return CS271_PHOTOS.earphones;
+ if(/ヘッドホン|ヘッドフォン/.test(jp))return CS271_PHOTOS.headphones;
+ if(/電気ケトル|湯沸かし|ポット/.test(jp)||kind==='kettle')return CS271_PHOTOS.kettle;
+ if(/スニーカー|ランニングシューズ|運動靴/.test(jp))return CS271_PHOTOS.shoes;
+ if(/リュック|バックパック/.test(jp))return CS271_PHOTOS.bag;
+ if(/モバイルバッテリー|パワーバンク/.test(jp))return CS271_PHOTOS.powerbank;
+ if(/ゲームコントローラ|ゲームパッド/.test(jp))return CS271_PHOTOS.controller;
+ if(/マグカップ|コーヒーカップ/.test(jp)||kind==='mug')return CS271_PHOTOS.mug;
+ if(/加湿器|アロマディフューザー/.test(jp))return CS271_PHOTOS.humidifier;
+ if(/ヨガマット/.test(jp))return CS271_PHOTOS.yogamat;
+ if(/キャットフード|猫用フード/.test(jp))return CS271_PHOTOS.catfood;
+ if(/本セット|参考書|問題集|小説|児童書|絵本/.test(jp))return CS271_PHOTOS.books;
+ if(/口紅|リップスティック/.test(jp))return CS271_PHOTOS.lipstick;
+ return null;
+}
+const cs271PriorImage=csImage;
+csImage=function(p){
+ const photo=cs271Photo(p);let fallback=cs271PriorImage(p);
+ if(!photo){
+  // An unrecognised product must never appear as a pair of headphones by default.
+  const f=cs126ProductFamily(p),label=({
+   '食品・飲料':['🍱','食品'], '美容・化粧品':['🧴','美容'],
+   '衣料・シューズ':['👕','衣料'], '家具・大型家電':['🪑','家具'],
+   '家電・デジタル':['🔌','家電'], '書籍・学習用品':['📚','書籍'],
+   '玩具・ホビー':['🧸','玩具'], 'スポーツ・アウトドア':['🏕','運動'],
+   'ペット用品':['🐾','ペット'], '生活雑貨':['📦','雑貨']
+  })[f]||['📦','商品'];
+  const a=esc(label[0]),b=esc(label[1]);
+  return `<svg class="sim-product-art" role="img" aria-label="${esc(p?.jp||'商品')} のカテゴリイラスト" viewBox="0 0 100 100"><rect width="100" height="100" rx="18" fill="#eaf5fd"/><text x="50" y="55" text-anchor="middle" font-size="34">${a}</text><text x="50" y="82" text-anchor="middle" font-size="12" fill="#457699" font-weight="700">${b}</text></svg>`;
+ }
+ 
+ const title=photo.file.replace(/'/g,'&#39;');
+ const url='https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(photo.file)+'?width=240';
+ return `<span class="cs271-product-photo" title="参考画像 · ${esc(photo.file)} · Wikimedia Commons"><img src="${url}" alt="商品カテゴリの参考写真（型番の実物写真ではありません）" loading="lazy" referrerpolicy="no-referrer" onerror="this.hidden=true" />${fallback}</span>`;
+};
+const cs271PreviousDetails=cs14ProductDetails;
+cs14ProductDetails=function(ss,o,p){
+ cs271EnsureSeller(ss);
+ let html=cs271PreviousDetails(ss,o,p);
+ // SKU and model may remain in JS for operations but must not be shown in product UI.
+ const root=document.createElement('div');root.innerHTML=html;
+ root.querySelectorAll('.cs121-fact[data-kind="sku"],.cs121-fact[data-kind="model"]').forEach(x=>x.remove());
+ root.querySelectorAll('.cs14-product-visual small').forEach(x=>{
+  x.textContent=x.textContent.replace(/SKU:\s*[^·]+\s*·\s*/, '');
+ });
+ root.querySelectorAll('.cs115-sub-title').forEach(x=>{
+  if(x.textContent.includes('お問い合わせに関連する項目')){x.nextElementSibling?.classList.contains('cs14-issue')&&x.nextElementSibling.remove();x.remove();}
+ });
+ return root.innerHTML;
+};
+const cs271PreviousOrderPanel=csOrderPanel;
+csOrderPanel=function(){
+ if(activeScene)cs271EnsureSeller(activeScene);
+ let html=cs271PreviousOrderPanel();if(!activeScene||!html)return html;
+ const root=document.createElement('div');root.innerHTML=html;
+ root.querySelectorAll('.cs121-quickview .cs121-inline-id').forEach(x=>{
+  if(x.querySelector('small')?.textContent?.includes('商品番号'))x.remove();
+ });
+ root.querySelectorAll('.cs121-fact[data-kind="sku"],.cs121-fact[data-kind="model"]').forEach(x=>x.remove());
+ root.querySelectorAll('.cs14-product-visual small').forEach(x=>x.textContent=x.textContent.replace(/SKU:\s*[^·]+\s*·\s*/,'') );
+ root.querySelectorAll('.cs115-sub-title').forEach(x=>{
+  if(x.textContent.includes('お問い合わせに関連する項目')){const next=x.nextElementSibling;if(next?.classList.contains('cs14-issue'))next.remove();x.remove();}
+ });
+ // The marketplace note inherits the same actual seller as the rest of the order.
+ root.querySelectorAll('.cs126-marketplace-note').forEach(note=>{
+  const card=note.closest('.cs117-product-card');const key=card?.querySelector('[data-cs14-product]')?.getAttribute('data-cs14-product')||'';
+  const [oid,sku]=key.split('|');const o=(activeScene.orders13||[activeScene.order]).find(a=>a.orderId===oid);
+  if(!o)return;const labels=note.querySelectorAll('span');
+  if(labels[0])labels[0].innerHTML='販売元 <b>'+esc(o.seller)+'</b>';
+  if(labels[1])labels[1].innerHTML='販売形態 <b>'+(o.seller==='Taiou'?'直販':'出店ショップ')+'</b>';
+ });
+ return root.innerHTML;
+};
+function cs271NowJST(){
+ const d=new Date();
+ const day=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',weekday:'short'}).format(d);
+ const time=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',hour12:false}).format(d);
+ return `${day} ${time}`;
+}
+function cs271RefreshClocks(){
+ const value=cs271NowJST();for(const t of document.querySelectorAll('.cs271-jst-value'))t.textContent=value;
+}
+const cs271PriorRoleplay=roleplayPage;
+roleplayPage=function(){const html=cs271PriorRoleplay();if(!activeScene)return html;
+ const root=document.createElement('div');root.innerHTML=html;
+ const work=root.querySelector('.cs125-work,.cs23-work');
+ if(work&&!work.querySelector('.cs271-roleplay-date')){
+  const node=document.createElement('div');node.className='cs271-roleplay-date';
+  node.innerHTML='<div class="cs271-jst-clock"><span class="cs271-jst-label">日本時間</span><time class="cs271-jst-value"></time></div>';
+  work.prepend(node);
+ }
+ return root.innerHTML;
+};
+const cs271PriorRender=render;
+render=function(){cs271PriorRender();
+ const header=document.querySelector('.topbar');
+ if(header){
+  const old=header.querySelector('.clock-chip');if(old)old.remove();
+  if(!header.querySelector('.cs271-jst-clock'))header.insertAdjacentHTML('beforeend','<div class="cs271-jst-clock" aria-label="日本時間"><span class="cs271-jst-label">日本時間</span><time class="cs271-jst-value"></time></div>');
+ }
+ cs271RefreshClocks();
+};
+setInterval(cs271RefreshClocks,15000);
+const cs271PriorSettings=settingsPage;
+settingsPage=function(){
+ const result=cs271PriorSettings();
+ const files=Object.values(CS271_PHOTOS).map(p=>'<a href="https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(p.file)+'" target="_blank" rel="noopener noreferrer">'+esc(p.file)+'</a> ('+esc(p.author)+', '+esc(p.license)+')').join(' · ');
+ return result+'<section class="panel cs271-photocredit"><strong>商品参考写真 · 出典</strong><p>架空の商品名・型番に対するカテゴリ参考画像です。オンライン時のみWikimedia Commonsの写真を表示し、オフライン時は内蔵のイラストに切り替わります。実物の型番と同一であることは保証しません。</p>'+files+'</section>';
+};
+window.TaiouOrderV1271=Object.freeze({version:CS271_VERSION,sellerModes:['Taiou / Taiou','Shop / Taiou','Shop / Shop'],photoKinds:Object.keys(CS271_PHOTOS),getSessionModes:()=>activeScene?(activeScene.orders13||[activeScene.order]).map(x=>({id:x.orderId,seller:x.seller,shipFrom:x.shipFrom,mode:x.cs271SellerMode})):[]});
 
 init().catch(e=>{console.error(e);render();toast('Không thể tải tự lưu; hãy xuất file để sao lưu.','error')});
 })();
