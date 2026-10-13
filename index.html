@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#F8F9F6">
-<title>Taiou · CS Workspace v1.27.1</title>
+<title>Taiou · CS Workspace v1.28.0 — Phase 2</title>
 <style>
 :root{font-family:Inter,"Segoe UI",-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-synthesis:none;--accent:#8eaafa;--accent-rgb:142,170,250;--bg:#0c111a;--sidebar:#101722;--panel:#151d2a;--panel2:#1b2534;--panel3:#202d3e;--border:#2b3749;--muted:#9aa9bd;--text:#eef3fa;--muted2:#76879e;--success:#5fd0ad;--warning:#edc68f;--danger:#ef8792;--shadow:0 20px 65px #0005;--radius:18px;--fontscale:1}
 :root[data-theme="light"]{--bg:#f4f6fa;--sidebar:#ffffff;--panel:#ffffff;--panel2:#f2f5fa;--panel3:#e8eef7;--border:#e0e6ef;--muted:#596980;--text:#263345;--muted2:#8490a2;--shadow:0 18px 60px #20334a18}
@@ -1050,14 +1050,76 @@ html:has(:root[data-theme="midnight-steel"]){background:#0d1420}
  body:not(.cs-operator) .topbar .cs271-jst-clock{font-size:10px;padding:6px 8px;gap:4px}
  body:not(.cs-operator) .topbar .cs271-jst-clock .cs271-jst-label{font-size:9px}
 }
+
+/* Taiou v1.28.0 — portrait mobile resembles a native messenger when the keyboard opens. */
+@media (max-width:740px) and (orientation:portrait){
+ html:has(body.cs-operator),body.cs-operator{overflow:hidden!important;overscroll-behavior:none!important;height:100%!important;}
+ body.cs-operator{
+   position:fixed!important;inset:0!important;top:0!important;left:0!important;
+   width:100%!important;height:var(--cs128-vh,100dvh)!important;
+   max-height:var(--cs128-vh,100dvh)!important;transform:none!important;
+   contain:layout style;overscroll-behavior:none!important;
+ }
+ body.cs-operator #app,body.cs-operator .layout,body.cs-operator .main-wrap,
+ body.cs-operator .content,body.cs-operator .cs14-desk,
+ body.cs-operator .cs14-desk>.cs13-work{
+   height:100%!important;min-height:0!important;max-height:100%!important;
+   overflow:hidden!important;
+ }
+ body.cs-operator .cs125-work{min-height:0!important;}
+ body.cs-operator .cs125-work>.sim-layout{min-height:0!important;height:0!important;flex:1 1 auto!important;overflow:hidden!important;}
+ body.cs-operator .cs125-work .sim-chat{min-height:0!important;overflow:hidden!important;}
+ body.cs-operator .cs125-work .chat-thread{min-height:0!important;flex:1 1 auto!important;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch;scroll-behavior:auto!important;}
+ body.cs-operator .cs125-work .chat-composer,
+ body.cs-operator .cs125-work .chat-composer.cs120-ended-composer{
+   position:relative!important;flex-shrink:0!important;align-items:flex-end!important;
+   min-height:0!important;height:auto!important;max-height:none!important;
+   padding:7px 9px max(8px,env(safe-area-inset-bottom))!important;
+   margin:0!important;gap:8px!important;border-radius:0 0 18px 18px!important;
+ }
+ body.cs-operator .cs125-work #roleplay-entry{
+   flex:1 1 auto!important;height:46px!important;min-height:46px!important;
+   max-height:102px!important;padding:11px 12px!important;
+   line-height:23px!important;overflow:auto!important;box-sizing:border-box!important;
+   font-size:16px!important;scroll-margin:0!important;
+ }
+ body.cs-operator .cs125-work .chat-send{
+   flex:0 0 46px!important;width:46px!important;min-width:46px!important;
+   height:46px!important;min-height:46px!important;max-height:46px!important;
+   box-sizing:border-box!important;align-self:flex-end!important;
+ }
+ body.cs-operator.cs126-typing .cs271-roleplay-date,
+ body.cs-operator.cs126-typing .cs23-work-head,
+ body.cs-operator.cs126-typing .cs125-tabstrip{display:none!important;}
+ body.cs-operator.cs126-typing .cs125-work .chat-top{flex-shrink:0!important;min-height:43px!important;}
+ body.cs-operator.cs126-typing .cs125-work .chat-thread{flex:1 1 auto!important;min-height:0!important;}
+ body.cs-operator.cs126-typing .cs125-work .chat-composer{padding-bottom:5px!important;}
+ body.cs-operator.cs126-typing .cs126-replies-toggle{height:29px!important;min-height:29px!important;}
+ /* White product photographs/illustrations, per SKU, never shared across unrelated items. */
+ body.cs-operator .cs117-image.cs231-product-image{background:white!important;border:1px solid #e8edf1!important;}
+}
+.cs117-image.cs231-product-image,.cs117-image{background:#fff!important;}
+.cs128-thumb{display:block;width:100%!important;height:100%!important;object-fit:contain!important;background:#fff;border-radius:inherit;}
+.cs128-thumb:focus{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* v1.28.0 Phase 2: independent offline product photo viewer */
+.cs128-thumb{cursor:zoom-in!important;user-select:none;-webkit-user-select:none}
+.cs128-photo-overlay{position:fixed;inset:0;z-index:99999;background:rgba(8,16,28,.76);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.cs128-photo-dialog{width:min(420px,100%);max-height:min(90dvh,780px);overflow:auto;border-radius:20px;background:var(--panel,#fff);color:var(--text,#263342);padding:18px;box-shadow:0 22px 75px #0006}
+.cs128-photo-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.cs128-photo-top strong{font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.cs128-photo-close{border:1px solid var(--border,#ddd);border-radius:10px;padding:7px 11px;background:var(--panel2,#f3f4f7);color:inherit;cursor:pointer;font-size:18px}
+.cs128-photo-full{display:block;background:white;width:100%;max-width:360px;aspect-ratio:1;margin:auto;border-radius:16px;object-fit:contain}
+.cs128-photo-note{text-align:center;color:var(--muted,#777);font-size:11px;margin:10px 0 0}
+@media(max-width:600px){.cs128-photo-dialog{padding:14px;border-radius:17px}.cs128-photo-overlay{padding:12px}}
 </style>
 </head>
 <body>
-<script type="application/json" id="embedded-data">{"meta":{"schema":1,"appVersion":"1.27.0","workspaceId":"jcsw-default","name":"Người dùng","workspaceName":"Không gian CS","updatedAt":0,"exportedAt":0},"settings":{"theme":"light","accent":"blue","fontScale":1,"avatar":""},"templates":[],"vocabulary":[],"practiceSets":[]}</script>
+<script type="application/json" id="embedded-data">{"meta":{"schema":1,"appVersion":"1.28.0","workspaceId":"jcsw-default","name":"Người dùng","workspaceName":"Không gian CS","updatedAt":0,"exportedAt":0},"settings":{"theme":"light","accent":"blue","fontScale":1,"avatar":""},"templates":[],"vocabulary":[],"practiceSets":[]}</script>
 <div id="app"></div><div id="modal-root"></div><div class="toast-root" id="toast-root" aria-live="polite"></div>
 <script>
 (()=>{'use strict';
-const VERSION='1.27.1', SCHEMA=2;
+const VERSION='1.28.0', SCHEMA=2;
 const $=(sel,root=document)=>root.querySelector(sel), $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 const paths={dashboard:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',templates:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',dictionary:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5V4a2 2 0 0 1 2-2h14v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M8 6h8M8 10h6"/>',keyboard:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"/>',star:'<path d="m12 3 2.78 5.83 6.42.92-4.65 4.53 1.1 6.39L12 17.65l-5.65 3.02 1.1-6.39L2.8 9.75l6.42-.92Z"/>',folder:'<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10H3Z"/>',settings:'<path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="m19 13 2-1-2-3-2 .2-1.6-1.3.4-2.1-3.5-1-1 1.9-2 .3-1.7-1.3-2.5 2.4 1.2 1.7-.3 2-2 1 .9 3.5 2.2-.1 1.3 1.6-.4 2.1 3.5 1 1-2 2-.2 1.7 1.3 2.5-2.5-1.2-1.7.3-2Z"/>',search:'<circle cx="10.9" cy="10.9" r="7.7"/><path d="m16.7 16.7 4.2 4.2"/>',plus:'<path d="M12 5v14M5 12h14"/>',copy:'<rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>',edit:'<path d="M12 20h9M4 16l-1 5 5-1L20 8a2.8 2.8 0 0 0-4-4Z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15M10 10v7M14 10v7"/>',close:'<path d="M18 6 6 18M6 6l12 12"/>',arrow:'<path d="M4 12h16m-7-7 7 7-7 7"/>',chevron:'<path d="m9 18 6-6-6-6"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',upload:'<path d="M12 16V4m-5 5 5-5 5 5M4 17v4h16v-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>',message:'<path d="M21 11.5a8.3 8.3 0 0 1-8.5 8.5 10 10 0 0 1-4-.7L3 21l1.7-5.5a8.7 8.7 0 1 1 16.3-4Z"/>',sparkles:'<path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8ZM19 17l.7 1.7L21 19l-1.3.3L19 21l-.7-1.7L17 19l1.3-.3Z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',filter:'<path d="M4 5h16l-6 7v6l-4 2v-8Z"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',save:'<path d="M19 21H5a2 2 0 0 1-2-2V3h14l4 4v12a2 2 0 0 1-2 2ZM7 3v6h10V3M7 21v-8h10v8"/>',shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',type:'<path d="M4 7V4h16v3M12 4v16M8 20h8"/>',external:'<path d="M14 4h6v6M10 14 20 4M20 14v6H4V4h6"/>',refresh:'<path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/>',archive:'<rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/>',alert:'<path d="m12 3 10 18H2Z"/><path d="M12 9v5M12 17h.01"/>',file:'<path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9ZM13 2v7h7M8 13h8M8 17h8"/>',eye:'<path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',bolt:'<path d="m13 2-9 12h7l-1 8 10-12h-7Z"/>',logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',layers:'<path d="m12 2 10 6-10 6L2 8ZM2 12l10 6 10-6M2 16l10 6 10-6"/>'};
 const ico=(name,cl='')=>`<svg class="${cl}" viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.file}</svg>`;
@@ -1509,7 +1571,7 @@ function beginRoleplay(scenarioId,persona){
  closeModal();roleplayShowHints=false;roleplaySummary=null;
  const order=csMakeCase(s,persona),opening=persona==='typical'||persona==='gentle'?s.steps[0].customer:persona==='hard'?`対応が遅すぎます。${s.steps[0].customer}`:CS_CUSTOMER_STAGE_LINES[persona][0];
  activeScene={scenarioId,index:0,persona,customer:s.customer,order,messages:[{side:'customer',text:opening,time:Date.now()}],points:[],startMs:Date.now(),pending:false,attempts:0,reviews:[],hintsByStage:{}};
- view='roleplay';render();$('#roleplay-entry')?.focus();
+ view='roleplay';render();cs128SafeAutofocus();
 }
 function csStageForIndex(scene,index){if(isSystemBot(scene)){return CS_STAGES[Math.min(index,6)][0]}const steps=scene.steps.length;return CS_STAGES[Math.round(Math.max(0,index)/Math.max(steps-1,1)*6)][0]}
 function csStageIndex(scene,index){return CS_STAGES.findIndex(s=>s[0]===csStageForIndex(scene,index))}
@@ -1557,7 +1619,7 @@ function csActionLegacy(type){if(!activeScene)return;const o=activeScene.order,s
  else if(type==='cancel'){if(!o.checked||!o.verified){ok=false;msg='キャンセル申請には本人確認と注文状況の確認が必要です。'}else if(o.status!=='未発送'){ok=false;msg='出荷後のため、自動キャンセルできません。返品条件をご確認ください。'}else{o.status='キャンセル申請中';msg='キャンセル申請を受け付けました（模擬）。完了ではありません。'}}
  else if(type==='return'){if(!o.verified||!o.checked){ok=false;msg='本人確認と注文状況を確認してください。'}else if(o.status!=='配達完了'){ok=false;msg='お届け完了前のため、返品申請を受け付けられません。'}else{o.returnRequested=true;msg='返品申請受付（模擬）。条件確認後、返送方法をご案内ください。'}}
  else if(type==='escalate'){o.escalated=true;msg=`担当部署へ引き継ぎました（模擬）。Contact: ${o.contactId}`}
- if(ok){o.actionLog.push({type,msg,time:Date.now()});ss.messages.push({side:'system',text:msg,time:Date.now()})}toast(msg,ok?'ok':'error');render();$('#roleplay-entry')?.focus();
+ if(ok){o.actionLog.push({type,msg,time:Date.now()});ss.messages.push({side:'system',text:msg,time:Date.now()})}toast(msg,ok?'ok':'error');render();cs128SafeAutofocus();
 }
 function csNextReply(ss,stage,evaluation){const scene=currentScenario();
  if(evaluation.unsafe)return '安全な方法で確認していただけませんか？個人情報の取り扱いが心配です。';
@@ -1728,7 +1790,7 @@ function csAction(type){if(!activeScene)return;const ss=activeScene,o=ss.order;l
  else if(type==='cancel'){if(!o.checked||!o.verified){ok=false;msg='本人確認と注文状況をご確認ください。'}else if(o.status!=='未発送'){ok=false;msg='発送後のため、キャンセルの可否を個別確認してください。'}else{o.status='キャンセル申請中';msg='キャンセル申請を受け付けました（処理待ち）。'}}
  else if(type==='return'){if(!o.verified||!o.checked){ok=false;msg='本人確認と配送状況をご確認ください。'}else if(o.status!=='配達完了'){ok=false;msg='配達完了前の返品申請は受付できません。'}else{o.returnRequested=true;msg='返品申請：受付済み（条件確認中）。'}}
  else if(type==='escalate'){o.escalated=true;msg=`担当部署へ引き継ぎました（模擬）。${o.contactId}`}
- if(ok)o.actionLog.push({type,msg,time:Date.now()});ss.lastAction={msg,ok,time:Date.now()};render();$('#roleplay-entry')?.focus();
+ if(ok)o.actionLog.push({type,msg,time:Date.now()});ss.lastAction={msg,ok,time:Date.now()};render();cs128SafeAutofocus();
 }
 function csOrderPanel(){let html=csOrderPanelLegacy();if(!activeScene)return html;const ss=activeScene;
  const result=ss.lastAction?`<div class="sim-order-result" role="status"><small>${ss.lastAction.ok?'処理結果':'確認が必要'}</small>${esc(ss.lastAction.msg)}</div>`:'';
@@ -1934,7 +1996,7 @@ beginRoleplay=function(id,persona){
    activeScene.behavior.tension=Math.min(100,activeScene.behavior.tension+11);
   }
   activeScene.typingVisible=false;activeScene.behavior.lastMood='complaint';
-  render();$('#roleplay-entry')?.focus();
+  render();cs128SafeAutofocus();
  }
 };
 function csAllowedHarassmentLevel(){return ['mild','moderate','strong'].includes(state.settings.harassmentLevel)?state.settings.harassmentLevel:'moderate'}
@@ -2058,7 +2120,7 @@ replyRoleplay=function(){
   if(ss.typingTimer){clearTimeout(ss.typingTimer);ss.typingTimer=null}
   if(finished)completeRoleplay();else{render();$('#roleplay-entry')?.focus()}
  },delay);
- render();$('#roleplay-entry')?.focus();
+ render();cs128SafeAutofocus();
 };
 const csPrevCompleteRoleplay=completeRoleplay;
 completeRoleplay=function(){
@@ -2089,7 +2151,7 @@ beginRoleplay=function(scenarioId,persona){
  if(!activeScene)return;
  activeScene.ended=false;activeScene.postFeedbackOpen=false;activeScene.feedbackUnread=false;activeScene.endReason='';
  activeScene.lastActivityMs=Date.now();activeScene.messages.forEach(m=>{if(m.side==='customer')m.text=csFeedbackBrand(m.text)});
- render();$('#roleplay-entry')?.focus();
+ render();cs128SafeAutofocus();
 };
 function cs112Random(ss){return csBehaviorRandom(ss)}
 function cs112Summary(ss){
@@ -2172,7 +2234,7 @@ replyRoleplay=function(){
    const reply=ss.behavior?.tension>=73?'ご案内は分かりましたが、今の対応にはまだ納得していません。':ss.behavior?.tension>=45?'内容は理解しました。今後の案内をお待ちします。':'ありがとうございます。以上で大丈夫です。';
    ss.messages.push({side:'customer',text:reply,time:Date.now()});ss.lastActivityMs=Date.now();
    if(cs112Random(ss)<.68||ss.behavior?.tension>=78){cs112Finalize('customer-closing');return}
-   render();$('#roleplay-entry')?.focus();return;
+   render();cs128SafeAutofocus();return;
   }
   const b=ss.behavior||{};
   const customerAngry=ss.index>=2&&(b.tension||0)>76&&cs112Random(ss)<.12;
@@ -2180,9 +2242,9 @@ replyRoleplay=function(){
   if(customerAngry){ss.messages.push({side:'customer',text:'もう結構です。これ以上やり取りしたくありません。失礼します。',time:Date.now()});ss.lastActivityMs=Date.now();cs112Finalize('customer-angry');return}
   if(customerDone){ss.messages.push({side:'customer',text:'分かりました。確認できたので、失礼いたします。',time:Date.now()});ss.lastActivityMs=Date.now();cs112Finalize('customer-closing');return}
   const reply=csFeedbackBrand(csCustomerResponseV11(ss,scene,stage,evaluation,forward,signals));
-  ss.messages.push({side:'customer',text:reply,time:Date.now()});ss.lastActivityMs=Date.now();render();$('#roleplay-entry')?.focus();
+  ss.messages.push({side:'customer',text:reply,time:Date.now()});ss.lastActivityMs=Date.now();render();cs128SafeAutofocus();
  };ss.replyTimer=setTimeout(cs13ResponseTask,d);
- render();$('#roleplay-entry')?.focus();
+ render();cs128SafeAutofocus();
 };
 function cs112FeedbackHtml(ss){const f=ss.feedback;
  if(!f||!f.deliveredAt)return'';
@@ -2254,15 +2316,15 @@ beginRoleplay=function(id,persona){cs13OldStart(id,persona);const ss=activeScene
  ss.flow13.preemptive=preempt;ss.flow13.openingText=cs13InitialCustomer(ss);
  if(!preempt)ss.messages=[];
  else ss.messages=[{side:'customer',text:ss.flow13.openingText,time:Date.now()}];
- ss.lastActivityMs=Date.now();render();$('#roleplay-entry')?.focus();
+ ss.lastActivityMs=Date.now();render();cs128SafeAutofocus();
 };
 function cs13FindProduct(ss,txt){const orders=ss.orders13||[];for(const o of orders)for(const p of o.items||[o.product])if(txt.includes(p.sku)||txt.includes(p.jp))return {order:o,product:p};return null}
-function cs13Msg(ss,text){ss.messages.push({side:'customer',text,time:Date.now()});ss.lastActivityMs=Date.now();ss.pending=false;ss.typingVisible=false;ss.pendingLines=[];ss.replyTimer=null;render();$('#roleplay-entry')?.focus();}
+function cs13Msg(ss,text){ss.messages.push({side:'customer',text,time:Date.now()});ss.lastActivityMs=Date.now();ss.pending=false;ss.typingVisible=false;ss.pendingLines=[];ss.replyTimer=null;render();cs128SafeAutofocus();}
 function cs13Timer(ss,reply,opts={}){if(ss.replyTimer)clearTimeout(ss.replyTimer);if(ss.typingTimer)clearTimeout(ss.typingTimer);
  const ms=Math.min(12500,Math.max(1400,800+reply.length*82+(ss.persona==='hard'?-350:1200)+Math.random()*1500));ss.pending=true;ss.typingVisible=false;
  ss.typingTimer=setTimeout(()=>{if(activeScene!==ss||ss.ended||!ss.pending)return;ss.typingVisible=true;const thread=$('#chat-thread');if(thread){thread.insertAdjacentHTML('beforeend','<div class="typing-dots"><i></i><i></i><i></i></div>');thread.scrollTop=thread.scrollHeight}},Math.min(2100,Math.floor(ms*.39)));
  ss.replyTimer=setTimeout(()=>{if(activeScene!==ss||ss.ended)return;if(ss.typingTimer)clearTimeout(ss.typingTimer);ss.typingTimer=null;cs13Msg(ss,reply)},ms);
- render();$('#roleplay-entry')?.focus();
+ render();cs128SafeAutofocus();
 }
 function cs13HandlePreflow(ss,text){const f=ss.flow13;if(!f||f.phase==='normal')return false;
  if(ss.replyTimer)clearTimeout(ss.replyTimer);if(ss.typingTimer)clearTimeout(ss.typingTimer);ss.replyTimer=null;ss.typingTimer=null;ss.pending=false;ss.typingVisible=false;
@@ -2287,11 +2349,11 @@ function cs13HandlePreflow(ss,text){const f=ss.flow13;if(!f||f.phase==='normal')
  }
  if(product&&!confirm){
   // Do not answer mid-sequence: agent may send the confirmation question next.
-  ss.pending=false;ss.typingVisible=false;ss.lastActivityMs=Date.now();render();$('#roleplay-entry')?.focus();return true;
+  ss.pending=false;ss.typingVisible=false;ss.lastActivityMs=Date.now();render();cs128SafeAutofocus();return true;
  }
  if(confirm&&!f.proposedSku){cs13Timer(ss,'どちらの商品についてのご確認でしょうか。商品名を教えていただけますか。');return true}
  if(!product){
-  if(f.preemptive&&greeting){ss.pending=false;ss.lastActivityMs=Date.now();render();$('#roleplay-entry')?.focus();return true;}
+  if(f.preemptive&&greeting){ss.pending=false;ss.lastActivityMs=Date.now();render();cs128SafeAutofocus();return true;}
   const hint=ss.target13===ss.orders13[0]?'最近注文した商品についてです。':'以前購入した商品の件です。注文履歴をご確認いただけますか。';
   cs13Timer(ss,hint);return true;
  }
@@ -2348,7 +2410,7 @@ document.addEventListener('click',e=>{
  if(order){const draft=$('#roleplay-entry')?.value||'';const sel=order.dataset.cs13Order;
   ss.activeOrder13=ss.activeOrder13===sel?'':sel;
   if(ss.activeOrder13){const obj=ss.orders13?.find(o=>o.orderId===ss.activeOrder13);if(obj)ss.order=obj;}
-  render();const input=$('#roleplay-entry');if(input){input.value=draft;input.focus()}return;
+  render();const input=$('#roleplay-entry');if(input){input.value=draft;cs128SafeAutofocus()}return;
  }
 },true);
 
@@ -2381,7 +2443,7 @@ function cs14ActuallyBegin(id,persona){
  if(!ss)return;
  cs14InitializeItems(ss);
  if(ss.flow13){ss.flow13.phase=ss.flow13.preemptive?'need_product':'need_greeting';ss.flow13.introSent=false;}
- render();$('#roleplay-entry')?.focus();window.scrollTo(0,0);document.querySelector('.content')?.scrollTo(0,0);
+ render();cs128SafeAutofocus();
 }
 // Never let the simulated customer explain internal CS training steps.
 function cs14Preflow(ss,text){
@@ -2394,7 +2456,7 @@ function cs14Preflow(ss,text){
  const askingIssue=/ご用件|ご相談|お困り|どのような|お聞かせ|お伺い|どの件|何かご不便/.test(text);
  const product=cs13FindProduct(ss,text);
  const confirming=/お間違い|間違いない|合っていま|上記の商品|こちらの商品|この商品|でよろしい|でございますか|でしょうか/.test(text);
- function wait(){render();$('#roleplay-entry')?.focus();return true}
+ function wait(){render();cs128SafeAutofocus();return true}
  if(f.phase==='need_greeting'||f.phase==='await_customer_question'){
   if(polite&&!f.introSent){f.greeted=true;f.introSent=true;ss.points.push({matched:true,polite:true,step:0,utterance:text,intents:['opening'],stage:'opening'});ss.reviews.push({stage:'opening',utterance:text,correct:true,feedback:'Đã mở đầu lịch sự.',model:'お問い合わせありがとうございます。Taiouカスタマーサービスの担当でございます。本日はどのようなご用件でしょうか。'});}
   if(askingIssue){f.phase='need_product';cs13Timer(ss,f.openingText||'注文した商品についてお伺いしたいのですが。');return true}
@@ -2450,12 +2512,12 @@ function cs14Operate(type,o,p){const ss=activeScene;if(!ss)return;const s=p.cs14
  s.drawerOpen=true;s.result={ok,msg,time:Date.now()};if(ok)s.actionLog.push({type,msg,time:Date.now()});
  if(ss.target13?.orderId===o.orderId&&ss.targetProduct13?.sku===p.sku){for(const k of ['verified','checked','refundRequested','returnRequested','cancelRequested','carrierContact','escalated'])o[k]=s[k];}
  // Preserve a visible message only inside the corresponding item's expanded actions.
- const draft=$('#roleplay-entry')?.value||'';render();const input=$('#roleplay-entry');if(input&&!ss.ended){input.value=draft;input.focus()}
+ const draft=$('#roleplay-entry')?.value||'';render();const input=$('#roleplay-entry');if(input&&!ss.ended){input.value=draft;cs128SafeAutofocus()}
 }
 // Immersive desk style is applied without modifying other Taiou pages.
 const cs14PreviousRolePage=roleplayPage;
 roleplayPage=function(){const html=cs14PreviousRolePage();return activeScene?`<div class="cs14-desk">${html}</div>`:html};
-function cs14RestoreDraftAndRender(){const draft=$('#roleplay-entry')?.value||'';render();const input=$('#roleplay-entry');if(input){input.value=draft;input.focus()}}
+function cs14RestoreDraftAndRender(){const draft=$('#roleplay-entry')?.value||'';render();const input=$('#roleplay-entry');if(input){input.value=draft;cs128SafeAutofocus()}}
 // Use window capture to run before older delegated document handlers, without touching legacy controls.
 window.addEventListener('click',e=>{
  const btn=e.target.closest?.('[data-cs14-accept],[data-cs14-decline],[data-cs14-order],[data-cs14-product],[data-cs14-action],[data-cs14-copy]');if(!btn)return;
@@ -2565,7 +2627,7 @@ cs14ActuallyBegin=function(id,persona){
  cs115EnrichOrders(ss);
  ss.cs115IdleNudgeCount=0;
  cs115ScheduleCustomerNudge(ss);
- render();$('#roleplay-entry')?.focus();
+ render();cs128SafeAutofocus();
 };
 const cs115OldPreflow=cs13HandlePreflow;
 cs13HandlePreflow=function(ss,text){
@@ -2609,7 +2671,7 @@ cs13Timer=function(ss,reply,opts={}){
   ss.typingTimer=null;cs13Msg(ss,reply);
  };
  ss.replyTimer=setTimeout(finish,ms);
- render();$('#roleplay-entry')?.focus();
+ render();cs128SafeAutofocus();
 };
 const cs115OldNormalReply=replyRoleplay;
 replyRoleplay=function(){
@@ -3530,11 +3592,11 @@ cs14Operate=function(type,o,p){
  const ss=activeScene,k=ss?cs181Kind(ss):'general',s=p?.cs14;
  if(ss&&s&&type==='refund'&&k==='refund_pending'&&s.refundStatus==='返金処理中'){
   s.drawerOpen=true;s.result={ok:false,msg:'すでに返金処理中です。重複申請せず、返金状況をご案内してください。',time:Date.now()};
-  const draft=document.getElementById('roleplay-entry')?.value||'';render();const input=document.getElementById('roleplay-entry');if(input){input.value=draft;input.focus()}return;
+  const draft=document.getElementById('roleplay-entry')?.value||'';render();const input=document.getElementById('roleplay-entry');if(input){input.value=draft;cs128SafeAutofocus()}return;
  }
  if(ss&&s&&type==='cancel'&&s.status==='配達完了'){
   s.drawerOpen=true;s.result={ok:false,msg:'配達完了のため出荷前キャンセルはできません。返品可否をご確認ください。',time:Date.now()};
-  const draft=document.getElementById('roleplay-entry')?.value||'';render();const input=document.getElementById('roleplay-entry');if(input){input.value=draft;input.focus()}return;
+  const draft=document.getElementById('roleplay-entry')?.value||'';render();const input=document.getElementById('roleplay-entry');if(input){input.value=draft;cs128SafeAutofocus()}return;
  }
  return cs181OldOperate(type,o,p);
 };
@@ -3586,7 +3648,7 @@ cs14Operate=function(type,o,p){
   const msg=/配達完了/.test(s.status)?'配達完了の商品は出荷前キャンセルできません。返品・交換の条件を確認してください。':'この注文はすでにキャンセル済みです。重複して申請できません。';
   s.result={ok:false,msg,time:Date.now()};
   const draft=document.getElementById('roleplay-entry')?.value||'';
-  render();const input=document.getElementById('roleplay-entry');if(input){input.value=draft;input.focus()}return;
+  render();const input=document.getElementById('roleplay-entry');if(input){input.value=draft;cs128SafeAutofocus()}return;
  }
  return cs181PolicyOperate(type,o,p);
 };
@@ -4206,7 +4268,7 @@ cs14ActuallyBegin=function(id,persona){
   if(ss!==activeScene||ss.ended)return;
   ss.cs120Opening=false;ss.pending=false;ss.typingVisible=false;
   ss.messages.push({side:'customer',text:ss.cs120FirstLine||'注文について相談したいです。',time:Date.now()});ss.lastActivityMs=Date.now();
-  cs115ScheduleCustomerNudge(ss);render();document.getElementById('roleplay-entry')?.focus({preventScroll:true});
+  cs115ScheduleCustomerNudge(ss);render();cs128SafeAutofocus();
  },delay);
  return result;
 };
@@ -4578,7 +4640,7 @@ cs14Operate=function(type,o,p){
   for(const k of ['checked','refundRequested','returnRequested','cancelRequested','carrierContact','escalated'])o[k]=s[k];
  }
  const draft=document.getElementById('roleplay-entry')?.value||'';
- render();const input=document.getElementById('roleplay-entry');if(input&&!ss.ended){input.value=draft;try{input.focus({preventScroll:true})}catch(_){input.focus()}}
+ render();const input=document.getElementById('roleplay-entry');if(input&&!ss.ended){input.value=draft;cs128SafeAutofocus()}
 };
 window.addEventListener('click',async e=>{
  const btn=e.target.closest?.('[data-cs121-copy]');if(!btn)return;
@@ -5398,25 +5460,33 @@ function cs126ViewportSync(){
   body.classList.remove('cs126-typing');
   root.style.removeProperty('--cs126-viewport-height');
   root.style.removeProperty('--cs126-viewport-top');
+  root.style.removeProperty('--cs128-vh');
   return;
  }
  const vv=window.visualViewport;
- const h=Math.max(220,Math.round(vv?.height||window.innerHeight));
- const focused=document.activeElement?.id==='roleplay-entry'&&!document.activeElement.disabled;
+ const now=Math.round(vv?.height||window.innerHeight);
  const state=cs126ViewportState;
- // Capture the full visible height once; don't learn keyboard height as the new baseline.
- if(!state.baseline)state.baseline=h;
- if(!focused && h>state.baseline-45)state.baseline=Math.max(h,state.baseline);
- const keyboardHeight=Math.max(0,state.baseline-h);
- const keyboardVisible=keyboardHeight>120;
+ const focused=!!(document.activeElement?.id==='roleplay-entry'&&!document.activeElement.disabled);
+ // Baseline is learned only when no keyboard is visible.
+ const pageHeight=Math.round(window.innerHeight||document.documentElement.clientHeight||now);
+ if(!state.baseline || (!focused&&now>state.baseline-70))state.baseline=Math.max(now,pageHeight);
+ const keyboardVisible=focused&&state.baseline-now>115;
  body.classList.toggle('cs126-typing',keyboardVisible);
- // Safari fluctuates the visual viewport by a few pixels during keyboard animation.
- // Ignore that noise so the composer isn't constantly resized while typing.
- const stableH=state.stableHeight||h;
- const nextH=Math.abs(h-stableH)<10?stableH:h;
- state.stableHeight=nextH;
- root.style.setProperty('--cs126-viewport-height',nextH+'px');
+ // Quantise micro-resizes during iOS predictive text animation; never change scrollTop here.
+ if(!Number.isFinite(state.stableHeight)||Math.abs(state.stableHeight-now)>=9)state.stableHeight=now;
+ const height=Math.max(240,state.stableHeight);
+ root.style.setProperty('--cs126-viewport-height',height+'px');
  root.style.setProperty('--cs126-viewport-top','0px');
+ root.style.setProperty('--cs128-vh',height+'px');
+ // Virtual keyboard affects the visual viewport, not the page's scroll position.
+ if(keyboardVisible){
+  const thread=document.getElementById('chat-thread');
+  if(thread&&(!state.wasKeyboardOpen || Math.abs((state.lastKbHeight||0)-height)>40)){
+    const wasNearBottom=thread.scrollHeight-thread.scrollTop-thread.clientHeight<160;
+    if(wasNearBottom||!state.wasKeyboardOpen)requestAnimationFrame(()=>{if(thread.isConnected)thread.scrollTop=thread.scrollHeight;});
+  }
+ }
+ state.wasKeyboardOpen=keyboardVisible;state.lastKbHeight=height;
 }
 function cs126ScheduleViewport(){if(cs126ViewportState.pending)return;cs126ViewportState.pending=true;requestAnimationFrame(()=>{cs126ViewportState.pending=false;cs126ViewportSync()})}
 const cs126OldRoleplay=roleplayPage;
@@ -6320,6 +6390,220 @@ settingsPage=function(){
  return result+'<section class="panel cs271-photocredit"><strong>商品参考写真 · 出典</strong><p>架空の商品名・型番に対するカテゴリ参考画像です。オンライン時のみWikimedia Commonsの写真を表示し、オフライン時は内蔵のイラストに切り替わります。実物の型番と同一であることは保証しません。</p>'+files+'</section>';
 };
 window.TaiouOrderV1271=Object.freeze({version:CS271_VERSION,sellerModes:['Taiou / Taiou','Shop / Taiou','Shop / Shop'],photoKinds:Object.keys(CS271_PHOTOS),getSessionModes:()=>activeScene?(activeScene.orders13||[activeScene.order]).map(x=>({id:x.orderId,seller:x.seller,shipFrom:x.shipFrom,mode:x.cs271SellerMode})):[]});
+
+
+// Taiou v1.28.0 — customer-first opening, individual offline product art & keyboard focus safety.
+function cs128SafeAutofocus(){
+ const input=document.getElementById('roleplay-entry');if(!input||input.disabled)return;
+ // On a touch device a new customer message never launches the keyboard automatically.
+ if(cs126MobileQuery.matches){
+   if(!document.body.classList.contains('cs126-typing'))return;
+   // A keyboard already open is the one exception: preserve a composing CS session.
+   try{input.focus({preventScroll:true})}catch(_){}return;
+ }
+ try{input.focus({preventScroll:true})}catch(_){input.focus()}
+}
+// Do not allow roleplay rerenders to programmatically open the iOS keyboard. Preserve
+// the opportunity to focus via an actual user tap on the editor or suggested reply.
+let cs128LastUserEditTap=0;
+document.addEventListener('pointerdown',e=>{
+ if(e.target?.id==='roleplay-entry'||e.target?.closest?.('[data-reply-suggest]'))cs128LastUserEditTap=Date.now();
+},true);
+const cs128NativeFocus=HTMLTextAreaElement.prototype.focus;
+HTMLTextAreaElement.prototype.focus=function(options){
+ if(this.id==='roleplay-entry'&&cs126MobileQuery.matches){
+  const recentTap=Date.now()-cs128LastUserEditTap<1350;
+  if(!recentTap&&!document.body.classList.contains('cs126-typing'))return;
+  return cs128NativeFocus.call(this,{preventScroll:true});
+ }
+ return cs128NativeFocus.call(this,options);
+};
+// Resize is handled by the existing viewport hook. This listener only remembers
+// whether the user is actually composing, and never forces window.scrollTo().
+document.addEventListener('focusout',e=>{
+ if(e.target?.id==='roleplay-entry')requestAnimationFrame(()=>cs126ScheduleViewport());
+},true);
+function cs128Hash(s){let h=2166136261;for(const c of String(s||'')){h=Math.imul(h^c.charCodeAt(0),16777619)}return h>>>0}
+function cs128ShortName(p){
+ const type=String(p?.kind||'');
+ const names={humidifier:'加湿器',filter:/猫/.test(p?.jp||'')?'給水器のフィルター':'交換フィルター',fan:'サーキュレーター',pillow:'ネックピロー',pan:'フライパン',adapter:'充電器',audio:'イヤホン',watch:'スマートウォッチのバンド',speaker:'スピーカー',camera:'カメラ',drive:'SSD',toothbrush:'替えブラシ',cosmetic:/UV|日焼け/.test(p?.jp||'')?'日焼け止め':'美容液',bottle:'シャンプー',bag:'バッグ',shoe:'スニーカー',case:'トラベルポーチ',tea:'お茶',food:'味噌汁',pet:'ドッグフード',thermometer:'体温計',monitor:'血圧計',baby:'ベビースプーン',stationery:'バインダー',stand:'ノートPCスタンド',kettle:'電気ケトル',console:'ゲーム機',mug:'マグカップ'};
+ return names[type]||String(p?.jp||'商品').replace(/^[A-Z][A-Za-z0-9 -]+\s+/, '').replace(/\s+[A-Z0-9-]{3,}.*$/, '').slice(0,16);
+}
+function cs128OpeningPools(ss){
+ const id=ss.cs127Case?.id||'original',kind=cs181Kind(ss);
+ const item=cs128ShortName(ss.targetProduct13||ss.target13?.product||{});
+ const byId={
+  delivered_missing:['配達完了になっているのですが、荷物が届いていません。','注文履歴では配達完了ですが、まだ受け取っていません。','荷物が届いていないのに配達完了と表示されています。'],
+  overdue:['お届け予定日を過ぎても荷物が届いていません。','予定日を過ぎているのに、まだ配送中になっています。','今日までに届く予定だったのですが、まだ来ていません。'],
+  expedite:['まだ予定日前ですが、早めに届けてもらえませんか。','使う予定が早まったので、できれば急いで届けてほしいです。'],
+  redelivery:['不在で受け取れなかったので、別の日に再配達してほしいです。','昨日受け取れなかった荷物を、明日再配達してもらえますか。'],
+  address_shipped:['発送済みなのですが、配送先の住所を変えたいです。','荷物が発送された後なのですが、届け先を変更できますか。'],
+  damaged_refund:['届いた商品が壊れていたので、返品して返金してほしいです。',`${item}が破損して届きました。返品をお願いできますか。`],
+  damaged_exchange:['届いた商品が壊れていました。交換してもらえますか。',`${item}に傷があるのですが、同じものに交換したいです。`],
+  refund_not_reflected:['返金済みと表示されていますが、カードにはまだ反映されていません。','返金が完了したと出ているのに、明細にありません。'],
+  refund_waiting:['キャンセルした注文の返金がまだ確認できません。','キャンセル済みなのですが、お金が戻っていません。'],
+  coupon_request:['商品が予定より遅れて届きました。お詫びクーポンはありますか。','配達が遅れて困りました。何か補償はありますか。'],
+  courier_complaint:['配達員の対応がよくなかったので、苦情を伝えたいです。','配送会社の人が荷物を乱暴に扱っていました。困っています。']
+ };
+ const byKind={
+  late_delivery:[`注文した${item}がまだ届いていません。`,'配送状況が更新されないのですが、いつ届きますか。'],
+  cancel:['発送前なら、注文をキャンセルしたいです。',`注文した${item}をキャンセルできますか。`],
+  refund_pending:['返金がまだカードに反映されていないんです。','キャンセル後の返金がまだ届いていません。'],
+  defect:[`${item}が故障しているので、交換できますか。`,'届いた商品に不具合がありました。返品したいです。'],
+  address_change:['配送先を変更できますか。','注文した荷物を別の住所に送ってほしいです。'],
+  account:['アカウントにログインできなくなりました。','注文履歴が開けなくなって困っています。'],
+  complaint:['前回の問い合わせへの返事がまだありません。','先日の対応に納得できないので、状況を教えてください。'],
+  handover:['前回の案内と違う対応をされて困っています。','以前問い合わせた件がまだ解決していません。'],
+  general:[`先日頼んだ${item}の届け先が気になっています。`,'届いた商品の内容が注文したものと違うようです。']
+ };
+ return byId[id]||byKind[kind]||byKind.general;
+}
+const cs128PreviousOpening=cs120StartLine;
+cs120StartLine=function(ss){
+ const legacy=cs128PreviousOpening(ss);
+ if(ss?.cs116?.type==='foreign'&&ss.cs116?.cs119NativeStart)return legacy;
+ const row=cs127SetCase(ss);
+ if(ss.cs128Opening)return ss.cs128Opening;
+ const arr=cs128OpeningPools(ss);
+ const key=String(ss.order?.contactId||ss.target13?.orderId||Math.random());
+ let utterance=arr[cs128Hash(key)%arr.length];
+ // A customer sometimes refers to the item in everyday words, never full SKU/title.
+ if(cs128Hash(key+'product')%4===0&&!/商品|荷物|配達員|返金/.test(utterance)&&!utterance.includes(cs128ShortName(ss.targetProduct13||ss.order?.product))){
+  utterance=`${cs128ShortName(ss.targetProduct13||ss.order?.product)}の件なんですが、${utterance}`;
+ }
+ ss.cs128Opening=utterance;
+ return utterance;
+};
+// The preflow fallback should also be customer-first rather than an internal desk request.
+const cs128PreviousCaseLines=cs118CaseLines;
+cs118CaseLines=function(ss,phase='issue'){
+ const legacy=cs128PreviousCaseLines(ss,phase);
+ if(phase==='follow'&&ss){
+   const id=ss.cs127Case?.id;
+   if(id&&id!=='original'){
+    const row=CS127_CASES[id];const phrases=[row?.detail,row?.wish,row?.question].filter(Boolean);
+    if(phrases.length)return phrases;
+   }
+   const kind=cs181Kind(ss);
+   const next={late_delivery:['まだ届いていないので、到着予定を教えてください。','配達予定日を過ぎています。'],cancel:['まだ発送前ならキャンセルしたいです。'],defect:['破損した商品を交換してほしいです。','返品して返金してほしいです。'],refund_pending:['カードに返金が反映されていません。'],address_change:['発送後でも住所を変える方法はありますか。'],account:['ログインするとエラーになります。'],complaint:['前回の対応から状況が変わっていません。'],handover:['以前の問い合わせがまだ解決していません。']}[kind];
+   if(next)return next;
+ }
+ return legacy;
+};
+// Avoid generating generic handoff/ambiguous openers from the marketplace corpus.
+// This alters only the first customer line, retaining all other seven turns and metadata.
+for(const record of CS126_MARKETPLACE_LIBRARY){
+ const first=record?.turns?.[0];
+ if(!first||first[0]!=='customer')continue;
+ if(/^(?:こちらが.*窓口|最後にもう一つ|案内の内容は|担当部署|担当者|ちょっと確認したい|確認したい|相談したい|お問い合わせ)/.test(first[1]||'')){
+   const byTopic={shipping:'荷物が予定日に届いていません。',cancel:'注文をキャンセルしたいです。',return:'届いた商品を返品したいです。',refund:'返金がまだ反映されていません。',defect:'商品が破損して届きました。',order:'配送先を変更したいです。',account:'アカウントにログインできません。',complaint:'配達員の対応に困っています。',language:'注文した商品がまだ届いていません。',opening:'注文した商品が破損して届きました。'};
+   first[1]=byTopic[record.topic]||'注文した商品が届いていません。';
+ }
+}
+// White background and SKU-specific artwork. Fictional items receive individually
+// generated vector product illustrations, not incorrectly attributed brand photos.
+const CS128_PAL=['#305d88','#5589b8','#667b9a','#738b7e','#b49070','#927d9a','#4c7f88','#988b6b','#b96d77'];
+const cs128ImageCache=new Map();
+function cs128Thumbnail(p){
+ const name=String(p?.jp||p?.vi||'商品'),sku=String(p?.sku||name),key=sku+'|'+name;
+ if(cs128ImageCache.has(key))return cs128ImageCache.get(key);
+ const kind=String(p?.kind||'').toLowerCase(),hash=cs128Hash(key),accent=CS128_PAL[hash%CS128_PAL.length];
+ const dark='#33475c',light='#edf2f5';
+ const silhouettes={
+ humidifier:'<rect x="38" y="29" width="48" height="62" rx="13"/><path d="M47 47h30M61 27c-11-9 9-13 0-20"/>',
+ filter:'<rect x="38" y="27" width="48" height="68" rx="7"/><path d="M47 36v50m12-50v50m12-50v50"/>',
+ fan:'<circle cx="62" cy="48" r="31"/><circle cx="62" cy="48" r="6"/><path d="M59 43Q44 15 67 18Q83 22 65 45M67 49Q104 41 86 65Q75 76 62 53M59 52Q34 80 30 57Q28 45 56 47M62 79v18m-20 0h40"/>',
+ pillow:'<path d="M29 37Q33 19 49 27Q62 40 75 27Q96 24 94 42L90 81Q73 93 61 76Q46 89 31 82Z"/>',
+ pan:'<ellipse cx="52" cy="68" rx="30" ry="16"/><ellipse cx="52" cy="64" rx="24" ry="10"/><path d="M80 65l27-7 2 7-27 10"/>',
+ adapter:'<rect x="38" y="39" width="48" height="49" rx="10"/><path d="M50 39V22m23 17V22M51 62h22M58 71h8"/>',
+ audio:'<path d="M40 45Q40 24 61 24Q82 24 82 45"/><rect x="33" y="47" width="13" height="32" rx="6"/><rect x="76" y="47" width="13" height="32" rx="6"/>',
+ watch:'<rect x="47" y="31" width="30" height="56" rx="8"/><path d="M54 31V14h16v17m-16 56v16h16V87"/><circle cx="62" cy="60" r="10"/>',
+ speaker:'<rect x="41" y="21" width="43" height="77" rx="8"/><circle cx="62" cy="68" r="17"/><circle cx="62" cy="37" r="6"/>',
+ camera:'<rect x="23" y="40" width="79" height="50" rx="10"/><circle cx="61" cy="64" r="17"/><path d="M36 40l8-12h26l8 12"/>',
+ drive:'<rect x="29" y="37" width="70" height="51" rx="10"/><path d="M37 49h54M40 77h34"/><circle cx="84" cy="75" r="3"/>',
+ toothbrush:'<rect x="49" y="18" width="25" height="80" rx="9"/><path d="M52 29h20M53 41h18M61 60v27"/>',
+ cosmetic:'<rect x="45" y="42" width="36" height="51" rx="7"/><rect x="50" y="28" width="26" height="14" rx="3"/><path d="M49 67h28"/>',
+ bottle:'<rect x="42" y="37" width="42" height="61" rx="8"/><path d="M50 37V23h26v14M55 16h16"/>',
+ bag:'<rect x="31" y="40" width="66" height="53" rx="12"/><path d="M49 40V28Q49 18 62 18Q75 18 75 28v12M40 60h46"/>',
+ shoe:'<path d="M21 67Q35 62 49 42L63 47Q71 63 97 67Q108 71 101 84H26Q16 83 21 67Z"/><path d="M49 59l18-4m-15 10 20-4"/>',
+ case:'<rect x="28" y="39" width="71" height="49" rx="10"/><path d="M45 39V29h36v10M30 64h67"/>',
+ tea:'<path d="M35 23h54l-5 72H40Z"/><path d="M35 34h54M44 54h36"/><path d="M57 69q16-17 16 2q-10 13-16-2Z"/>',
+ food:'<rect x="28" y="32" width="69" height="61" rx="9"/><path d="M35 51h54m-40 12h29m-29 10h22"/>',
+ pet:'<path d="M35 24h54l-4 69H39Z"/><circle cx="62" cy="63" r="11"/><circle cx="48" cy="50" r="4"/><circle cx="75" cy="50" r="4"/>',
+ thermometer:'<path d="M54 22a9 9 0 0 1 18 0v50a18 18 0 1 1-18 0Z"/><path d="M63 36v41"/>',
+ monitor:'<rect x="24" y="36" width="78" height="57" rx="9"/><rect x="34" y="47" width="58" height="26" rx="3"/><path d="M39 83h16m7-27h19"/>',
+ baby:'<path d="M50 20q-15 0-15 18t15 18q15 0 15-18T50 20Z"/><path d="M50 56v41"/><path d="M75 18q-14 0-14 15t14 15q14 0 14-15T75 18Z"/><path d="M75 48v46"/>',
+ stationery:'<rect x="32" y="25" width="65" height="72" rx="5"/><path d="M43 25v72M48 42h38m-38 14h38m-38 14h28"/>',
+ stand:'<path d="M36 29h68L80 75H20Z"/><path d="M33 85h66M60 75v10"/>',
+ kettle:'<path d="M40 38h48l5 53H37Z"/><path d="M45 38V28h36v10M88 46h10Q117 65 93 75"/>',
+ console:'<path d="M28 46h68q18 0 14 24t-21 10L73 70H51L34 80Q15 89 15 69Q14 46 28 46Z"/><path d="M31 61h18m-9-9v18m44-12h1m10 10h1"/>',
+ mug:'<path d="M36 37h51v54H36Z"/><path d="M87 47h12Q117 47 108 68Q102 81 87 78"/>'
+ };
+ const shape=silhouettes[kind]||silhouettes.case;
+ const model=String(p?.jp||'').match(/(?:[A-Z]{1,3}[-\d]{1,8}|\d+(?:cm|ml|L|W|TB|mm))/i)?.[0]||sku.slice(-5);
+ const safeModel=model.replace(/[<>&"']/g,'').slice(0,12);
+ const colorLight=CS128_PAL[(hash>>>8)%CS128_PAL.length];
+ // SVG contains transparent illustration and subtle individual colour details on a true white canvas.
+ const art=`<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 128 128"><rect width="128" height="128" rx="10" fill="#fff"/><ellipse cx="65" cy="107" rx="38" ry="5" fill="#dce6ec" opacity=".45"/><g transform="translate(0,-4)" fill="${accent}" fill-opacity=".13" stroke="${dark}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">${shape}</g><g transform="translate(0,-4)" fill="none" stroke="${colorLight}" stroke-width="1.2" opacity=".76"><path d="M32 92q17 9 45 0"/></g><rect x="5" y="113" width="118" height="12" rx="5" fill="#f4f7fa"/><text x="64" y="121.3" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="bold" fill="${accent}">${safeModel}</text></svg>`;
+ const encoded='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(art);
+ cs128ImageCache.set(key,encoded);return encoded;
+}
+csImage=function(p){
+ const title=esc(p?.jp||p?.vi||'商品');
+ return `<img class="sim-product-art cs128-thumb" src="${cs128Thumbnail(p)}" alt="${title}の個別商品イラスト（白背景）" loading="lazy" draggable="false">`;
+};
+// Existing image slots elsewhere in Taiou remain untouched; the product list uses csImage.
+
+
+// Phase 2: subject-accurate offline silhouette variants, generated per name + SKU.
+const cs128ThumbBase=cs128Thumbnail;
+const cs128SpecialCache=new Map();
+cs128Thumbnail=function(p){
+ const jp=String(p?.jp||''),sku=String(p?.sku||''),key=sku+'|'+jp;
+ if(cs128SpecialCache.has(key))return cs128SpecialCache.get(key);
+ const rules=[
+ [/イヤホン|earbuds|TWS/i,'<rect x="37" y="23" width="12" height="43" rx="6"/><rect x="77" y="23" width="12" height="43" rx="6"/><path d="M35 36q-12-1-9 11q2 10 13 6m52-17q12-1 9 11q-2 10-13 6"/><rect x="41" y="70" width="44" height="23" rx="10"/>'],
+ [/ドライヤー|ヘアドライヤー/,'<path d="M27 33h56l17 10v19L83 72H27q-9-19 0-39Z"/><path d="M51 72l-5 29h20l3-29M82 41h12m-12 9h12M29 44h18"/>'],
+ [/ワンピース|ドレス/,'<path d="M48 20l13 7 13-7 14 19-12 11 16 51H34l16-51-12-11Z"/><path d="M49 52h25M61 27v22"/>'],
+ [/書籍|文庫|参考書|本セット|小説|マンガ|コミック/,'<path d="M25 26q19-8 36 4q17-12 39-4v70q-22-6-39 6q-17-12-36-6Z"/><path d="M61 30v72M34 40q10-3 20 2m-20 11q10-3 20 2m15-13q12-5 23-2m-23 14q12-5 23-2"/>'],
+ [/リップ|口紅/,'<rect x="47" y="56" width="32" height="43" rx="4"/><path d="M53 56V32l20-11v35M47 72h32M58 36l15-8"/>'],
+ [/スニーカー|ランニングシューズ|シューズ/,'<path d="M18 68q18-8 28-29l21 8q6 17 31 20q12 2 12 15v7H21q-10-5-3-21Z"/><path d="M46 53l17-1m-12 8h18m-14 8h19M20 80h88"/>'],
+ [/加湿器/,'<rect x="37" y="34" width="52" height="65" rx="15"/><path d="M43 57h40M56 30q-8-9 2-17m12 17q8-9-2-17M55 82h15"/>'],
+ [/ハンドバッグ|トートバッグ/,'<path d="M29 46h70l-7 54H36Z"/><path d="M44 48V31q0-14 20-14t20 14v17M44 67h40"/>'],
+ [/ケトル|ポット/,'<path d="M42 38h44l7 57H36Z"/><path d="M46 38V26h37v12M89 49q26 0 20 17q-2 10-16 9M38 48h53"/>'],
+ [/化粧水|美容液|クリーム|コスメ/,'<rect x="43" y="42" width="43" height="53" rx="7"/><rect x="50" y="26" width="29" height="16" rx="4"/><path d="M49 64h31M53 75h22"/>'],
+ [/キャット|猫|ドッグ|犬|ペットフード/,'<path d="M37 23h52l-5 77H42Z"/><circle cx="63" cy="67" r="13"/><circle cx="50" cy="52" r="4"/><circle cx="76" cy="52" r="4"/>'],
+ [/モニター|ディスプレイ|テレビ/,'<rect x="20" y="26" width="88" height="57" rx="6"/><path d="M64 83v16m-25 0h50M28 34h72v41H28Z"/>'],
+ [/キーボード/,'<path d="M19 44h91v45H19Z"/><path d="M29 54h9m7 0h9m7 0h9m7 0h9m7 0h9M29 66h9m7 0h9m7 0h9m7 0h9m7 0h9M38 78h53"/>']
+ ];
+ const rule=rules.find(([re])=>re.test(jp));
+ if(!rule)return cs128ThumbBase(p);
+ const hash=cs128Hash(key),tone=CS128_PAL[hash%CS128_PAL.length];
+ const caption=(sku||jp).replace(/[<>&"']/g,'').slice(0,15);
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="160" height="160"><rect width="128" height="128" fill="#fff"/><ellipse cx="63" cy="106" rx="42" ry="5" fill="#e7ebef"/><g fill="${tone}" fill-opacity=".22" stroke="#31475c" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round">${rule[1]}</g><rect x="5" y="113" width="118" height="12" rx="5" fill="#f5f7fa"/><text x="64" y="121" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="${tone}">${caption}</text></svg>`;
+ const uri='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+ cs128SpecialCache.set(key,uri);return uri;
+};
+// Thumbnail click: capture before accordion toggle. The viewer never changes an order or chat.
+let cs128ViewerReturnFocus=null;
+function cs128CloseViewer(){const dialog=document.querySelector('.cs128-photo-overlay');if(dialog)dialog.remove();document.removeEventListener('keydown',cs128ViewerEsc);cs128ViewerReturnFocus?.focus?.({preventScroll:true});cs128ViewerReturnFocus=null;}
+function cs128ViewerEsc(e){if(e.key==='Escape'){e.preventDefault();cs128CloseViewer();}}
+document.addEventListener('click',e=>{
+ const img=e.target.closest?.('img.cs128-thumb');if(!img)return;
+ e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();
+ cs128ViewerReturnFocus=document.activeElement;
+ document.querySelector('.cs128-photo-overlay')?.remove();
+ const row=img.closest('.cs117-product-row,.cs23-product-card,.cs117-order-card,article')||img.parentElement;
+ const productName=row?.querySelector('.cs117-name')?.textContent?.trim()||img.alt.replace(/の個別商品イラスト.*/, '');
+ const overlay=document.createElement('div');overlay.className='cs128-photo-overlay';overlay.setAttribute('role','presentation');
+ const dialog=document.createElement('section');dialog.className='cs128-photo-dialog';dialog.setAttribute('role','dialog');dialog.setAttribute('aria-modal','true');dialog.setAttribute('aria-label','商品画像の拡大表示');
+ const top=document.createElement('div');top.className='cs128-photo-top';const title=document.createElement('strong');title.textContent=productName;
+ const close=document.createElement('button');close.type='button';close.className='cs128-photo-close';close.setAttribute('aria-label','閉じる');close.textContent='×';close.onclick=cs128CloseViewer;
+ top.append(title,close);const large=document.createElement('img');large.className='cs128-photo-full';large.src=img.src;large.alt=img.alt;
+ const note=document.createElement('p');note.className='cs128-photo-note';note.textContent='商品識別用イラスト · 実際の商品写真ではありません';
+ dialog.append(top,large,note);overlay.append(dialog);overlay.addEventListener('click',event=>{if(event.target===overlay)cs128CloseViewer();});
+ document.body.append(overlay);document.addEventListener('keydown',cs128ViewerEsc);close.focus({preventScroll:true});
+},true);
 
 init().catch(e=>{console.error(e);render();toast('Không thể tải tự lưu; hãy xuất file để sao lưu.','error')});
 })();
