@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#F8F9F6">
-<title>TAIOU CS WORKSPACE · Orange Edition v1.29.0</title>
+<meta name="theme-color" content="#001F3F">
+<title>TAIOU CS WORKSPACE · Unified Orange Midnight Navy · v1.31.0</title>
 <style>
 :root{font-family:Inter,"Segoe UI",-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-synthesis:none;--accent:#8eaafa;--accent-rgb:142,170,250;--bg:#0c111a;--sidebar:#101722;--panel:#151d2a;--panel2:#1b2534;--panel3:#202d3e;--border:#2b3749;--muted:#9aa9bd;--text:#eef3fa;--muted2:#76879e;--success:#5fd0ad;--warning:#edc68f;--danger:#ef8792;--shadow:0 20px 65px #0005;--radius:18px;--fontscale:1}
 :root[data-theme="light"]{--bg:#f4f6fa;--sidebar:#ffffff;--panel:#ffffff;--panel2:#f2f5fa;--panel3:#e8eef7;--border:#e0e6ef;--muted:#596980;--text:#263345;--muted2:#8490a2;--shadow:0 18px 60px #20334a18}
@@ -1144,6 +1144,320 @@ body.cs-operator #chat-thread{overscroll-behavior:contain}
 .cs129-photo{object-fit:contain!important;background:#fff!important;border-radius:10px}.cs128-photo-full{background:#fff!important;object-fit:contain!important}
 @media(max-width:740px){.cs129-audio-toggle{top:58px!important;right:9px!important;padding:5px 8px!important;font-size:10px!important;opacity:.90}.mobile-bottom>button.active:not(.taiou-sim-dock){background:#123859!important;color:#fff!important}.mobile-bottom>button.taiou-sim-dock{background:transparent!important}}
 .cs13-copy{display:none!important}
+
+
+/* ===== TAIOU ORANGE / MIDNIGHT NAVY — ONE VISUAL SYSTEM ===== */
+:root,:root[data-theme="light"],:root[data-theme="sakura"],:root[data-theme="dark"]{
+ --accent:#FF8C00!important;--accent-rgb:255,140,0!important;--bg:#F5F7FA!important;
+ --sidebar:#001F3F!important;--panel:#FFFFFF!important;--panel2:#F4F7FB!important;
+ --panel3:#FFF1E3!important;--border:#D8E1EB!important;--text:#001F3F!important;
+ --muted:#50647B!important;--muted2:#64768B!important;--success:#14886D!important;
+ --warning:#D57500!important;--danger:#C74351!important;--shadow:0 16px 48px #001F3F12!important;
+ color-scheme:light!important;
+}
+html,body{background:#F5F7FA!important;color:#001F3F!important}
+body{background-image:none!important}
+.sidebar{background:#001F3F!important;border-right:1px solid #143B60!important;box-shadow:7px 0 24px #001F3F09!important}
+.sidebar .nav-eyebrow,.sidebar .brand small,.sidebar .profile-tile small{color:#98B2CD!important}
+.sidebar .brand strong,.sidebar .profile-tile strong,.sidebar .status-row b{color:#FFF!important}
+.sidebar .nav-link{color:#C9D8EA!important;border:1px solid transparent!important}
+.sidebar .nav-link:hover{background:#10395E!important;color:white!important}
+.sidebar .nav-link.active{background:#FF8C00!important;color:#001F3F!important;box-shadow:0 5px 16px #FF8C0040!important}
+.sidebar .status-box{background:#082C50!important;color:white!important;border-color:#31516E!important}
+.sidebar .status-row{color:#C9D8EA!important}
+.brand-emblem{background:linear-gradient(135deg,#FFBF70,#FF8C00)!important;color:#001F3F!important}
+.topbar{background:#001F3F!important;border-color:#173B5D!important;box-shadow:0 5px 18px #001F3F17!important}
+.topbar *:not(.btn):not(.badge){color:#F5F8FC!important}
+.topbar .search-trigger,.topbar .icon-btn{background:#103657!important;border:1px solid #345674!important;color:white!important}
+.main-wrap{background:#F5F7FA!important}
+.content{background:transparent!important}
+.panel,.card,.stat,.template-card,.quiz-card,.word-card,.modal,.sheet,.cs14-order,.cs13-order-panel,.sim-left,.sim-right{background:#FFF!important;color:#001F3F!important;border-color:#D8E1EB!important;box-shadow:0 8px 30px #001F3F09!important}
+button.btn,.btn.primary,.btn-primary,.chat-send,.btn.accent{background:#FF8C00!important;color:#001F3F!important;border-color:#F48A08!important;font-weight:800!important}
+button.btn:hover,.btn-primary:hover,.chat-send:hover{filter:brightness(.965)}
+input,textarea,select{background:#FFF!important;color:#001F3F!important;border-color:#C7D4E1!important}
+input:focus,textarea:focus,select:focus{border-color:#FF8C00!important;outline-color:#FF8C0066!important}
+.reply-assist,.sim-hint,.cs-coach,.notice.info{background:#FFF1E3!important;color:#7E4100!important;border-color:#FFD7AB!important}
+.reply-chip,.cs125-tab,.nav-pill{border-color:#D9E3EB!important;color:#001F3F!important}
+.reply-chip:hover,.cs125-tab[aria-selected="true"]{background:#FFF1E3!important;border-color:#FF8C00!important;color:#823F00!important}
+.chat-messages,.chat-log,.sim-chat-messages,.chat-window,.chat-feed,.sim-conversation,.cs14-chat-stream,.chat-scroll,.sim-chat,.chat-thread{background:#FFF!important}
+.chat-msg.theirs .chat-bubble{background:#2476C9!important;border:1px solid #1C65AF!important;color:#FFF!important}
+.chat-msg.theirs .chat-bubble small{color:#E4F1FF!important}
+.chat-msg.mine .chat-bubble{background:#F5F7FA!important;border:1px solid #CFDCE9!important;color:#001F3F!important}
+.chat-msg.mine .chat-bubble small{color:#64768B!important}
+.chat-msg.sim-system .chat-bubble,.chat-msg.coach .chat-bubble{background:#FFF1E3!important;border:1px dashed #FFBE70!important;color:#753E03!important}
+.chat-msg.sim-system .chat-bubble small,.chat-msg.coach .chat-bubble small{color:#8C5A2B!important}
+.chat-composer{background:#FFF!important;border-color:#DDE6EF!important}
+.chat-send{box-shadow:0 5px 17px #FF8C0035!important}
+.mobile-bottom{background:#001F3F!important;border:0!important;box-shadow:0 -8px 28px #001F3F24!important}
+.mobile-bottom button{color:#B5C7D9!important}
+.mobile-bottom button.active:not(.taiou-sim-dock){color:#FFB55A!important;background:#123759!important}
+.mobile-bottom>button.taiou-sim-dock{color:white!important;background:transparent!important}
+.mobile-bottom>button.taiou-sim-dock svg{background:#001F3F!important;border:6px solid #FFAE46!important;outline:2px solid #FFC987!important;box-shadow:0 3px 0 #00142A,0 9px 23px #0005!important}
+.mobile-bottom>button.taiou-sim-dock span{color:white!important;background:#001F3F!important}
+@media(max-width:740px){
+ .mobile-bottom{left:9px!important;right:9px!important;bottom:max(8px,env(safe-area-inset-bottom))!important;border-radius:25px!important;padding:10px 5px 8px!important;justify-content:space-between!important;align-items:end!important;min-height:76px!important}
+ .mobile-bottom>button{flex:1 1 0!important;min-width:0!important;max-width:24%!important;border-radius:12px!important;font-size:10px!important;gap:3px!important;padding:7px 0!important}
+ .mobile-bottom>button svg{width:23px!important;height:23px!important}
+ .mobile-bottom>button span{font-size:10px!important;white-space:nowrap!important}
+ .mobile-bottom>button.taiou-sim-dock{flex:1.2 1 0!important;max-width:25%!important;transform:translateY(-15px)!important;padding:0!important}
+ .mobile-bottom>button.taiou-sim-dock svg{width:28px!important;height:28px!important;padding:13px!important;box-sizing:content-box!important}
+ .mobile-bottom>button.taiou-sim-dock span{font-weight:850!important;font-size:11px!important;transform:translateY(4px)}
+ .content{padding-bottom:120px!important}
+}
+@media(min-width:741px){
+ .sidebar .nav-link[data-nav="roleplay"]{border:1px solid #FF8C00!important;color:#FFBD73!important;background:#0B3559!important;box-shadow:inset 0 0 0 1px #FF8C0035!important}
+ .sidebar .nav-link[data-nav="roleplay"].active{background:#FF8C00!important;color:#001F3F!important}
+}
+
+/* TAIOU v1.31 Unified Workspace — one restrained Orange × Midnight Navy identity */
+:root,:root[data-theme],:root[data-theme="orange-midnight-navy"]{
+ --accent:#D97816!important;--accent-rgb:217,120,22!important;--bg:#F5F7FA!important;
+ --sidebar:#001F3F!important;--panel:#fff!important;--panel2:#F2F5F9!important;
+ --panel3:#FFF1E3!important;--border:#DBE3ED!important;--text:#001F3F!important;
+ --muted:#53657A!important;--muted2:#697C90!important;--success:#15826B!important;
+ --warning:#BE6A07!important;--danger:#BE3445!important;color-scheme:light!important;
+}
+html,body,.main-wrap{background:#F5F7FA!important;color:#001F3F!important}
+.sidebar,.topbar,.mobile-bottom{background:#001F3F!important}
+.topbar{box-shadow:0 4px 16px #001F3F14!important}
+.sidebar .nav-link.active{background:#D97816!important;color:#fff!important;box-shadow:none!important}
+.btn:not(.btn-ghost):not(.btn-secondary):not(.btn-danger),button.btn-primary,.chat-send{background:#D97816!important;color:#fff!important;border-color:#BC6410!important}
+.btn-secondary{background:#EFF3F8!important;color:#001F3F!important;border:1px solid #D8E2EB!important}
+.brand-emblem{background:linear-gradient(140deg,#FFC785,#D97816)!important}
+.panel{border-color:#DFE5EB!important;box-shadow:0 5px 20px #001F3F0C!important;border-radius:17px!important}
+.hero{background:linear-gradient(115deg,#001F3F,#103A5D)!important;border-color:#224F75!important}
+.cs129-guide,#cs129-sound-toggle,.cs129-audio-toggle{display:none!important}
+.taiou-theme-grid{display:none!important}
+.cs131-palette-setting{display:flex;gap:13px;align-items:center;padding:14px;background:#F4F7FB;border:1px solid #DCE5EF;border-radius:14px;margin:16px 0}
+.cs131-palette-setting small{display:block;color:#5A7085;font-size:11px;margin-top:3px}
+.cs131-palette-swatches{display:grid;grid-template-columns:repeat(2,24px);gap:4px}
+.cs131-palette-swatches i{width:24px;height:24px;border-radius:5px;background:#001F3F}
+.cs131-palette-swatches i:nth-child(2){background:#D97816}
+.cs131-palette-swatches i:nth-child(3){background:#2476C9}
+.cs131-palette-swatches i:nth-child(4){background:#FFF1E3;border:1px solid #E7D3BF}
+.cs131-sound-setting{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin-top:18px}
+/* Desktop chat 40%, operator workspace 60%; mobile keeps single-panel navigation. */
+@media(min-width:741px){
+ body.cs-operator .cs125-work>.sim-layout,body.cs-operator .cs23-work>.sim-layout{display:grid!important;grid-template-columns:minmax(0,2fr) minmax(0,3fr)!important;gap:14px!important;align-items:stretch!important}
+ body.cs-operator .sim-chat,body.cs-operator .sim-right{min-width:0!important}
+ .cs23-work-head{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:12px!important;flex-wrap:wrap!important}
+ .cs23-work-head .cs23-new{position:static!important;transform:none!important;flex-shrink:0!important}
+ .cs23-bar{width:auto!important;max-width:860px!important;flex:1 1 630px!important;grid-template-columns:minmax(82px,1fr) minmax(82px,1fr) minmax(135px,1.35fr) minmax(170px,1.6fr)!important;gap:8px!important;margin:0!important}
+ .cs23-bar-btn{min-height:44px!important;height:auto!important;font-size:12px!important}
+}
+@media(max-width:740px){
+ .cs23-work-head{gap:7px!important}
+ .cs23-bar{grid-template-columns:repeat(4,minmax(0,1fr))!important;width:100%!important;gap:5px!important}
+ .cs131-history-trigger{min-width:0!important;white-space:normal!important}
+ .cs131-history-trigger span{font-size:9px!important;line-height:1.2!important}
+ .cs23-bar-btn.cs131-history-trigger svg{width:17px!important;height:17px!important}
+}
+.cs131-history-trigger{background:#EAF2FB!important;border:1px solid #C6DDF1!important;color:#15578C!important;font-weight:750!important}
+.cs131-history-trigger:hover{background:#DCEAFB!important;border-color:#2476C9!important}
+/* Dedicated CS tab strip, kept inside the workspace panel. */
+.cs131-tab-workspace{display:flex!important;flex-direction:column!important;min-height:0!important;background:#fff!important;overflow:hidden!important}
+.cs131-tabstrip{display:flex;align-items:stretch;gap:4px;flex:0 0 auto;max-width:100%;overflow:auto hidden;scrollbar-width:thin;padding:9px 10px 0!important;background:#F1F5FA;border-bottom:1px solid #D7E1EB}
+.cs131-tab{display:flex;align-items:center;gap:6px;justify-content:space-between;min-width:135px;max-width:230px;flex:0 0 auto;padding:11px 12px;white-space:nowrap;border:1px solid transparent;border-bottom:0;border-radius:10px 10px 0 0;color:#60748C;background:#E6ECF3;font-size:12px;font-weight:750;cursor:grab;user-select:none;touch-action:pan-y}
+.cs131-tab:focus-visible{outline:3px solid #2476C9;outline-offset:-3px}
+.cs131-tab[aria-selected="true"]{color:#001F3F;background:white;border-color:#D7E1EB;box-shadow:0 2px 0 #fff}
+.cs131-tab.is-dragging{opacity:.4}
+.cs131-tab-title{display:flex;align-items:center;gap:6px;overflow:hidden;text-overflow:ellipsis}
+.cs131-tab-title svg{width:15px;height:15px;color:#2476C9}
+.cs131-tab-close{background:transparent;border:0;color:#6C7F90;font-size:19px;line-height:1;min-width:26px;min-height:26px;border-radius:6px}
+.cs131-tab-close:hover{background:#FFF1E3;color:#9F4F00}
+.cs131-tab-content{min-height:0;flex:1 1 auto;overflow-y:auto!important;overscroll-behavior:contain;scrollbar-width:thin}
+.cs131-tab-content[hidden]{display:none!important}
+.cs131-orders-content{display:flex;flex-direction:column}
+.cs131-orders-content>.cs117-products-list{flex:1 1 auto;min-height:0;max-height:none!important}
+.cs131-history-content{background:#fff;padding:14px}
+.cs131-history-list{display:flex;flex-direction:column;gap:10px}
+.cs131-history-card{border:1px solid #DCE4EF;background:#fff;border-radius:12px;overflow:hidden}
+.cs131-history-card summary{display:flex;align-items:center;gap:10px;padding:13px;cursor:pointer;list-style:none}
+.cs131-history-card summary::-webkit-details-marker{display:none}
+.cs131-history-card summary>span:nth-child(2){flex:1;min-width:0}
+.cs131-history-card summary strong{display:block;color:#001F3F;overflow-wrap:anywhere}
+.cs131-history-card summary small{display:block;color:#667A90;margin-top:3px}
+.cs131-history-card summary>svg:last-child{width:15px;height:15px;transition:transform .2s}
+.cs131-history-card[open] summary>svg:last-child{transform:rotate(180deg)}
+.cs131-history-icon{background:#E7F1FB;color:#2476C9;border-radius:9px;padding:8px}
+.cs131-history-body{border-top:1px solid #DCE4EF;background:#F8FAFD;padding:12px}
+.cs131-history-note{font-size:12px;color:#4C6076;white-space:pre-wrap}
+.cs131-archived-thread{display:flex;flex-direction:column;gap:8px;max-height:400px;overflow:auto;padding:8px 0}
+.cs131-empty-history{text-align:center;padding:48px 16px;color:#697C90}
+.cs131-empty-history strong{color:#001F3F}
+.cs131-empty-history p{margin-top:8px;font-size:12px}
+/* Actual details accordion, not a static label. */
+.cs131-detail-accordion{margin:12px 0;border:1px solid #D7E2EF;border-radius:12px;overflow:hidden;background:#FAFCFF}
+.cs131-detail-accordion>summary{display:flex;align-items:center;gap:9px;padding:12px;cursor:pointer;background:#EDF3FA;color:#123B61;font-size:13px;font-weight:800;list-style:none}
+.cs131-detail-accordion>summary::-webkit-details-marker{display:none}
+.cs131-detail-accordion>summary svg{width:17px;height:17px;color:#2476C9}
+.cs131-detail-accordion>summary span{flex:1}
+.cs131-detail-accordion>summary svg:last-child{transition:transform .2s}
+.cs131-detail-accordion[open]>summary svg:last-child{transform:rotate(180deg)}
+.cs131-detail-body{padding:12px 10px;background:#fff}
+/* Clean messenger: no labels or statuses inside bubbles. */
+.sim-chat,.chat-thread,.sim-chat .chat-thread{background:#fff!important}
+.sim-chat .chat-msg{display:flex;flex-direction:column;max-width:100%;margin-bottom:10px}
+.sim-chat .chat-bubble{max-width:min(89%,540px);border-radius:17px!important;box-shadow:none!important;font-size:13px;line-height:1.6}
+.sim-chat .chat-msg.theirs .chat-bubble{background:#E8F2FF!important;border:1px solid #C6DFF8!important;color:#124F86!important;align-self:flex-start}
+.sim-chat .chat-msg.mine .chat-bubble{background:#F5F7FA!important;border:1px solid #E0E6ED!important;color:#001F3F!important;align-self:flex-end}
+.sim-chat .chat-msg.sim-system .chat-bubble{background:#FFF1E3!important;border:1px solid #F1D0AA!important;color:#845017!important;align-self:center}
+.sim-chat .cs131-msg-meta{font-size:10px!important;line-height:1.5;color:#738399!important;padding:3px 6px 0;letter-spacing:.01em}
+.sim-chat .chat-msg.mine .cs131-msg-meta{text-align:right;align-self:flex-end}
+.sim-chat .chat-msg.theirs .cs131-msg-meta{text-align:left;align-self:flex-start}
+.sim-chat .chat-msg.sim-system .cs131-msg-meta{text-align:center;align-self:center}
+.report-messages .chat-bubble{max-width:90%}
+.chat-msg .cs131-msg-meta{font-size:10px;color:#738399;margin-top:2px}
+.chat-msg.mine .cs131-msg-meta{text-align:right}
+.chat-msg.theirs .cs131-msg-meta{text-align:left}
+.chat-msg .chat-bubble small,.chat-msg .cs116-read-status{display:none!important}
+.reply-assist{background:#F5F8FD!important;border-color:#DFE6EE!important}
+.reply-chip{background:#FFF!important;border-color:#E1E8F0!important;color:#153657!important}
+.reply-chip:hover{background:#EAF2FB!important;border-color:#2476C9!important;color:#123F6A!important}
+.chat-send{background:#D97816!important;color:#fff!important}
+@media(max-width:740px) and (orientation:portrait){
+ body.cs-operator .cs125-work .cs131-tab-workspace{min-height:0!important;max-height:none!important}
+ body.cs-operator .cs131-tabstrip{padding-top:5px!important}
+ body.cs-operator .cs131-tab{padding:9px 11px!important;min-width:118px}
+ body.cs-operator .cs131-history-content{overflow-y:auto!important}
+ body.cs-operator .cs131-orders-content{overflow-y:auto!important;flex:1 1 0!important}
+ body.cs-operator .sim-chat .chat-bubble{max-width:88%!important}
+}
+
+/* Final specificity guards against legacy 50/50 workbench and pale-tinted chat surfaces. */
+@media(min-width:741px){
+ body.cs-operator .cs14-desk .sim-layout,
+ body.cs-operator .cs14-desk .cs13-work>.sim-layout,
+ body.cs-operator .cs14-desk .cs125-work>.sim-layout{
+  grid-template-columns:minmax(0,2fr) minmax(0,3fr)!important;
+  gap:14px!important;
+ }
+}
+body.cs-operator .cs14-desk .sim-chat,
+body.cs-operator .cs13-work .sim-chat,
+body.cs-operator .cs14-desk .chat-thread{background:#fff!important;border-color:#D9E3EC!important}
+body.cs-operator .cs14-desk .sim-right{background:#fff!important;border-color:#D9E3EC!important}
+body.cs-operator .cs14-desk .cs131-tab-workspace{background:#fff!important}
+body.cs-operator .cs14-desk .cs131-orders-content{background:#fff!important}
+body.cs-operator .cs14-desk .cs131-orders-content .cs13-panel-heading{background:#fff!important}
+body.cs-operator .cs14-desk .cs117-product-card{border:1px solid #DEE6ED!important;background:#fff!important;box-shadow:0 3px 10px #001F3F06!important}
+body.cs-operator .cs14-desk .cs117-product-card:hover{border-color:#B5CBDD!important;background:#FAFCFF!important}
+body.cs-operator .cs14-desk .reply-assist{background:#F5F8FD!important;border-color:#DEE6EF!important}
+body.cs-operator .cs14-desk .reply-chip{background:#FFF!important;border-color:#DEE6EF!important;color:#153A62!important}
+body.cs-operator .cs14-desk .reply-chip:hover{background:#EAF2FB!important;border-color:#2476C9!important}
+body.cs-operator .cs14-desk .reply-chip .cs119-chip-number{color:#A9631D;background:#FFF1E3!important}
+/* The very center UI focus is the simulator, not an orange outline around every field. */
+body.cs-operator .cs14-desk .cs131-tab[aria-selected="true"]{border-top:2px solid #D97816!important}
+body.cs-operator .cs14-desk .chat-send{background:#D97816!important;color:white!important}
+
+
+/* Six equal navigation actions fit in one row on portrait phones. */
+@media(max-width:740px){
+ body.cs-operator .cs23-work-head .cs23-bar,
+ body.cs-operator .cs23-bar{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-auto-flow:row!important;gap:4px!important;width:100%!important;max-width:100%!important;align-items:stretch!important}
+ body.cs-operator .cs23-bar-btn,
+ body.cs-operator .cs23-work-head .cs23-new{min-width:0!important;max-width:none!important;width:100%!important;height:53px!important;min-height:53px!important;font-size:9px!important;line-height:1.1!important;padding:5px 1px!important;gap:2px!important;overflow:visible!important}
+ body.cs-operator .cs23-bar-btn span{font-size:9px!important;overflow-wrap:anywhere;text-align:center}
+ body.cs-operator .cs131-history-trigger span{font-size:8.6px!important}
+}
+
+
+/* Expanded v1.32.0 */
+/* v1.32.0 — Unified Orange × Midnight Navy · Spacious workspace */
+body.cs-operator .content{padding:clamp(9px,1.25vw,18px)!important}
+body.cs-operator .cs14-desk{width:100%!important;max-width:none!important;margin:0 auto!important;height:100%!important;max-height:100%!important}
+body.cs-operator .cs14-desk>.cs13-work{height:100%!important;max-height:100%!important;gap:9px!important}
+body.cs-operator .cs271-roleplay-date{min-height:0!important;margin:0!important;padding:1px 4px!important}
+body.cs-operator .cs14-desk .sim-layout{gap:clamp(10px,1.05vw,17px)!important;min-height:0!important;flex:1 1 auto!important}
+body.cs-operator .cs14-desk .sim-chat,body.cs-operator .cs14-desk .sim-right{border-radius:17px!important;box-shadow:0 5px 19px #102b4310!important}
+body.cs-operator .cs14-desk .sim-right{padding:0!important}
+body.cs-operator .cs14-desk .cs131-tabstrip{padding:6px 10px 0!important}
+body.cs-operator .cs14-desk .cs131-tab-content{padding-left:13px;padding-right:13px}
+body.cs-operator .cs14-desk .cs131-history-content,body.cs-operator .cs14-desk .cs132-mail-content{padding:16px!important}
+body.cs-operator .cs23-work-head{padding:0!important;margin:0!important;min-height:48px!important;max-height:52px!important;flex:0 0 48px!important;z-index:42!important;display:block!important;overflow:visible!important}
+body.cs-operator .cs23-work-head .cs132-toolbar{display:flex!important;align-items:center!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:8px!important;min-height:46px;height:46px;padding:2px 4px;width:100%;overflow:visible;box-sizing:border-box}
+body.cs-operator .cs23-work-head .cs132-quickbar{display:flex!important;align-items:center!important;justify-content:flex-start!important;flex:0 1 auto!important;min-width:0!important;max-width:initial!important;width:auto!important;gap:8px!important;margin:0!important;grid-template-columns:none!important;grid-auto-flow:unset!important;flex-wrap:nowrap!important}
+body.cs-operator .cs23-work-head .cs23-bar-col{width:40px!important;height:40px!important;min-width:40px!important;max-width:40px!important;flex:0 0 40px!important;display:flex!important;align-items:center!important;justify-content:center!important}
+body.cs-operator .cs23-work-head .cs23-actions{width:40px!important;height:40px!important;min-width:0!important;max-width:40px!important;display:flex!important;gap:0!important;align-items:center!important}
+body.cs-operator .cs23-work-head .cs23-hint-anchor{width:40px!important;height:40px!important;min-width:40px!important;max-width:40px!important;flex:0 0 40px!important}
+body.cs-operator .cs23-work-head .cs132-icon-btn{display:grid!important;place-items:center!important;flex:0 0 40px!important;width:40px!important;height:40px!important;min-width:40px!important;max-width:40px!important;min-height:40px!important;max-height:40px!important;border-radius:50%!important;padding:0!important;margin:0!important;line-height:1!important;background:#fff!important;color:#173954!important;border:1px solid #CCDBE7!important;box-shadow:0 2px 7px #0928410a!important;cursor:pointer!important;transition:background .16s,border-color .16s,transform .16s!important}
+body.cs-operator .cs23-work-head .cs132-icon-btn svg{display:block!important;width:19px!important;height:19px!important;margin:0!important;flex:none!important}
+body.cs-operator .cs23-work-head .cs132-icon-btn:hover{background:#E9F2FA!important;border-color:#2476C9!important;transform:translateY(-1px)}
+body.cs-operator .cs23-work-head .cs132-menu-trigger{background:#001F3F!important;border-color:#001F3F!important;color:white!important}
+body.cs-operator .cs23-work-head .cs132-menu-trigger:hover{background:#153E62!important;color:white!important}
+body.cs-operator .cs23-work-head .cs23-end{background:#FFF3F2!important;border-color:#F6CCCA!important;color:#B44A43!important}
+body.cs-operator .cs23-work-head [aria-expanded="true"].cs132-icon-btn{background:#FFE7CD!important;border-color:#D97816!important;color:#93500F!important}
+body.cs-operator .cs23-work-head .cs132-tools-wrap{flex:0 0 40px;position:relative;min-width:40px}
+body.cs-operator .cs23-work-head .cs132-tool-badge{position:absolute;right:-3px;top:-3px;background:#D97816;color:white;border:2px solid #F5F7FA;border-radius:30px;min-width:17px;height:17px;display:grid;place-items:center;font-size:9px;font-weight:800;pointer-events:none;padding:0 3px}
+body.cs-operator .cs23-work-head .cs132-finish{display:flex;align-items:center;gap:6px;flex:0 0 auto;border:1px solid #0D8650;border-radius:24px;background:#168954;color:#fff;height:40px;padding:0 15px;font-size:12px;font-weight:800;white-space:nowrap;box-shadow:0 4px 14px #16895426;cursor:pointer}
+body.cs-operator .cs23-work-head .cs132-finish:hover{background:#107548}
+body.cs-operator .cs23-work-head .cs132-finish svg{width:18px;height:18px}
+body.cs-operator .cs132-toolbar-spacer{flex:1;min-width:0}
+body.cs-operator .cs132-toolbar-label{font-size:10px;letter-spacing:.16em;font-weight:750;color:#7991A6;white-space:nowrap}
+.cs132-sr{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;border:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important}
+body.cs-operator .cs23-work-head .cs22-pop,body.cs-operator .cs23-work-head .cs-tactics-panel{z-index:90!important}
+/* Nine-tool launcher, PC popover / phone bottom sheet */
+.cs132-menu-shade{position:fixed;inset:0;z-index:9998;display:block;background:transparent}
+.cs132-tool-menu{position:fixed;z-index:9999;width:min(390px,calc(100vw - 24px));background:#fff;border:1px solid #C9D8E6;border-radius:20px;box-shadow:0 20px 68px #001F3F38;padding:16px;color:#001F3F}
+.cs132-menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;gap:10px}
+.cs132-menu-top strong{display:block;font-size:17px;letter-spacing:-.02em}
+.cs132-menu-top small{display:block;margin-top:2px;color:#667F96;font-size:11px}
+.cs132-menu-x{width:30px;height:30px;border:0;border-radius:50%;background:#EDF2F6;font-size:22px;color:#435B72;cursor:pointer}
+.cs132-tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.cs132-tool-tile{min-width:0;min-height:105px;border:1px solid #DCE5EF;border-radius:14px;background:#F9FBFD;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px 3px;cursor:pointer;color:#193A59;transition:background .16s,border-color .16s,transform .16s}
+.cs132-tool-tile:not(:disabled):hover{background:#FFF2E6;border-color:#E8A55F;transform:translateY(-2px)}
+.cs132-tile-round{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#001F3F;color:#fff}
+.cs132-tile-round svg{width:19px;height:19px}
+.cs132-tile-title{font-size:11px;font-weight:800;text-align:center;line-height:1.3}
+.cs132-tool-tile small{font-size:9px;color:#6D8398}
+.cs132-tool-tile:disabled{background:#F3F5F7;color:#9BAAB9;cursor:default}
+.cs132-tool-tile:disabled .cs132-tile-round{background:#E1E7ED;color:#9BAAB9}
+/* Tabs / email history */
+body.cs-operator .cs132-tab{min-width:138px;max-width:230px;padding:10px 11px!important;cursor:grab!important}
+body.cs-operator .cs132-tab[aria-selected="true"]{border-top:2px solid #D97816!important}
+.cs132-mail-intro{display:flex;align-items:center;justify-content:space-between;padding:0 3px 13px;gap:10px;color:#001F3F;font-size:14px}
+.cs132-mail-intro span{font-size:11px;color:#6D7F90}
+.cs132-mail-list{display:flex;flex-direction:column;gap:10px}
+.cs132-mail-row{border:1px solid #DEE7EF;border-radius:13px;overflow:hidden;background:#fff}
+.cs132-mail-row summary{display:flex;align-items:center;gap:10px;padding:13px 12px;cursor:pointer;list-style:none}
+.cs132-mail-row summary::-webkit-details-marker{display:none}
+.cs132-mail-row summary>svg:last-child{width:15px;height:15px;color:#6F86A0}
+.cs132-mail-mark{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#E9F2FC;color:#2476C9;flex-shrink:0}
+.cs132-mail-name{flex:1;min-width:0}
+.cs132-mail-name strong,.cs132-mail-name small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cs132-mail-name strong{font-size:13px}
+.cs132-mail-name small{color:#6B8196;font-size:10px;margin-top:3px}
+.cs132-mail-body{border-top:1px solid #E2E8F0;padding:14px;background:#F9FBFD;white-space:pre-wrap;color:#223F5A;font-size:12px;line-height:1.7}
+.cs132-mail-body small{display:block;color:#5D7489;margin-top:9px}
+.cs132-mail-empty{display:flex;min-height:220px;align-items:center;justify-content:center;flex-direction:column;gap:7px;text-align:center;color:#6D8195}
+.cs132-mail-empty svg{width:33px;height:33px;color:#2476C9;margin-bottom:9px}
+.cs132-mail-empty strong{color:#001F3F;font-size:14px}
+.cs132-mail-empty p{max-width:320px;line-height:1.6;font-size:12px}
+@media(min-width:741px){
+ body.cs-operator .cs14-desk .sim-layout,body.cs-operator .cs14-desk .cs125-work>.sim-layout{grid-template-columns:minmax(0,2fr) minmax(0,3fr)!important}
+ body.cs-operator .cs14-desk .sim-chat,body.cs-operator .cs14-desk .sim-right{height:100%!important;max-height:none!important}
+ body.cs-operator .cs14-desk .cs131-tab-workspace{min-height:0!important}
+}
+@media(max-width:740px){
+ body.cs-operator .content{padding:8px max(8px,env(safe-area-inset-right)) 8px max(8px,env(safe-area-inset-left))!important}
+ body.cs-operator .cs14-desk>.cs13-work{gap:6px!important}
+ body.cs-operator .cs23-work-head{flex:0 0 44px!important;min-height:44px!important;max-height:46px!important}
+ body.cs-operator .cs23-work-head .cs132-toolbar{height:43px!important;min-height:43px!important;gap:7px!important;padding:1px!important}
+ body.cs-operator .cs23-work-head .cs132-quickbar{display:flex!important;gap:7px!important;flex:0 0 auto!important;width:auto!important}
+ body.cs-operator .cs23-work-head .cs23-bar-col,body.cs-operator .cs23-work-head .cs23-hint-anchor,body.cs-operator .cs23-work-head .cs23-actions{height:36px!important;width:36px!important;min-width:36px!important;max-width:36px!important;flex:0 0 36px!important}
+ body.cs-operator .cs23-work-head .cs132-tools-wrap{min-width:36px!important;flex-basis:36px!important}
+ body.cs-operator .cs23-work-head .cs132-icon-btn{width:36px!important;min-width:36px!important;max-width:36px!important;height:36px!important;min-height:36px!important;max-height:36px!important;flex-basis:36px!important}
+ body.cs-operator .cs23-work-head .cs132-icon-btn svg{width:17px!important;height:17px!important}
+ body.cs-operator .cs23-work-head .cs132-toolbar-label{display:none}
+ body.cs-operator .cs23-work-head .cs132-finish{height:36px!important;padding:0 10px;font-size:11px}
+ .cs132-menu-shade{background:#001F3F5E;display:flex;align-items:flex-end;justify-content:center}
+ .cs132-tool-menu{position:relative!important;left:auto!important;top:auto!important;width:100%!important;max-width:none!important;border-radius:20px 20px 0 0!important;padding:17px 18px calc(18px + env(safe-area-inset-bottom))!important;box-shadow:0 -12px 42px #001F3F2A!important}
+ .cs132-tool-tile{min-height:92px!important}
+ body.cs-operator .cs14-desk .sim-layout{gap:0!important}
+ body.cs-operator .cs14-desk .cs131-history-content,body.cs-operator .cs14-desk .cs132-mail-content{padding:11px!important}
+}
+@media(max-width:360px){body.cs-operator .cs23-work-head .cs132-toolbar,body.cs-operator .cs23-work-head .cs132-quickbar{gap:4px!important}body.cs-operator .cs23-work-head .cs132-icon-btn{height:33px!important;width:33px!important;min-width:33px!important;max-width:33px!important;flex-basis:33px!important}}
+
 </style>
 </head>
 <body>
@@ -1151,7 +1465,7 @@ body.cs-operator #chat-thread{overscroll-behavior:contain}
 <div id="app"></div><div id="modal-root"></div><div class="toast-root" id="toast-root" aria-live="polite"></div>
 <script>
 (()=>{'use strict';
-const VERSION='1.29.0', SCHEMA=2;
+const VERSION='1.32.0', SCHEMA=2;
 const $=(sel,root=document)=>root.querySelector(sel), $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 const paths={dashboard:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',templates:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',dictionary:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5V4a2 2 0 0 1 2-2h14v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M8 6h8M8 10h6"/>',keyboard:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"/>',star:'<path d="m12 3 2.78 5.83 6.42.92-4.65 4.53 1.1 6.39L12 17.65l-5.65 3.02 1.1-6.39L2.8 9.75l6.42-.92Z"/>',folder:'<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10H3Z"/>',settings:'<path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="m19 13 2-1-2-3-2 .2-1.6-1.3.4-2.1-3.5-1-1 1.9-2 .3-1.7-1.3-2.5 2.4 1.2 1.7-.3 2-2 1 .9 3.5 2.2-.1 1.3 1.6-.4 2.1 3.5 1 1-2 2-.2 1.7 1.3 2.5-2.5-1.2-1.7.3-2Z"/>',search:'<circle cx="10.9" cy="10.9" r="7.7"/><path d="m16.7 16.7 4.2 4.2"/>',plus:'<path d="M12 5v14M5 12h14"/>',copy:'<rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>',edit:'<path d="M12 20h9M4 16l-1 5 5-1L20 8a2.8 2.8 0 0 0-4-4Z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15M10 10v7M14 10v7"/>',close:'<path d="M18 6 6 18M6 6l12 12"/>',arrow:'<path d="M4 12h16m-7-7 7 7-7 7"/>',chevron:'<path d="m9 18 6-6-6-6"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',upload:'<path d="M12 16V4m-5 5 5-5 5 5M4 17v4h16v-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>',message:'<path d="M21 11.5a8.3 8.3 0 0 1-8.5 8.5 10 10 0 0 1-4-.7L3 21l1.7-5.5a8.7 8.7 0 1 1 16.3-4Z"/>',sparkles:'<path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8ZM19 17l.7 1.7L21 19l-1.3.3L19 21l-.7-1.7L17 19l1.3-.3Z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',filter:'<path d="M4 5h16l-6 7v6l-4 2v-8Z"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',save:'<path d="M19 21H5a2 2 0 0 1-2-2V3h14l4 4v12a2 2 0 0 1-2 2ZM7 3v6h10V3M7 21v-8h10v8"/>',shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',type:'<path d="M4 7V4h16v3M12 4v16M8 20h8"/>',external:'<path d="M14 4h6v6M10 14 20 4M20 14v6H4V4h6"/>',refresh:'<path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/>',archive:'<rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/>',alert:'<path d="m12 3 10 18H2Z"/><path d="M12 9v5M12 17h.01"/>',file:'<path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9ZM13 2v7h7M8 13h8M8 17h8"/>',eye:'<path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',bolt:'<path d="m13 2-9 12h7l-1 8 10-12h-7Z"/>',logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',layers:'<path d="m12 2 10 6-10 6L2 8ZM2 12l10 6 10-6M2 16l10 6 10-6"/>'};
 const ico=(name,cl='')=>`<svg class="${cl}" viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.file}</svg>`;
@@ -1233,7 +1547,7 @@ const BRAND_SVG='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" r
 function navHTML(){return`<aside class="sidebar" aria-label="Menu chính"><div class="side-brand" title="Taiou · CS Workspace"><div class="side-logo">${BRAND_SVG}</div><span class="brand-name-stack"><strong class="side-wordmark">Taiou</strong><small>CS Workspace</small></span></div>${[['dashboard','Trang chủ','dashboard'],['templates','Mẫu câu','templates'],['dictionary','Từ điển','dictionary'],['quiz','Trắc nghiệm','check'],['typing','Luyện gõ','keyboard'],['roleplay','Luyện 対応','message'],['favorites','Yêu thích','star']].map(([k,l,i])=>navItem(k,l,i)).join('')}<div class="sidebar-bottom">${navItem('settings','Dữ liệu & Cài đặt','settings')}</div></aside>`}
 function navItem(key,label,icon){const active=view===key||(key==='settings'&&view==='library');return`<button class="nav-link ${active?'active':''}" data-nav="${key}" title="${label}" aria-label="${label}">${ico(icon)}<span>${label}</span></button>`}
 function updateClock(){const el=$('#workspace-clock');if(!el)return;const d=new Date();el.textContent=d.toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit',hour12:false});}
-function renderLegacy(){document.title=`Taiou · CS Workspace v${VERSION}`;const home=view==='dashboard';let loc=view==='roleplay'&&activeScene?'対応練習':(menuLinks.find(x=>x[0]===view)?.[1]||'Trang chủ');$('#app').innerHTML=`<div class="screen-backdrop" data-action="close-nav"></div><div class="layout">${navHTML()}<div class="main-wrap"><header class="topbar"><div style="display:flex;align-items:flex-start;gap:12px"><button class="icon-btn mobile-menu" data-action="toggle-nav" aria-label="Mở menu">${ico('menu')}</button><div class="header-greeting">${home?`<h1>おつかれさまです、${esc(state.meta.name)}さん</h1><p>Hôm nay, cùng luyện tập tiếng Nhật nhé.</p>`:`<h1>${esc(loc)}</h1><p>${view==='roleplay'&&activeScene?'お客様対応 · 模擬環境':(view==='library'||view==='settings'?'Quản lý không gian cá nhân':'日本語 · Customer Service')}</p>`}</div></div>${home?`<div class="clock-chip" aria-label="Giờ hiện tại"><div id="workspace-clock" class="clock-time">--:--</div><div class="clock-note">Giờ hiện tại</div></div>`:''}</header><main class="content" id="page-content">${pageContent()}</main></div></div><nav class="mobile-bottom" aria-label="Điều hướng nhanh">${[['dashboard','Trang chủ','dashboard'],['templates','Mẫu câu','templates'],['typing','Luyện gõ','keyboard'],['roleplay','Mô phỏng','message'],['settings','Cài đặt','settings']].map(([a,b,c])=>`<button data-nav="${a}" class="${view===a?'active':''} ${a==='roleplay'?'taiou-sim-dock':''}">${ico(c)}<span>${b}</span></button>`).join('')}</nav>`;document.body.classList.toggle('sidebar-open',navOpen);updateClock();if(view==='typing'&&typingSession){typingRedraw();typingFocus()}if(view==='roleplay'&&activeScene)requestAnimationFrame(()=>cs117RestoreScheduled())}
+function renderLegacy(){document.title=`Taiou · CS Workspace v${VERSION}`;const home=view==='dashboard';let loc=view==='roleplay'&&activeScene?'対応練習':(menuLinks.find(x=>x[0]===view)?.[1]||'Trang chủ');$('#app').innerHTML=`<div class="screen-backdrop" data-action="close-nav"></div><div class="layout">${navHTML()}<div class="main-wrap"><header class="topbar"><div style="display:flex;align-items:flex-start;gap:12px"><button class="icon-btn mobile-menu" data-action="toggle-nav" aria-label="Mở menu">${ico('menu')}</button><div class="header-greeting">${home?`<h1>おつかれさまです、${esc(state.meta.name)}さん</h1><p>Hôm nay, cùng luyện tập tiếng Nhật nhé.</p>`:`<h1>${esc(loc)}</h1><p>${view==='roleplay'&&activeScene?'お客様対応 · 模擬環境':(view==='library'||view==='settings'?'Quản lý không gian cá nhân':'日本語 · Customer Service')}</p>`}</div></div>${home?`<div class="clock-chip" aria-label="Giờ hiện tại"><div id="workspace-clock" class="clock-time">--:--</div><div class="clock-note">Giờ hiện tại</div></div>`:''}</header><main class="content" id="page-content">${pageContent()}</main></div></div><nav class="mobile-bottom" aria-label="Điều hướng nhanh">${[['dashboard','ホーム','dashboard'],['roleplay','注文管理','templates'],['roleplay','模擬対応','message'],['quiz','学習','check'],['settings','設定','settings']].map(([a,b,c])=>`<button data-nav="${a}" class="${view===a?'active':''} ${b==='模擬対応'?'taiou-sim-dock':''}">${ico(c)}<span>${b}</span></button>`).join('')}</nav>`;document.body.classList.toggle('sidebar-open',navOpen);updateClock();if(view==='typing'&&typingSession){typingRedraw();typingFocus()}if(view==='roleplay'&&activeScene)requestAnimationFrame(()=>cs117RestoreScheduled())}
 setInterval(updateClock,12000);
 function go(v){if(v!=='typing')stopTypingClock();if(!menuLinks.some(x=>x[0]===v))return;view=v;navOpen=false;render();window.scrollTo({top:0,behavior:'instant'})}
 function heading(eyebrow,title,desc,btn=''){return`<div class="section-top"><div><p class="eyebrow">${eyebrow}</p><h1>${title}</h1><p class="subline">${desc}</p></div>${btn}</div>`}
@@ -6710,6 +7024,325 @@ csSuggestions=function(){const ss=activeScene;if(!ss)return [];
  if(customerSatisfied)return ['ご理解いただき、誠にありがとうございます。','以上となりますが、ほかにご不明な点はございますでしょうか。','また何かございましたら、いつでもお気軽にお問い合わせください。','本日はお問い合わせいただきありがとうございました。それでは、失礼いたします。'];
  return [...new Set([apology,...base,'お調べいたしますので、少々お待ちいただけますでしょうか。'])].slice(0,4);
 };
+
+
+// === TAIOU CS WORKSPACE v1.31 — Unified Workspace ===
+// Single visual identity, contextual prompts, real order accordion and draggable CS tabs.
+const CS131_THEME='orange-midnight-navy';
+const cs131PriorApply=applySettings;
+applySettings=function(){
+  state.settings.theme=CS131_THEME;
+  cs131PriorApply();
+  document.documentElement.dataset.theme=CS131_THEME;
+  document.documentElement.style.setProperty('--accent','#D97816');
+  document.documentElement.style.setProperty('--accent-rgb','217,120,22');
+};
+// Remove the obsolete learning label without affecting the simulator's core workflow.
+cs129RenderGuide=function(){document.querySelectorAll('.cs129-guide').forEach(x=>x.remove())};
+
+// Source of truth: a chat bubble contains just the message text. Time and sending status
+// always appear outside, in HH:mm (no seconds, no customer/agent labels).
+chatMessageHTML=function(m){
+  const side=m.side==='agent'?'mine':m.side==='customer'?'theirs':'sim-system';
+  const d=new Date(m.time||Date.now());
+  const hm=Number.isFinite(d.getTime())?new Intl.DateTimeFormat('ja-JP',{hour:'2-digit',minute:'2-digit',hour12:false}).format(d):'--:--';
+  return `<div class="chat-msg ${side}" data-cs131-side="${esc(m.side||'system')}"><div class="chat-bubble"><div>${esc(m.text||'').replace(/\n/g,'<br>')}</div></div><div class="cs131-msg-meta"><time>${hm}</time>${m.side==='agent'?' <span>· 送信済み</span>':''}</div></div>`;
+};
+
+const CS131_REPLY_BANK={
+ greet:['お問い合わせいただき、誠にありがとうございます。Taiouカスタマーサービスでございます。','本日はどのようなことでお困りでしょうか。','お問い合わせいただき、ありがとうございます。どのようなご用件でしょうか。','ご連絡いただきありがとうございます。お困りの内容をお聞かせください。'],
+ ask:['本日はどのようなことでお困りでしょうか。','詳しい状況をお伺いしてもよろしいでしょうか。','ご希望の対応について教えていただけますでしょうか。','差し支えなければ、現在の状況をお聞かせください。'],
+ generalApology:['ご不便をおかけしており、誠に申し訳ございません。','ご迷惑をおかけしておりますこと、深くお詫び申し上げます。','ご心配をおかけしてしまい、申し訳ございません。','お困りの状況について承知いたしました。まず詳細を確認いたします。'],
+ deliveryApology:['配送の件でご不便をおかけしており、誠に申し訳ございません。','お届けまでお待たせしてしまい、誠に申し訳ございません。','配達予定日を過ぎても届かず、ご心配をおかけして申し訳ございません。','配送状況を確認のうえ、ご案内いたします。'],
+ refundApology:['返金の件でご心配をおかけし、誠に申し訳ございません。','返金の反映をお待たせしており、申し訳ございません。','お支払いの状況を確認いたしますので、少々お待ちください。','現在の返金処理状況をお調べいたします。'],
+ defectApology:['商品に不具合があり、ご迷惑をおかけして誠に申し訳ございません。','お届けした商品に問題があったとのこと、深くお詫び申し上げます。','商品の状態をお伺いしてもよろしいでしょうか。','交換・返品について確認のうえ、ご案内いたします。'],
+ identify:['ご注文履歴をお調べし、該当する商品を確認いたします。','対象の商品を確認いたしますので、少々お待ちいただけますでしょうか。','今回お問い合わせの商品を、注文管理より特定いたします。','ご購入時期と商品を照合してまいります。'],
+ confirm:['こちらの商品についてのお問い合わせでお間違いないでしょうか。','お問い合わせの商品はこちらでお間違いないでしょうか。','該当の商品についてご確認いただけますでしょうか。','こちらの商品でよろしければ、詳細をご案内いたします。'],
+ verified:['ご確認いただき、ありがとうございます。','それでは該当の商品について詳しく確認いたします。','ご注文情報と現在の状況を照合いたします。','引き続き、ご希望の対応をお伺いしてもよろしいでしょうか。'],
+ wait:['詳しくお調べいたしますので、少々お待ちいただけますでしょうか。','ご確認いただきありがとうございます。引き続き確認いたします。','ただいま注文状況を照会しております。','確認でき次第、結果をご案内いたします。'],
+ resume:['お待たせいたしました。確認した内容をご案内いたします。','お時間をいただき、ありがとうございます。','ただいま確認できる状況についてご説明いたします。','お待ちいただき、誠にありがとうございます。'],
+ solve:['現在の注文状況を踏まえ、対応可能な方法をご案内いたします。','ご希望に沿える方法があるか確認いたします。','返品・交換・キャンセルの条件を確認させていただきます。','確認結果をご案内いたします。ご不明点があればお知らせください。'],
+ objection:['ご希望に沿えず、申し訳ございません。別の対応方法について確認いたします。','ご説明が不十分で申し訳ございません。改めてご案内いたします。','どの点がご希望と異なるか、お伺いしてもよろしいでしょうか。','ご事情を踏まえ、可能な範囲で対応方法を確認いたします。'],
+ thank:['ご理解いただき、誠にありがとうございます。','ご確認いただきありがとうございます。','ご協力いただき、誠にありがとうございました。','ご納得いただけたようで安心いたしました。'],
+ lastCheck:['以上となりますが、ほかにご不明な点はございますでしょうか。','そのほかに何かお手伝いできることはございますか。','ほかにもご心配なことがございましたら、お申し付けください。','こちらのご案内でご不明点はございませんでしょうか。'],
+ final:['また何かございましたら、いつでもお気軽にお問い合わせください。','本日はお問い合わせいただき、誠にありがとうございました。','どうぞ良い一日をお過ごしくださいませ。','それでは、失礼いたします。']
+};
+function cs131Suggest(ss){
+  if(!ss||ss.ended)return [];
+  const messages=ss.messages||[],last=messages.at(-1),lastText=String(last?.text||''),agent=messages.filter(m=>m.side==='agent'),lastAgent=agent.at(-1)?.text||'',cust=messages.filter(m=>m.side==='customer'),lastCustomer=cust.at(-1)?.text||'';
+  const phase=ss.flow13?.phase||'normal',isCustomer=last?.side==='customer';
+  let groups=[];
+  const apologyTopic=/配送|配達|届|発送|荷物|再配達/.test(lastCustomer)?'deliveryApology':/返金|支払|振込|入金/.test(lastCustomer)?'refundApology':/壊|故障|不良|破損|動か|傷|汚/.test(lastCustomer)?'defectApology':'generalApology';
+  const satisfied=/わかりました|分かりました|納得|理解|了解|承知|ありがとう|大丈夫です|解決しました/.test(lastCustomer);
+  const negative=/違い|違う|別の商品|それではない|納得でき|困り|不満|まだ解決|無理|でも|しかし|それじゃ/.test(lastCustomer);
+  const verified=/はい|そうです|合っています|間違いありません|それです|その商品/.test(lastCustomer);
+  const askedVerification=/商品.*お間違い|商品.*でしょうか|こちら.*ご注文|この商品|対象の商品/.test(lastAgent);
+  const alreadyAskedMore=/ほかに.*ご不明|そのほかに|他に.*お手伝い/.test(lastAgent);
+  const apologised=/申し訳ございません|お詫び|ご迷惑|ご不便/.test(lastAgent);
+  const identified=/注文.*確認|ご注文履歴|商品を.*確認|商品を特定|注文管理/.test(lastAgent);
+  const resolved=!!ss.readyToClose||cs119Solved(ss)||ss.cs22Tasks?.some(x=>x.status==='完了');
+  if(!agent.length){groups=['greet','ask'];}
+  else if(!isCustomer && /お問い合わせ.*ありがとう|カスタマーサービス|ご用件|お困り/.test(lastText)){groups=/どのような|ご用件|お困り/.test(lastText)?[apologyTopic,'identify','solve']:['ask',apologyTopic,'identify'];}
+  else if(isCustomer && negative){groups=['objection',apologyTopic,'identify','solve'];}
+  else if(isCustomer && askedVerification && verified){groups=['verified','solve','wait'];}
+  else if(isCustomer && satisfied && (resolved||alreadyAskedMore)){groups=['thank','lastCheck','final'];}
+  else if(isCustomer && satisfied){groups=['thank','lastCheck','solve'];}
+  else if(isCustomer && /ほかには|ありません|ないです|結構です/.test(lastCustomer) && alreadyAskedMore){groups=['final','thank'];}
+  else if(isCustomer && /まだ|届|壊|返金|キャンセル|交換|返品|住所|配送|エラー|使え|困/.test(lastCustomer)){
+    groups=[apologyTopic,'identify','solve'];
+  }
+  else if(isCustomer && /待たせ|遅い|まだですか/.test(lastCustomer)){groups=['resume',apologyTopic,'solve'];}
+  else if(isCustomer){groups=['generalApology','ask','identify'];}
+  else if(!isCustomer && /お問い合わせ.*ありがとう|カスタマーサービス|ご用件|お困り/.test(lastText) && !cust.length){groups=['ask','generalApology'];}
+  else if(!isCustomer && apologised){groups=['identify','confirm','solve'];}
+  else if(!isCustomer && identified){groups=['confirm','wait','solve'];}
+  else if(!isCustomer && askedVerification){groups=['wait','solve','ask'];}
+  else if(!isCustomer && /お待ち|確認いたします|お調べ/.test(lastText)){groups=['resume','solve','wait'];}
+  else if(!isCustomer && /ご理解.*ありがとう/.test(lastText)){groups=['lastCheck','final'];}
+  else if(!isCustomer && alreadyAskedMore){groups=['final','lastCheck'];}
+  else if(!isCustomer && /解決|案内|承りました|対応.*完了/.test(lastText)){groups=['lastCheck','thank','solve'];}
+  else {groups=['solve','ask','wait'];}
+  if(!agent.length)groups=['greet','ask'];
+  else if(phase==='need_issue'&&!cust.length)groups=['ask','generalApology'];
+  else if(phase==='need_product'&&isCustomer&&!negative&&!satisfied)groups=[apologyTopic,'identify','confirm'];
+  else if(phase==='await_confirmation'&&isCustomer&&verified)groups=['verified','solve'];
+  // Avoid suggesting promises about an action until there is a verified operation outcome.
+  const pool=[];for(const name of groups){for(const txt of CS131_REPLY_BANK[name]||[])pool.push(txt)}
+  if(groups.includes('confirm')&&ss.targetProduct13?.jp){pool.unshift(`お問い合わせの商品は、${ss.targetProduct13.jp}でお間違いないでしょうか。`)}
+  const unique=[...new Set(pool)].filter(t=>t!==lastAgent);
+  const sentRecent=agent.slice(-5).map(m=>m.text),fresh=unique.filter(x=>!sentRecent.includes(x));
+  const sorted=fresh.concat(unique.filter(x=>!fresh.includes(x)));
+  // Do not re-cycle previous cards after a message change.
+  const fingerprint=`${messages.length}:${last?.side}:${last?.time}:${lastText}:${ss.index}:${phase}`;
+  if(ss.cs131SuggestionFingerprint!==fingerprint){ss.cs131SuggestionFingerprint=fingerprint;ss.cs119NagarePage=0;}
+  const page=Math.max(0,Number(ss.cs119NagarePage)||0);
+  const n=Math.max(1,Math.ceil(sorted.length/4));
+  return sorted.slice((page%n)*4,(page%n)*4+4).length?sorted.slice((page%n)*4,(page%n)*4+4):sorted.slice(0,4);
+}
+csSuggestions=function(){return activeScene?cs131Suggest(activeScene):[]};
+const cs131PreviousSuggestions=cs119SelectSuggestions;
+cs119SelectSuggestions=function(ss){return cs131Suggest(ss)};
+cs119BuildOptions=function(ss){return (ss?['greet','ask','generalApology','deliveryApology','identify','confirm','verified','solve','thank','lastCheck','final'].flatMap(x=>CS131_REPLY_BANK[x].map((text,i)=>({text,type:x,semantic:x+'-'+i,score:99}))):[])};
+
+// Settings: only one theme; sound lives here instead of floating over the application.
+CS129Sound.paint=function(){
+ document.getElementById('cs129-sound-toggle')?.remove();
+ const toggle=document.getElementById('cs131-settings-sound');
+ if(toggle){toggle.textContent=this.enabled?'♪ Âm thanh đang bật':'♩ Âm thanh đang tắt';toggle.setAttribute('aria-pressed',String(this.enabled));}
+};
+const cs131PriorSettings=settingsPage;
+settingsPage=function(){
+ const el=document.createElement('div');el.innerHTML=cs131PriorSettings();
+ el.querySelector('.taiou-theme-grid')?.closest('.field')?.remove();
+ el.querySelectorAll('[data-theme],[data-accent]').forEach(x=>x.remove());
+ const appearance=[...el.querySelectorAll('.setting-section')].find(x=>x.textContent.includes('Giao diện & màu sắc'));
+ if(appearance){const note=document.createElement('div');note.className='cs131-palette-setting';note.innerHTML='<span class="cs131-palette-swatches"><i></i><i></i><i></i><i></i></span><div><b>Orange × Midnight Navy</b><small>Giao diện đồng nhất trên mọi thiết bị · Không có theme khác</small></div>';appearance.querySelector('h2')?.after(note)}
+ const section=document.createElement('section');section.className='panel pad cs131-sound-setting';section.innerHTML=`<div><h2>Âm thanh · サウンド</h2><p class="subline">Âm tương tác cho tab, tin nhắn, tiếp nhận khách và câu đố.</p></div><button type="button" id="cs131-settings-sound" class="btn btn-secondary" aria-pressed="${CS129Sound.enabled}">${CS129Sound.enabled?'♪ Âm thanh đang bật':'♩ Âm thanh đang tắt'}</button>`;
+ el.append(section);return el.innerHTML;
+};
+
+// Expandable product information is independent from the activity history tab.
+const cs131PreviousDetails=cs14ProductDetails;
+cs14ProductDetails=function(ss,o,p){
+ const host=document.createElement('div');host.innerHTML=cs131PreviousDetails(ss,o,p);
+ // Some legacy scenarios injected contact notes into order details; history is now a separate tab.
+ [...host.querySelectorAll('.cs115-sub-title')].forEach(x=>{if(x.textContent.includes('過去の対応履歴')){if(x.nextElementSibling?.classList.contains('cs14-facts'))x.nextElementSibling.remove();x.remove()}});
+ const title=[...host.querySelectorAll('.cs115-sub-title')].find(x=>x.textContent.includes('詳細情報'));
+ const facts=host.querySelector('.cs121-detail-facts')||host.querySelector('.cs14-facts');
+ if(title&&facts){
+  const accordion=document.createElement('details');accordion.className='cs131-detail-accordion';
+  const summary=document.createElement('summary');summary.innerHTML=`${ico('clipboard-list')}<span>詳細情報</span>${ico('chevron-down')}`;
+  const body=document.createElement('div');body.className='cs131-detail-body';
+  title.before(accordion);accordion.append(summary,body);facts.remove();body.append(facts);title.remove();
+ }
+ return host.innerHTML;
+};
+
+function cs131Tabs(ss){
+ const initial=['orders'];if(ss?.cs131HistoryOpen)initial.push('history');
+ let stored=[];try{stored=JSON.parse(localStorage.getItem('taiou131-tab-order')||'[]')}catch(e){}
+ return initial.sort((a,b)=>{let ai=stored.indexOf(a),bi=stored.indexOf(b);return (ai<0?99:ai)-(bi<0?99:bi)});
+}
+function cs131HistoryMarkup(ss){
+ const entries=[];
+ (ss?.orders13||[]).forEach(o=>(o.priorContacts||[]).forEach(x=>entries.push({id:x.contactId||'',date:x.date||'',subject:o.orderId||'',note:x.note||'',messages:x.messages||[]})));
+ (state.roleplayHistory||[]).slice(0,20).forEach(x=>entries.push({id:x.id||'',date:x.date||x.startedAt||'',subject:x.scenario||'過去のチャット',note:x.summary||'',messages:Array.isArray(x.messages)?x.messages:[]}));
+ entries.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+ if(!entries.length)return '<div class="cs131-empty-history"><strong>対応履歴はまだありません</strong><p>過去の対応履歴が保存されると、こちらで参照できます。</p></div>';
+ return `<div class="cs131-history-list">${entries.slice(0,35).map((entry,i)=>`<details class="cs131-history-card" ${i===0?'open':''}><summary><span class="cs131-history-icon">${ico('history')}</span><span><strong>${esc(entry.subject||'過去の対応')}</strong><small>${esc(entry.date?String(entry.date).replace('T',' ').slice(0,16):'日時不明')} ${entry.id?' · '+esc(entry.id):''}</small></span>${ico('chevron-down')}</summary><div class="cs131-history-body">${entry.note?`<p class="cs131-history-note">${esc(entry.note)}</p>`:''}${entry.messages.length?`<div class="cs131-archived-thread">${entry.messages.map(chatMessageHTML).join('')}</div>`:'<p class="cs131-history-note">保存されたメッセージ本文はありません。</p>'}</div></details>`).join('')}</div>`;
+}
+function cs131WorkTabs(ss){const tabs=cs131Tabs(ss);return tabs.map(key=>`<div class="cs131-tab" role="tab" tabindex="0" draggable="true" data-cs131-tab="${key}" aria-selected="${(ss.cs131ActiveTab||'orders')===key}"><span class="cs131-tab-title">${ico(key==='orders'?'shopping-bag':'history')} ${key==='orders'?'注文管理':'過去の対応履歴'}</span>${key==='history'?'<button type="button" class="cs131-tab-close" data-cs131-close="history" aria-label="履歴タブを閉じる">×</button>':''}</div>`).join('')}
+const cs131PriorRoleplay=roleplayPage;
+roleplayPage=function(){
+ const html=cs131PriorRoleplay();const ss=activeScene;if(!ss)return html;
+ const root=document.createElement('div');root.innerHTML=html;
+ const work=root.querySelector('.cs125-work,.cs23-work,.cs13-work'),right=work?.querySelector('.sim-right');
+ if(!right)return html;
+ const bar=work.querySelector('.cs23-bar');
+ if(bar){const history=document.createElement('div');history.className='cs23-bar-col cs131-history-launch';history.innerHTML=`<button type="button" class="cs23-bar-btn cs131-history-trigger" data-cs131-open-history title="過去の対応履歴を開く">${ico('history')}<span>過去の対応履歴</span></button>`;bar.querySelector('.cs23-actions')?.before(history);}
+ right.classList.add('cs131-tab-workspace');
+ const strip=document.createElement('div');strip.className='cs131-tabstrip';strip.setAttribute('role','tablist');strip.setAttribute('aria-label','CS ワークスペース');strip.innerHTML=cs131WorkTabs(ss);
+ const orderArea=document.createElement('div');orderArea.className='cs131-tab-content cs131-orders-content';orderArea.dataset.cs131Panel='orders';
+ while(right.firstChild)orderArea.append(right.firstChild);
+ right.append(strip,orderArea);
+ if(ss.cs131HistoryOpen){
+ const historyArea=document.createElement('div');historyArea.className='cs131-tab-content cs131-history-content';historyArea.dataset.cs131Panel='history';historyArea.innerHTML=cs131HistoryMarkup(ss);right.append(historyArea);
+ }
+ const active=ss.cs131ActiveTab==='history'&&ss.cs131HistoryOpen?'history':'orders';
+ strip.querySelectorAll('[data-cs131-tab]').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.cs131Tab===active)));
+ right.querySelectorAll('[data-cs131-panel]').forEach(t=>t.hidden=t.dataset.cs131Panel!==active);
+ return root.innerHTML;
+};
+function cs131Select(key){const ss=activeScene,host=document.querySelector('.cs131-tab-workspace');if(!ss||!host)return;
+ if(key==='history'&&!ss.cs131HistoryOpen)return;
+ ss.cs131ActiveTab=key;
+ host.querySelectorAll('[data-cs131-tab]').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.cs131Tab===key)));
+ host.querySelectorAll('[data-cs131-panel]').forEach(t=>t.hidden=t.dataset.cs131Panel!==key);
+}
+function cs131OpenHistory(){const ss=activeScene;if(!ss)return;ss.cs131HistoryOpen=true;ss.cs131ActiveTab='history';const draft=document.getElementById('roleplay-entry')?.value||'';render();const input=document.getElementById('roleplay-entry');if(input)input.value=draft;}
+function cs131CloseHistory(){const ss=activeScene;if(!ss)return;ss.cs131HistoryOpen=false;ss.cs131ActiveTab='orders';const draft=document.getElementById('roleplay-entry')?.value||'';render();const input=document.getElementById('roleplay-entry');if(input)input.value=draft;}
+function cs131Reorder(source,target){if(source===target)return;
+ const ss=activeScene,host=document.querySelector('.cs131-tab-workspace');if(!ss||!host)return;
+ const list=cs131Tabs(ss);const from=list.indexOf(source),to=list.indexOf(target);if(from<0||to<0)return;
+ list.splice(to,0,list.splice(from,1)[0]);try{localStorage.setItem('taiou131-tab-order',JSON.stringify(list))}catch(e){}
+ const strip=host.querySelector('.cs131-tabstrip');list.forEach(k=>{const x=strip.querySelector(`[data-cs131-tab="${k}"]`);if(x)strip.append(x)});
+}
+document.addEventListener('click',e=>{
+ const el=e.target.closest('[data-cs131-open-history],[data-cs131-close],[data-cs131-tab],#cs131-settings-sound');if(!el)return;
+ e.preventDefault();e.stopImmediatePropagation();
+ if(el.id==='cs131-settings-sound'){CS129Sound.toggle();return;}
+ if(el.dataset.cs131OpenHistory!==undefined){cs131OpenHistory();return;}
+ if(el.dataset.cs131Close!==undefined){cs131CloseHistory();return;}
+ if(el.dataset.cs131Tab){if(Date.now()-cs131DragEnd<280)return;cs131Select(el.dataset.cs131Tab)}
+},true);
+let cs131DragSource='',cs131DragEnd=0,cs131Touch=null;
+document.addEventListener('dragstart',e=>{const tab=e.target.closest?.('.cs131-tab');if(!tab)return;cs131DragSource=tab.dataset.cs131Tab||'';e.dataTransfer?.setData('text/plain',cs131DragSource);if(e.dataTransfer)e.dataTransfer.effectAllowed='move';tab.classList.add('is-dragging')});
+document.addEventListener('dragover',e=>{const tab=e.target.closest?.('.cs131-tab');if(!tab||!cs131DragSource)return;e.preventDefault();e.dataTransfer.dropEffect='move'});
+document.addEventListener('drop',e=>{const tab=e.target.closest?.('.cs131-tab');if(!tab||!cs131DragSource)return;e.preventDefault();cs131Reorder(cs131DragSource,tab.dataset.cs131Tab);cs131DragEnd=Date.now();cs131DragSource='';document.querySelectorAll('.cs131-tab.is-dragging').forEach(t=>t.classList.remove('is-dragging'))});
+document.addEventListener('dragend',()=>{cs131DragSource='';document.querySelectorAll('.cs131-tab.is-dragging').forEach(t=>t.classList.remove('is-dragging'))});
+// Touch gesture swaps tabs on release over another tab; vertical scrolling remains available.
+document.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'||e.target.closest?.('.cs131-tab-close'))return;const t=e.target.closest?.('.cs131-tab');if(!t)return;cs131Touch={key:t.dataset.cs131Tab,x:e.clientX,y:e.clientY,dragged:false};},true);
+document.addEventListener('pointermove',e=>{if(!cs131Touch)return;if(Math.abs(e.clientX-cs131Touch.x)>22&&Math.abs(e.clientX-cs131Touch.x)>Math.abs(e.clientY-cs131Touch.y)*1.4)cs131Touch.dragged=true;},true);
+document.addEventListener('pointerup',e=>{if(!cs131Touch)return;const touch=cs131Touch;cs131Touch=null;if(!touch.dragged)return;const tabs=[...document.querySelectorAll('.cs131-tab')];const target=tabs.find(t=>{const r=t.getBoundingClientRect();return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top-14&&e.clientY<=r.bottom+14});if(target){cs131Reorder(touch.key,target.dataset.cs131Tab);cs131DragEnd=Date.now();}},true);
+document.addEventListener('pointercancel',()=>cs131Touch=null,true);
+
+// Update live suggestions after EVERY turn, even when the customer has not replied yet.
+let cs131LiveStamp='';
+function cs131RefreshLive(){
+ const ss=activeScene;if(!ss||view!=='roleplay'||ss.ended)return;
+ const last=ss.messages?.at(-1),stamp=[ss.startMs,ss.messages?.length,last?.time,last?.side,last?.text,ss.flow13?.phase,ss.cs119NagarePage,ss.index].join('|');
+ if(cs131LiveStamp===stamp)return;cs131LiveStamp=stamp;
+ const current=document.querySelector('.sim-chat .reply-assist');if(!current)return;
+ const fresh=document.createElement('div');fresh.innerHTML=csReplyChips();if(fresh.firstElementChild)current.replaceWith(fresh.firstElementChild);
+}
+setInterval(cs131RefreshLive,260);
+// Ensure sound setting survives updates and no floating audio control is ever shown.
+const cs131PriorRender=render;
+render=function(){cs131PriorRender();CS129Sound.paint();document.querySelectorAll('.cs129-guide').forEach(x=>x.remove());cs131LiveStamp='';};
+
+
+// Additional matching pictograms for the compact controls (no fallback document icon).
+Object.assign(paths,{
+ 'history':'<path d="M3 12a9 9 0 1 0 2.2-5.9"/><path d="M3 3v6h6M12 7v5l3 2"/>',
+ 'inbox':'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 13h5l2 3h4l2-3h5"/>',
+ 'lightbulb':'<path d="M9 18h6m-6 3h6M9 14.5a6 6 0 1 1 6 0L14 18h-4Z"/>',
+ 'shopping-bag':'<path d="M4 7h16l1 14H3L4 7Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/>',
+ 'check-circle':'<circle cx="12" cy="12" r="9"/><path d="m7.5 12 3 3 6-6"/>',
+ 'phone-off':'<path d="m3 3 18 18M7.5 7.5c-1 0-2 2-1 4 1 3 4 6 7 7 2 1 4 0 4-1l-3-3-2 2-5-5 2-2Z"/>',
+ 'alert-triangle':'<path d="m12 3 10 18H2Z"/><path d="M12 9v5m0 3h.01"/>',
+ 'chevron-down':'<path d="m6 9 6 6 6-6"/>'
+});
+// Taiou CS Workspace v1.32.0 — Expanded Workspace / compact operator toolbar.
+const CS132_TABS={orders:{label:'注文管理',icon:'shopping-bag'},history:{label:'過去コンタクト',icon:'history'},mail:{label:'メール履歴',icon:'mail'}};
+const CS132_TOOLS=[
+ {id:'inbox',label:'受信箱',icon:'inbox'},
+ {id:'feedback',label:'フィードバック',icon:'star'},
+ {id:'hint',label:'対応ヒント',icon:'lightbulb'},
+ {id:'history',label:'過去コンタクト',icon:'history'},
+ {id:'mail',label:'メール履歴',icon:'mail'},
+ {id:'future6',label:'ツール 06',icon:'plus'},
+ {id:'future7',label:'ツール 07',icon:'plus'},
+ {id:'future8',label:'ツール 08',icon:'plus'},
+ {id:'future9',label:'ツール 09',icon:'plus'}
+];
+function cs132StoredOrder(){try{const x=JSON.parse(localStorage.getItem('taiou132-tabs')||'[]');return Array.isArray(x)?x:[]}catch(e){return []}}
+cs131Tabs=function(ss){let available=['orders'];if(ss?.cs131HistoryOpen)available.push('history');if(ss?.cs132MailOpen)available.push('mail');let stored=cs132StoredOrder();return available.sort((a,b)=>{const x=stored.indexOf(a),y=stored.indexOf(b);return (x<0?99:x)-(y<0?99:y)})};
+cs131WorkTabs=function(ss){return cs131Tabs(ss).map(key=>{
+ const t=CS132_TABS[key],active=(ss.cs131ActiveTab||'orders')===key;
+ return `<div class="cs131-tab cs132-tab" draggable="true" role="tab" tabindex="0" data-cs131-tab="${key}" aria-controls="cs132-panel-${key}" aria-selected="${active}"><span class="cs131-tab-title">${ico(t.icon)}<span>${t.label}</span></span>${key==='orders'?'':`<button type="button" class="cs131-tab-close" ${key==='history'?'data-cs131-close="history"':'data-cs132-close="mail"'} aria-label="${t.label} を閉じる">×</button>`}</div>`}).join('')};
+function cs132RecordTime(raw){try{const d=new Date(raw);if(!isNaN(d))return new Intl.DateTimeFormat('ja-JP',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d)}catch(e){}return String(raw||'日時不明').slice(0,16)}
+function cs132MailHTML(ss){const items=(ss.cs22Inbox||[]).filter(Boolean).slice().sort((a,b)=>(Number(b.time)||0)-(Number(a.time)||0));
+ if(!items.length)return `<div class="cs132-mail-empty">${ico('mail')}<strong>メール履歴はありません</strong><p>この対応で送受信した社内連絡がある場合、ここに表示されます。</p></div>`;
+ return `<div class="cs132-mail-intro"><strong>メール履歴 · 社内連絡</strong><span>${items.length} 件</span></div><div class="cs132-mail-list">${items.map((m,i)=>`<details class="cs132-mail-row" ${i===0?'open':''}><summary><span class="cs132-mail-mark">${ico(m.kind==='warning'?'alert-triangle':'mail')}</span><span class="cs132-mail-name"><strong>${esc(m.title||'社内通知')}</strong><small>${esc(cs132RecordTime(m.time))}${m.oid?' · '+esc(m.oid):''}</small></span>${ico('chevron-down')}</summary><div class="cs132-mail-body"><p>${esc(m.body||'本文はありません。')}</p>${m.oid?`<small>注文番号：${esc(m.oid)}${m.sku?' · '+esc(m.sku):''}</small>`:''}</div></details>`).join('')}</div>`;
+}
+function cs132PersistScroll(){const ss=activeScene;if(!ss)return;ss.cs132ScrollPositions||={};document.querySelectorAll('.cs131-tab-content[data-cs131-panel]').forEach(el=>{ss.cs132ScrollPositions[el.dataset.cs131Panel]=el.scrollTop})}
+function cs132RestoreScroll(){const ss=activeScene;if(!ss?.cs132ScrollPositions)return;document.querySelectorAll('.cs131-tab-content[data-cs131-panel]').forEach(el=>{if(Object.hasOwn(ss.cs132ScrollPositions,el.dataset.cs131Panel))el.scrollTop=ss.cs132ScrollPositions[el.dataset.cs131Panel]})}
+cs131Select=function(key){const ss=activeScene,host=document.querySelector('.cs131-tab-workspace');if(!ss||!host)return;if(key==='history'&&!ss.cs131HistoryOpen)return;if(key==='mail'&&!ss.cs132MailOpen)return;
+ cs132PersistScroll();ss.cs131ActiveTab=key;
+ host.querySelectorAll('[data-cs131-tab]').forEach(el=>{const yes=el.dataset.cs131Tab===key;el.setAttribute('aria-selected',String(yes));el.tabIndex=yes?0:-1});
+ host.querySelectorAll('[data-cs131-panel]').forEach(el=>el.hidden=el.dataset.cs131Panel!==key);
+ cs132RestoreScroll();
+};
+cs131Reorder=function(source,target){if(!source||!target||source===target)return;const ss=activeScene,host=document.querySelector('.cs131-tab-workspace');if(!ss||!host)return;
+ const keys=cs131Tabs(ss);if(!keys.includes(source)||!keys.includes(target))return;
+ keys.splice(keys.indexOf(source),1);keys.splice(keys.indexOf(target),0,source);
+ try{localStorage.setItem('taiou132-tabs',JSON.stringify(keys))}catch(e){}
+ const strip=host.querySelector('.cs131-tabstrip');if(strip)keys.forEach(k=>{let el=strip.querySelector(`[data-cs131-tab="${k}"]`);if(el)strip.appendChild(el)});
+};
+function cs132KeepDraftRender(){const draft=document.getElementById('roleplay-entry')?.value;cs132PersistScroll();render();if(draft!==undefined){const el=document.getElementById('roleplay-entry');if(el)el.value=draft}cs132RestoreScroll()}
+function cs132OpenMail(){const ss=activeScene;if(!ss)return;ss.cs132MailOpen=true;ss.cs131ActiveTab='mail';cs132CloseToolMenu();cs132KeepDraftRender()}
+function cs132CloseMail(){const ss=activeScene;if(!ss)return;ss.cs132MailOpen=false;if(ss.cs131ActiveTab==='mail')ss.cs131ActiveTab='orders';cs132KeepDraftRender()}
+function cs132Finish(){const ss=activeScene;if(!ss?.ended)return;cs132CloseToolMenu();activeScene=null;roleplaySummary=null;csTacticOpen=false;render();try{CS129Sound.play('finish')}catch(e){}}
+function cs132ToolButton(type,label,icon,attr,extra=''){
+ return `<button type="button" class="cs23-bar-btn cs132-icon-btn ${extra}" ${attr} title="${esc(label)}" aria-label="${esc(label)}">${ico(icon)}<span class="cs132-sr">${esc(label)}</span></button>`;
+}
+const cs132PriorRoleplay=roleplayPage;
+roleplayPage=function(){const html=cs132PriorRoleplay();const ss=activeScene;if(!ss)return html;
+ const root=document.createElement('div');root.innerHTML=html;
+ const work=root.querySelector('.cs125-work,.cs23-work,.cs13-work'),head=work?.querySelector('.cs23-work-head'),right=work?.querySelector('.cs131-tab-workspace');if(!work||!head)return html;
+ const unread=ss.cs22Inbox?.filter(x=>x.unread).length||0;
+ const feedback=!!ss.feedback?.deliveredAt&&!!ss.feedbackUnread;
+ head.innerHTML=`<div class="cs132-toolbar" role="toolbar" aria-label="CS クイックツール">
+ ${ss.ended?`<button type="button" class="cs132-finish" data-cs132-finish aria-label="完了 · 対応を終了して戻る" title="完了 · 対応を終了して戻る">${ico('check-circle')}<span>完了</span></button>`:''}
+ <div class="cs132-tools-wrap"><button type="button" class="cs132-menu-trigger cs132-icon-btn" data-cs132-menu aria-label="CS ツールを開く" aria-expanded="false" aria-haspopup="dialog" title="CS ツール">${ico('menu')}</button></div>
+ <div class="cs23-bar cs132-quickbar">
+  <div class="cs23-bar-col cs23-anchor cs23-feedback-anchor">${cs132ToolButton('feedback','フィードバック','star',`data-cs22-eval aria-expanded="${ss.cs22Open==='eval'}"`,'cs23-eval')}${feedback?'<span class="cs132-tool-badge">!</span>':''}</div>
+  <div class="cs23-bar-col cs23-anchor cs23-inbox-anchor">${cs132ToolButton('inbox','受信箱','mail',`data-cs22-inbox aria-expanded="${ss.cs22Open==='inbox'}"`,'cs23-inbox')}${unread?`<span class="cs132-tool-badge">${unread>9?'9+':unread}</span>`:''}</div>
+  <div class="cs23-bar-col cs23-actions"><div class="cs23-anchor cs23-hint-anchor">${cs132ToolButton('hint','対応ヒント','lightbulb',`data-cs-tactic-toggle aria-expanded="${csTacticOpen}"`,'cs23-hint')}${csTacticHtml()}</div></div>
+  ${ss.ended?'':`<div class="cs23-bar-col cs132-end-anchor">${cs132ToolButton('end','対応を終了','phone-off',`data-cs112="end-manual"`,'cs23-end')}</div>`}
+ </div>
+ <span class="cs132-toolbar-spacer"></span><span class="cs132-toolbar-label">CS TOOLS</span></div>`;
+ // Existing inbox and hint overlays keep their original delegated actions and anchoring.
+ if(ss.cs22Open){const anchor=head.querySelector(ss.cs22Open==='inbox'?'.cs23-inbox-anchor':'.cs23-feedback-anchor');if(anchor)anchor.insertAdjacentHTML('beforeend',`<div id="cs22-pop-slot">${ss.cs22Open==='inbox'?cs22InboxUI(ss):cs22EvalUI(ss)}</div>`)}
+ if(right){
+  const strip=right.querySelector('.cs131-tabstrip');if(strip){strip.innerHTML=cs131WorkTabs(ss);strip.querySelectorAll('[data-cs131-tab]').forEach(t=>t.tabIndex=t.dataset.cs131Tab===(ss.cs131ActiveTab||'orders')?0:-1)}
+  if(ss.cs132MailOpen){const panel=document.createElement('div');panel.className='cs131-tab-content cs132-mail-content';panel.id='cs132-panel-mail';panel.dataset.cs131Panel='mail';panel.innerHTML=cs132MailHTML(ss);right.appendChild(panel)}
+  right.querySelectorAll('[data-cs131-panel]').forEach(panel=>{panel.id='cs132-panel-'+panel.dataset.cs131Panel;panel.hidden=panel.dataset.cs131Panel!==(ss.cs131ActiveTab||'orders')});
+  if(ss.cs131ActiveTab==='mail'&&!ss.cs132MailOpen||ss.cs131ActiveTab==='history'&&!ss.cs131HistoryOpen){ss.cs131ActiveTab='orders';right.querySelectorAll('[data-cs131-panel]').forEach(panel=>panel.hidden=panel.dataset.cs131Panel!=='orders')}
+ }
+ return root.innerHTML;
+};
+let cs132MenuNode=null,cs132MenuTrigger=null;
+function cs132CloseToolMenu(){if(cs132MenuNode){cs132MenuNode.remove();cs132MenuNode=null}if(cs132MenuTrigger){cs132MenuTrigger.setAttribute('aria-expanded','false');cs132MenuTrigger=null}}
+function cs132OpenToolMenu(button){if(cs132MenuNode){cs132CloseToolMenu();return}cs132MenuTrigger=button;button.setAttribute('aria-expanded','true');
+ const overlay=document.createElement('div');overlay.className='cs132-menu-shade';overlay.innerHTML=`<section class="cs132-tool-menu" role="dialog" aria-label="CS ツール" aria-modal="false"><div class="cs132-menu-top"><div><strong>CS ツール</strong><small>必要なツールを選択</small></div><button type="button" class="cs132-menu-x" data-cs132-dismiss aria-label="閉じる">×</button></div><div class="cs132-tool-grid">${CS132_TOOLS.map((t,i)=>`<button class="cs132-tool-tile" type="button" data-cs132-tool="${t.id}" ${i>4?'disabled aria-label="準備中"':''}><span class="cs132-tile-round">${ico(t.icon)}</span><span class="cs132-tile-title">${esc(t.label)}</span><small>${String(i+1).padStart(2,'0')}${i>4?' · 準備中':''}</small></button>`).join('')}</div></section>`;
+ document.body.appendChild(overlay);cs132MenuNode=overlay;
+ const panel=overlay.firstElementChild,rect=button.getBoundingClientRect();if(window.innerWidth>740){const w=Math.min(390,window.innerWidth-24),x=Math.max(12,Math.min(rect.left,window.innerWidth-w-12));panel.style.left=x+'px';panel.style.top=Math.min(rect.bottom+10,window.innerHeight-440)+'px'}
+ panel.querySelector('[data-cs132-dismiss]')?.focus({preventScroll:true});
+}
+function cs132RouteTool(id){cs132CloseToolMenu();if(id==='history'){cs131OpenHistory();return}if(id==='mail'){cs132OpenMail();return}if(id==='hint'){document.querySelector('[data-cs-tactic-toggle]')?.click();return}if(id==='inbox'){document.querySelector('[data-cs22-inbox]')?.click();return}if(id==='feedback'){document.querySelector('[data-cs22-eval]')?.click();return}}
+document.addEventListener('click',e=>{
+ const open=e.target.closest?.('[data-cs132-menu]');if(open){e.preventDefault();e.stopImmediatePropagation();cs132OpenToolMenu(open);return}
+ const close=e.target.closest?.('[data-cs132-dismiss],[data-cs132-close]');if(close){e.preventDefault();e.stopImmediatePropagation();if(close.hasAttribute('data-cs132-dismiss'))cs132CloseToolMenu();else cs132CloseMail();return}
+ const finish=e.target.closest?.('[data-cs132-finish]');if(finish){e.preventDefault();e.stopImmediatePropagation();cs132Finish();return}
+ const tile=e.target.closest?.('[data-cs132-tool]');if(tile){e.preventDefault();e.stopImmediatePropagation();if(!tile.disabled)cs132RouteTool(tile.dataset.cs132Tool);return}
+ if(cs132MenuNode&&(e.target===cs132MenuNode||!e.target.closest('.cs132-tool-menu'))){cs132CloseToolMenu()}
+},true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cs132MenuNode){cs132CloseToolMenu();e.preventDefault()}
+ if((e.key==='Enter'||e.key===' ')&&e.target?.matches?.('.cs131-tab')){e.preventDefault();cs131Select(e.target.dataset.cs131Tab)}
+},true);
+const cs132PriorRender=render;
+render=function(){cs132PersistScroll();cs132CloseToolMenu();cs132PriorRender();cs132RestoreScroll()};
 
 init().catch(e=>{console.error(e);render();toast('Không thể tải tự lưu; hãy xuất file để sao lưu.','error')});
 })();
