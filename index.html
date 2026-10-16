@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#001F3F">
-<title>TAIOU CS WORKSPACE · Unified Orange Midnight Navy · v1.31.0</title>
+<title>TAIOU CS WORKSPACE · Command Center & Practice Hub · v1.33.0</title>
 <style>
 :root{font-family:Inter,"Segoe UI",-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-synthesis:none;--accent:#8eaafa;--accent-rgb:142,170,250;--bg:#0c111a;--sidebar:#101722;--panel:#151d2a;--panel2:#1b2534;--panel3:#202d3e;--border:#2b3749;--muted:#9aa9bd;--text:#eef3fa;--muted2:#76879e;--success:#5fd0ad;--warning:#edc68f;--danger:#ef8792;--shadow:0 20px 65px #0005;--radius:18px;--fontscale:1}
 :root[data-theme="light"]{--bg:#f4f6fa;--sidebar:#ffffff;--panel:#ffffff;--panel2:#f2f5fa;--panel3:#e8eef7;--border:#e0e6ef;--muted:#596980;--text:#263345;--muted2:#8490a2;--shadow:0 18px 60px #20334a18}
@@ -1458,6 +1458,139 @@ body.cs-operator .cs132-tab[aria-selected="true"]{border-top:2px solid #D97816!i
 }
 @media(max-width:360px){body.cs-operator .cs23-work-head .cs132-toolbar,body.cs-operator .cs23-work-head .cs132-quickbar{gap:4px!important}body.cs-operator .cs23-work-head .cs132-icon-btn{height:33px!important;width:33px!important;min-width:33px!important;max-width:33px!important;flex-basis:33px!important}}
 
+/* v1.33.0 · Home-only Command Center / Practice Hub. All simulator and data pages remain unchanged. */
+body.cs133-home{--cs133-navy:#001f3f;--cs133-ink:#0a2a48;--cs133-orange:#d97816;--cs133-orange-bright:#ee983e;--cs133-blue:#2476c9;--cs133-paper:#fff;--cs133-canvas:#f3f6fa;--cs133-muted:#65788d;--cs133-edge:#dfe6ef;background:var(--cs133-canvas)!important}
+body.cs133-home .layout{background:var(--cs133-canvas)!important;min-height:100dvh;gap:0!important;padding:0!important}
+body.cs133-home .main-wrap{background:var(--cs133-canvas)!important;box-shadow:none!important;border:0!important;border-radius:0!important;min-height:100dvh!important}
+body.cs133-home .content{max-width:1520px!important;padding:25px 29px 65px!important;overflow:visible!important;background:transparent!important}
+body.cs133-home .topbar{border:0!important;background:transparent!important;color:var(--cs133-ink)!important;height:94px!important;padding:13px 32px 6px!important;position:relative!important;box-shadow:none!important}
+body.cs133-home .topbar .header-greeting h1{font-size:24px!important;font-weight:850!important;color:var(--cs133-ink)!important;letter-spacing:-.035em!important;margin-bottom:4px!important}
+body.cs133-home .topbar .header-greeting p{color:var(--cs133-muted)!important;font-size:12px!important}
+body.cs133-home .clock-chip{border:1px solid var(--cs133-edge)!important;background:#fff!important;border-radius:16px!important;padding:11px 18px!important;box-shadow:0 7px 20px #102c4610!important}
+body.cs133-home .clock-time{font-size:21px!important;color:var(--cs133-ink)!important;font-weight:820!important}
+body.cs133-home .clock-note{font-size:10px!important;color:var(--cs133-muted)!important}
+body.cs133-home .sidebar.cs133-rail{width:88px!important;flex-basis:88px!important;position:fixed!important;top:12px!important;left:12px!important;bottom:12px!important;transform:none!important;z-index:30!important;padding:16px 8px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:11px!important;border:1px solid #244763!important;border-radius:25px!important;background:var(--cs133-navy)!important;box-shadow:0 13px 34px #001f3f19!important}
+body.cs133-home .main-wrap{margin-left:112px!important;width:calc(100% - 112px)!important}
+.cs133-rail-brand{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#f3a24e,#d97816);display:grid;place-items:center;color:white;box-shadow:0 10px 18px #d9781635;margin-bottom:14px;letter-spacing:-.07em;font-size:29px;font-weight:950}
+.cs133-rail-divider{height:1px;width:38px;background:#254a69;margin:0 0 3px}
+.cs133-rail-link{appearance:none;border:0;background:transparent;border-radius:14px;color:#acc1d7;display:flex;align-items:center;justify-content:center;flex-direction:column;width:68px;min-height:57px;padding:8px 3px;gap:3px;cursor:pointer;transition:background .18s,transform .18s,color .18s}
+.cs133-rail-link svg{height:21px;width:21px}
+.cs133-rail-link span{font-size:9px;font-weight:720;line-height:1.3;text-align:center;letter-spacing:-.01em;white-space:nowrap}
+.cs133-rail-link.active{color:#fff;background:#20415f}
+.cs133-rail-link.cs133-rail-sim{color:#ffbe79}
+.cs133-rail-link:hover{color:#fff;background:#1a405f;transform:translateY(-2px)}
+.cs133-rail-spacer{flex:1;min-height:8px}
+.cs133-rail-link:focus-visible,.cs133-command button:focus-visible,.cs133-hub button:focus-visible{outline:3px solid #ffae52;outline-offset:3px}
+.cs133-command,.cs133-hub{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;color:var(--cs133-ink)}
+.cs133-command *,.cs133-hub *{box-sizing:border-box}
+.cs133-command button,.cs133-hub button{font:inherit;cursor:pointer}
+.cs133-command{display:flex;flex-direction:column;gap:19px;animation:cs133-reveal .38s both}
+.cs133-kicker{color:#c26b13;font-size:10px;letter-spacing:.18em;font-weight:900;text-transform:uppercase}
+.cs133-section-title{color:var(--cs133-ink);font-size:19px;font-weight:840;line-height:1.35;letter-spacing:-.02em}
+.cs133-section-sub{color:var(--cs133-muted);font-size:12px;line-height:1.6}
+.cs133-command-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 4px}
+.cs133-command-heading strong{font-size:12px;color:#516781;letter-spacing:.03em}
+.cs133-command-heading .cs133-date-pill{font-size:11px;color:#476078;background:#fff;border:1px solid #dde6ef;border-radius:99px;padding:7px 12px;display:flex;align-items:center;gap:7px}
+.cs133-date-pill i{display:block;width:7px;height:7px;border-radius:50%;background:#df8a36}
+.cs133-hero{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(290px,.84fr);gap:20px;align-items:stretch;position:relative;overflow:hidden;border-radius:25px;padding:33px 36px;background:linear-gradient(109deg,#001d3a,#0a3050 70%,#164060);min-height:303px;box-shadow:0 17px 40px #001f3f24}
+.cs133-hero:before{content:'';width:490px;height:490px;position:absolute;border:1px solid #ffffff13;right:-135px;top:-240px;border-radius:50%;box-shadow:0 0 0 54px #ffffff05,0 0 0 108px #ffffff04;pointer-events:none}
+.cs133-hero-copy{align-self:center;position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:13px}
+.cs133-hero-label{display:inline-flex;gap:8px;align-items:center;color:#ffc386!important;border:1px solid #ffffff26;border-radius:99px;padding:6px 12px;font-size:10px;letter-spacing:.16em;font-weight:840;background:#ffffff0d}
+.cs133-hero-label span{width:6px;height:6px;background:#ffae53;border-radius:50%;box-shadow:0 0 0 4px #f9ab521c}
+.cs133-hero-copy h2{color:#fff!important;font-size:clamp(25px,2.55vw,39px)!important;line-height:1.32;font-weight:890;letter-spacing:-.042em;max-width:520px}
+.cs133-hero-copy p{color:#bdd0df!important;font-size:13px;line-height:1.8;max-width:430px}
+.cs133-cta{border:0!important;border-radius:12px;background:linear-gradient(125deg,#f4ad60,#e68d32)!important;color:#09223a!important;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:850!important;padding:13px 21px!important;box-shadow:0 9px 22px #0002;transition:transform .18s,filter .18s,box-shadow .18s}
+.cs133-cta svg{width:19px;height:19px}
+.cs133-cta:hover{transform:translateY(-2px);filter:brightness(1.045);box-shadow:0 13px 25px #0003}
+.cs133-hero-preview{position:relative;z-index:1;align-self:center;max-width:410px;width:100%;margin-left:auto;background:#fbfdff;border:1px solid #d8e4f0;border-radius:18px;padding:17px;box-shadow:0 19px 55px #0003;transform:rotate(1deg)}
+.cs133-preview-header{display:flex;gap:9px;align-items:center;padding:0 0 13px;border-bottom:1px solid #e8edf5}
+.cs133-preview-avatar{width:38px;height:38px;border-radius:12px;background:#e6f0fb;color:#1e629f;display:grid;place-items:center}
+.cs133-preview-avatar svg{width:19px;height:19px}
+.cs133-preview-name{flex:1;display:flex;flex-direction:column;gap:2px;color:#092a48;font-size:12px}
+.cs133-preview-name small{font-size:10px;color:#71849a}
+.cs133-preview-status{font-size:10px;color:#16834f;border:1px solid #cfede0;border-radius:99px;padding:3px 8px;background:#f0fbf4}
+.cs133-preview-thread{display:flex;flex-direction:column;gap:9px;padding:18px 1px 7px}
+.cs133-preview-bubble{padding:10px 12px;font-size:12px;line-height:1.6;border-radius:13px;max-width:88%;font-weight:550;box-shadow:0 1px 0 #0a234a08}
+.cs133-preview-bubble.customer{background:#e7f1ff;color:#1b578e;align-self:flex-start;border-bottom-left-radius:3px}
+.cs133-preview-bubble.agent{background:#f1f4f8;color:#0b2946;align-self:flex-end;border-bottom-right-radius:3px}
+.cs133-preview-bottom{font-size:10px;color:#77899b;text-align:right;padding:7px 4px 1px}
+.cs133-grid-main{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(275px,.85fr);gap:18px;align-items:start}
+.cs133-primary-stack,.cs133-secondary-stack{display:flex;flex-direction:column;gap:18px;min-width:0}
+.cs133-section-head{display:flex;align-items:end;justify-content:space-between;gap:9px;margin-bottom:12px}
+.cs133-section-head .cs133-see-all{border:0;background:transparent;color:#2476c9;font-size:11px;font-weight:750;padding:5px}
+.cs133-module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.cs133-module{position:relative;border:1px solid #dce5ee;background:#fff;border-radius:18px;padding:19px 19px 16px;min-height:133px;text-align:left;color:#001f3f;display:flex;flex-direction:column;align-items:flex-start;gap:7px;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden}
+.cs133-module:after{content:'↗';position:absolute;right:17px;top:16px;color:#afbdcc;font-size:20px;line-height:1}
+.cs133-module:hover{transform:translateY(-3px);border-color:#e7b17b;box-shadow:0 12px 25px #0c2b4712}
+.cs133-module-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:#fff0df;color:#b8610d;margin-bottom:4px}
+.cs133-module-icon.blue{background:#e8f1fc;color:#2476c9}
+.cs133-module-icon.navy{background:#eaf0f6;color:#001f3f}
+.cs133-module-icon.green{background:#eaf7f2;color:#18875e}
+.cs133-module-icon svg{width:20px;height:20px}
+.cs133-module-title{font-size:15px;line-height:1.3;font-weight:835}
+.cs133-module-note{font-size:11px;line-height:1.45;color:#697d91}
+.cs133-info-card{background:#fff;border:1px solid #dce5ef;border-radius:19px;padding:19px;min-width:0}
+.cs133-summary-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:16px}
+.cs133-summary-top strong{font-size:14px;font-weight:830}
+.cs133-summary-top .cs133-summary-icon{width:33px;height:33px;background:#fff1e2;border-radius:12px;color:#c5741e;display:grid;place-items:center}
+.cs133-summary-numbers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cs133-summary-num{padding:13px;border-radius:13px;background:#f4f7fa;display:flex;flex-direction:column;gap:3px}
+.cs133-summary-num span{font-size:10px;color:#60758b}
+.cs133-summary-num strong{font-size:20px;font-weight:870;line-height:1.35;color:#001f3f}
+.cs133-summary-line{padding-top:14px;margin-top:14px;border-top:1px solid #e4eaf0;display:flex;justify-content:space-between;gap:5px;font-size:11px;color:#667e92}
+.cs133-summary-line strong{font-size:12px;color:#153956}
+.cs133-activity-list{display:flex;flex-direction:column;gap:9px}
+.cs133-activity-item{display:flex;align-items:center;gap:11px;padding:10px;background:#f5f8fb;border-radius:12px}
+.cs133-activity-icon{flex:none;width:33px;height:33px;display:grid;place-items:center;border-radius:11px;background:#e4eff9;color:#2476c9}
+.cs133-activity-copy{min-width:0;display:flex;flex-direction:column;gap:1px}
+.cs133-activity-copy strong{color:#0d3451;font-size:11px;line-height:1.3}
+.cs133-activity-copy small{color:#71869c;font-size:10px}
+.cs133-activity-item .cs133-activity-arrow{margin-left:auto;color:#8fa3b4}
+.cs133-bottom-card{display:flex;justify-content:space-between;align-items:center;gap:15px;background:linear-gradient(112deg,#ecf4fc,#ffffff);border:1px solid #dce6f0;border-radius:18px;padding:18px 21px}
+.cs133-bottom-card strong{color:#103957;font-size:14px}
+.cs133-bottom-card p{color:#64798e;font-size:11px;margin-top:4px}
+.cs133-bottom-card button{border:1px solid #c9daea;border-radius:10px;background:#fff;color:#20577d;padding:9px 13px;font-size:11px;font-weight:780;white-space:nowrap}
+.cs133-hub{display:none}
+@keyframes cs133-reveal{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media (min-width:801px) and (max-width:1100px){body.cs133-home .sidebar.cs133-rail{transform:none!important}body.cs133-home .content{padding:18px 19px 40px!important}body.cs133-home .topbar{padding:10px 19px!important}.cs133-hero{padding:25px!important;gap:14px;grid-template-columns:minmax(0,1fr) minmax(240px,.85fr)}.cs133-grid-main{grid-template-columns:minmax(0,1.5fr) minmax(225px,.9fr)}.cs133-hero-copy h2{font-size:27px!important}}
+@media (max-width:800px){
+ body.cs133-home .sidebar.cs133-rail{display:none!important}
+ body.cs133-home .main-wrap{margin:0!important;width:100%!important;min-height:100dvh!important}
+ body.cs133-home .topbar{display:none!important}
+ body.cs133-home .content{padding:0 0 calc(123px + env(safe-area-inset-bottom))!important;max-width:100%!important}
+ .cs133-command{display:none!important}.cs133-hub{display:flex!important;flex-direction:column;gap:16px;animation:cs133-reveal .36s both}
+ .cs133-hub-top{background:#001f3f;color:#fff;border-radius:0 0 28px 28px;padding:24px 19px 23px;position:relative;overflow:hidden;box-shadow:0 8px 25px #001f3f18}
+ .cs133-hub-top:after{content:'';position:absolute;width:240px;height:240px;border:1px solid #ffffff0e;border-radius:50%;right:-135px;top:-110px;box-shadow:0 0 0 36px #ffffff04;pointer-events:none}
+ .cs133-hub-identity{display:flex;justify-content:space-between;align-items:center;gap:11px;position:relative;z-index:1}
+ .cs133-hub-brand{display:flex;align-items:center;gap:9px}
+ .cs133-hub-mark{width:39px;height:39px;border-radius:12px;background:linear-gradient(135deg,#f4a04c,#d97816);display:grid;place-items:center;font-weight:900;font-size:23px;color:#fff}
+ .cs133-hub-brand-words{display:flex;flex-direction:column;gap:1px}.cs133-hub-brand-words strong{font-size:16px;letter-spacing:.035em;font-weight:850;color:white}.cs133-hub-brand-words strong em{font-style:normal;color:#ffba74}.cs133-hub-brand-words small{font-size:9px;letter-spacing:.17em;color:#adc3d7;font-weight:750}
+ .cs133-hub-settings{background:#ffffff15;border:1px solid #ffffff25;min-width:39px;min-height:39px;border-radius:13px;color:#fff;display:grid;place-items:center}
+ .cs133-hub-hello{position:relative;z-index:1;padding:20px 0 14px}.cs133-hub-hello strong{font-size:25px;line-height:1.3;letter-spacing:-.03em;color:#fff;font-weight:860;display:block}.cs133-hub-hello p{font-size:12px;color:#bbccdd;margin-top:4px}
+ .cs133-hub-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:1}
+ .cs133-hub-stat{padding:13px 14px;background:#193c5a;border:1px solid #2d4e6a;border-radius:14px;min-height:76px;display:flex;flex-direction:column;gap:3px}.cs133-hub-stat small{font-size:10px;color:#b5c8da}.cs133-hub-stat strong{font-size:21px;line-height:1.25;font-weight:840;color:#fff}
+ .cs133-hub-inner{padding:0 16px;display:flex;flex-direction:column;gap:18px}
+ .cs133-hub-feature{background:white;border:1px solid #e1e7ee;border-radius:21px;padding:18px;box-shadow:0 8px 23px #122f4b08;display:flex;flex-direction:column;gap:17px}
+ .cs133-hub-feature-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+ .cs133-hub-feature-top .cs133-hub-feature-copy{display:flex;flex-direction:column;gap:5px}.cs133-hub-feature-copy span{font-size:10px;letter-spacing:.13em;color:#c67725;font-weight:900}.cs133-hub-feature-copy h2{font-size:25px;color:#001f3f!important;line-height:1.25;font-weight:900;letter-spacing:-.025em}.cs133-hub-feature-copy p{font-size:12px;color:#60748a}
+ .cs133-hub-feature-icon{width:70px;height:70px;border-radius:21px;background:#fff0df;color:#bd6a1b;display:grid;place-items:center;flex:none}.cs133-hub-feature-icon svg{width:32px;height:32px}
+ .cs133-hub-feature .cs133-cta{width:100%;min-height:47px;font-size:14px}
+ .cs133-hub-section-header{display:flex;justify-content:space-between;align-items:center;gap:10px}.cs133-hub-section-header h2{font-size:18px;font-weight:860;color:#001f3f}.cs133-hub-section-header button{border:0;background:transparent;color:#2476c9;font-size:11px;font-weight:780;padding:6px}
+ .cs133-hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .cs133-hub-module{display:flex;flex-direction:column;align-items:flex-start;text-align:left;border:1px solid #dde5ee;background:#fff;border-radius:18px;padding:17px;gap:6px;min-height:135px;color:#001f3f;box-shadow:0 4px 10px #112c4706;transition:transform .18s,border-color .18s}
+ .cs133-hub-module:active{transform:scale(.97);border-color:#dfa058}
+ .cs133-hub-module .cs133-module-icon{width:40px;height:40px;border-radius:50%;margin:0 0 5px}
+ .cs133-hub-module strong{font-weight:840;font-size:14px;color:#001f3f}.cs133-hub-module small{color:#6b7e91;font-size:11px}
+ .cs133-hub-continue{border:1px solid #dce7f1;border-radius:18px;background:#fff;padding:16px;display:flex;align-items:center;gap:12px;min-height:79px;text-align:left}
+ .cs133-hub-continue-icon{flex:none;width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:#e9f1fb;color:#2476c9}
+ .cs133-hub-continue-copy{display:flex;flex-direction:column;gap:4px;flex:1}.cs133-hub-continue-copy strong{font-size:13px;color:#001f3f;font-weight:820}.cs133-hub-continue-copy small{font-size:11px;color:#6b7e91}
+ .cs133-hub-footnote{font-size:11px;color:#8293a5;text-align:center;padding:0 0 8px}
+ body.cs133-home .mobile-bottom{background:#001f3f!important;left:10px!important;right:10px!important;bottom:max(8px,env(safe-area-inset-bottom))!important;border-radius:23px!important;box-shadow:0 12px 38px #001f3f49!important}
+ body.cs133-home .mobile-bottom>button.taiou-sim-dock svg{border-color:#f3a14b!important;outline-color:#ffd4a1!important}
+}
+@media(max-width:360px){.cs133-hub-feature-icon{width:60px;height:60px}.cs133-hub-inner{padding:0 12px}.cs133-hub-top{padding-left:14px;padding-right:14px}.cs133-hub-module{padding:13px;min-height:125px}}
+@media(prefers-reduced-motion:reduce){.cs133-command,.cs133-hub{animation:none!important}.cs133-module,.cs133-cta,.cs133-rail-link,.cs133-hub-module{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -1465,7 +1598,7 @@ body.cs-operator .cs132-tab[aria-selected="true"]{border-top:2px solid #D97816!i
 <div id="app"></div><div id="modal-root"></div><div class="toast-root" id="toast-root" aria-live="polite"></div>
 <script>
 (()=>{'use strict';
-const VERSION='1.32.0', SCHEMA=2;
+const VERSION='1.33.0', SCHEMA=2;
 const $=(sel,root=document)=>root.querySelector(sel), $$=(sel,root=document)=>Array.from(root.querySelectorAll(sel));
 const paths={dashboard:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',templates:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',dictionary:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5V4a2 2 0 0 1 2-2h14v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M8 6h8M8 10h6"/>',keyboard:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"/>',star:'<path d="m12 3 2.78 5.83 6.42.92-4.65 4.53 1.1 6.39L12 17.65l-5.65 3.02 1.1-6.39L2.8 9.75l6.42-.92Z"/>',folder:'<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10H3Z"/>',settings:'<path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="m19 13 2-1-2-3-2 .2-1.6-1.3.4-2.1-3.5-1-1 1.9-2 .3-1.7-1.3-2.5 2.4 1.2 1.7-.3 2-2 1 .9 3.5 2.2-.1 1.3 1.6-.4 2.1 3.5 1 1-2 2-.2 1.7 1.3 2.5-2.5-1.2-1.7.3-2Z"/>',search:'<circle cx="10.9" cy="10.9" r="7.7"/><path d="m16.7 16.7 4.2 4.2"/>',plus:'<path d="M12 5v14M5 12h14"/>',copy:'<rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>',edit:'<path d="M12 20h9M4 16l-1 5 5-1L20 8a2.8 2.8 0 0 0-4-4Z"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15M10 10v7M14 10v7"/>',close:'<path d="M18 6 6 18M6 6l12 12"/>',arrow:'<path d="M4 12h16m-7-7 7 7-7 7"/>',chevron:'<path d="m9 18 6-6-6-6"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',upload:'<path d="M12 16V4m-5 5 5-5 5 5M4 17v4h16v-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>',message:'<path d="M21 11.5a8.3 8.3 0 0 1-8.5 8.5 10 10 0 0 1-4-.7L3 21l1.7-5.5a8.7 8.7 0 1 1 16.3-4Z"/>',sparkles:'<path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8ZM19 17l.7 1.7L21 19l-1.3.3L19 21l-.7-1.7L17 19l1.3-.3Z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',filter:'<path d="M4 5h16l-6 7v6l-4 2v-8Z"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/>',save:'<path d="M19 21H5a2 2 0 0 1-2-2V3h14l4 4v12a2 2 0 0 1-2 2ZM7 3v6h10V3M7 21v-8h10v8"/>',shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',type:'<path d="M4 7V4h16v3M12 4v16M8 20h8"/>',external:'<path d="M14 4h6v6M10 14 20 4M20 14v6H4V4h6"/>',refresh:'<path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/>',archive:'<rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/>',alert:'<path d="m12 3 10 18H2Z"/><path d="M12 9v5M12 17h.01"/>',file:'<path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9ZM13 2v7h7M8 13h8M8 17h8"/>',eye:'<path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',bolt:'<path d="m13 2-9 12h7l-1 8 10-12h-7Z"/>',logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',layers:'<path d="m12 2 10 6-10 6L2 8ZM2 12l10 6 10-6M2 16l10 6 10-6"/>'};
 const ico=(name,cl='')=>`<svg class="${cl}" viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.file}</svg>`;
@@ -7343,6 +7476,64 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cs132MenuNode){cs13
 },true);
 const cs132PriorRender=render;
 render=function(){cs132PersistScroll();cs132CloseToolMenu();cs132PriorRender();cs132RestoreScroll()};
+
+// v1.33.0 — separate desktop / mobile home experiences, shared data and navigation.
+const cs133OriginalNavHTML=navHTML;
+navHTML=function(){
+ if(view!=='dashboard')return cs133OriginalNavHTML();
+ const links=[['dashboard','ホーム','dashboard'],['roleplay','模擬対応','message'],['templates','例文集','templates'],['dictionary','単語帳','dictionary'],['quiz','クイズ','check'],['typing','タイピング','keyboard'],['favorites','お気に入り','star'],['library','データ','folder']];
+ const item=([key,label,icon])=>`<button type="button" class="cs133-rail-link ${key==='dashboard'?'active':''} ${key==='roleplay'?'cs133-rail-sim':''}" data-nav="${key}" aria-label="${label}" title="${label}">${ico(icon)}<span>${label}</span></button>`;
+ return `<aside class="sidebar cs133-rail" aria-label="メインメニュー"><div class="cs133-rail-brand" aria-label="Taiou">T</div><div class="cs133-rail-divider"></div>${links.map(item).join('')}<div class="cs133-rail-spacer"></div>${item(['settings','設定','settings'])}</aside>`;
+};
+function cs133FmtTime(seconds){const n=Math.max(0,Math.floor(Number(seconds)||0));return `${Math.floor(n/3600)}h ${String(Math.floor((n%3600)/60)).padStart(2,'0')}m`}
+function cs133ActionModule(key,jp,vi,icon,tone=''){
+ return `<button type="button" class="cs133-module" data-nav="${key}" aria-label="${jp} · ${vi}"><span class="cs133-module-icon ${tone}">${ico(icon)}</span><strong class="cs133-module-title">${jp}</strong><small class="cs133-module-note">${vi}</small></button>`;
+}
+function cs133HubModule(key,jp,vi,icon,tone=''){
+ return `<button type="button" class="cs133-hub-module" data-nav="${key}" aria-label="${jp} · ${vi}"><span class="cs133-module-icon ${tone}">${ico(icon)}</span><strong>${jp}</strong><small>${vi}</small></button>`;
+}
+dashboard=function(){
+ const roles=state.roleplayHistory||[], typed=state.typingHistory||[], quizzes=state.quizHistory||[];
+ const sessionTotal=roles.length,studyTotal=typed.length+quizzes.length;
+ const used=cs133FmtTime(state.meta.useSeconds),today=cs133FmtTime(state.meta.todaySeconds);
+ const templatesTotal=state.templates?.length||0, vocabTotal=state.vocabulary?.length||0;
+ const recent=[{key:'roleplay',title:'模擬対応',detail:`${sessionTotal} phiên đối ứng`,icon:'message'},
+  {key:'typing',title:'タイピング',detail:`${typed.length} lượt luyện gõ`,icon:'keyboard'},
+  {key:'quiz',title:'クイズ',detail:`${quizzes.length} lượt trắc nghiệm`,icon:'check'}];
+ const latestSet=state.practiceSets?.find(x=>x.id===typed[0]?.setId)||state.practiceSets?.[0];
+ return `<div class="cs133-command" aria-label="Taiou Command Center">
+ <div class="cs133-command-heading"><div><div class="cs133-kicker">YOUR WORKSPACE / COMMAND CENTER</div><strong>Trung tâm luyện CS tiếng Nhật</strong></div><span class="cs133-date-pill"><i></i> Orange × Midnight Navy</span></div>
+ <section class="cs133-hero" aria-label="実践対応"><div class="cs133-hero-copy">
+   <span class="cs133-hero-label"><span></span> CUSTOMER SERVICE SIMULATOR</span>
+   <h2>実践対応を<br>始めましょう。</h2><p>Luyện xử lý tình huống khách hàng bằng tiếng Nhật trong môi trường mô phỏng thực tế.</p>
+   <button type="button" class="cs133-cta" data-nav="roleplay">${ico('message')}<span>模擬対応を開始</span>${ico('arrow')}</button></div>
+ <div class="cs133-hero-preview" aria-hidden="true"><div class="cs133-preview-header"><span class="cs133-preview-avatar">${ico('user')}</span><span class="cs133-preview-name"><strong>カスタマーサポート</strong><small>ライブチャット · 対応練習</small></span><span class="cs133-preview-status">● ONLINE</span></div><div class="cs133-preview-thread"><span class="cs133-preview-bubble customer">注文した商品がまだ届いていません。</span><span class="cs133-preview-bubble agent">ご不便をおかけし、誠に申し訳ございません。</span></div><div class="cs133-preview-bottom">14:32 · 送信済み</div></div></section>
+ <div class="cs133-grid-main"><div class="cs133-primary-stack"><section><div class="cs133-section-head"><div><h2 class="cs133-section-title">学習メニュー</h2><p class="cs133-section-sub">Chọn nội dung bạn muốn luyện tập</p></div></div><div class="cs133-module-grid">
+ ${cs133ActionModule('templates','例文集','Mẫu câu CS thực tế','templates')}
+ ${cs133ActionModule('dictionary','単語帳','Từ điển nghiệp vụ','dictionary','blue')}
+ ${cs133ActionModule('quiz','クイズ','Trắc nghiệm tình huống','check','green')}
+ ${cs133ActionModule('typing','タイピング','Luyện gõ tiếng Nhật','keyboard','navy')}
+ </div></section><section class="cs133-bottom-card"><div><strong>必要な情報を、すぐに。</strong><p>Tìm nhanh mẫu câu và từ vựng đã lưu.</p></div><button type="button" data-nav="favorites">${ico('star')} お気に入り</button></section></div>
+ <aside class="cs133-secondary-stack"><section class="cs133-info-card"><div class="cs133-summary-top"><strong>学習進捗</strong><span class="cs133-summary-icon">${ico('clock')}</span></div><div class="cs133-summary-numbers"><div class="cs133-summary-num"><span>総利用時間</span><strong id="used-overall">${used}</strong></div><div class="cs133-summary-num"><span>本日</span><strong id="used-today">${today}</strong></div><div class="cs133-summary-num"><span>対応ケース</span><strong>${sessionTotal}</strong></div><div class="cs133-summary-num"><span>学習セッション</span><strong>${studyTotal}</strong></div></div><div class="cs133-summary-line"><span>例文 ${templatesTotal}</span><strong>単語 ${vocabTotal}</strong></div></section>
+ <section class="cs133-info-card"><div class="cs133-summary-top"><strong>最近の活動</strong><span class="cs133-summary-icon">${ico('bolt')}</span></div><div class="cs133-activity-list">${recent.map(x=>`<button type="button" data-nav="${x.key}" class="cs133-activity-item" style="border:0;text-align:left;cursor:pointer"><span class="cs133-activity-icon">${ico(x.icon)}</span><span class="cs133-activity-copy"><strong>${x.title}</strong><small>${x.detail}</small></span><span class="cs133-activity-arrow">${ico('chevron')}</span></button>`).join('')}</div></section></aside></div></div>
+ <div class="cs133-hub" aria-label="Taiou Practice Hub">
+ <header class="cs133-hub-top"><div class="cs133-hub-identity"><span class="cs133-hub-brand"><span class="cs133-hub-mark">T</span><span class="cs133-hub-brand-words"><strong>TAIOU <em>CS</em></strong><small>PRACTICE HUB</small></span></span><button type="button" class="cs133-hub-settings" data-nav="settings" aria-label="設定" title="設定">${ico('settings')}</button></div>
+ <div class="cs133-hub-hello"><strong>おかえりなさい！</strong><p>Hôm nay cùng luyện 対応 nhé.</p></div>
+ <div class="cs133-hub-stats"><div class="cs133-hub-stat"><small>学習時間 · Hôm nay</small><strong id="used-today">${today}</strong></div><div class="cs133-hub-stat"><small>対応ケース</small><strong>${sessionTotal}</strong></div></div></header>
+ <div class="cs133-hub-inner"><section class="cs133-hub-feature"><div class="cs133-hub-feature-top"><div class="cs133-hub-feature-copy"><span>MAIN FEATURE</span><h2>模擬対応</h2><p>Trình giả lập CS thực tế</p></div><span class="cs133-hub-feature-icon">${ico('message')}</span></div><button type="button" class="cs133-cta" data-nav="roleplay">${ico('arrow')}<span>対応を開始する</span></button></section>
+ <section><div class="cs133-hub-section-header"><h2>学習メニュー</h2><button type="button" data-nav="templates">すべて見る ${ico('chevron')}</button></div><div class="cs133-hub-grid">
+ ${cs133HubModule('templates','例文集','Mẫu câu','templates')}
+ ${cs133HubModule('dictionary','単語帳','Từ điển','dictionary','blue')}
+ ${cs133HubModule('quiz','クイズ','Trắc nghiệm','check','green')}
+ ${cs133HubModule('typing','タイピング','Luyện gõ','keyboard','navy')}
+ </div></section>
+ <section><div class="cs133-hub-section-header"><h2>続きから</h2></div><button type="button" data-nav="typing" class="cs133-hub-continue"><span class="cs133-hub-continue-icon">${ico('keyboard')}</span><span class="cs133-hub-continue-copy"><strong>タイピング練習</strong><small>${esc(latestSet?.title?truncate(latestSet.title,34):'Luyện gõ câu trả lời CS')}</small></span>${ico('arrow')}</button></section>
+ <p class="cs133-hub-footnote">TAIOU CS WORKSPACE · ORANGE EDITION</p></div></div>`;
+};
+const cs133PreviousActivityPaint=activityPaint;
+activityPaint=function(){cs133PreviousActivityPaint();if(view==='dashboard'){const el=document.getElementById('used-today-mobile');if(el)el.textContent=cs133FmtTime(state.meta.todaySeconds)}};
+const cs133PreviousRender=render;
+render=function(){cs133PreviousRender();document.body.classList.toggle('cs133-home',view==='dashboard')};
 
 init().catch(e=>{console.error(e);render();toast('Không thể tải tự lưu; hãy xuất file để sao lưu.','error')});
 })();
